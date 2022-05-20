@@ -8,14 +8,15 @@ require_once('biblioteca/traermsql.php');
  $descripcion = $_POST['descripcion'];
  $alimento= $_POST['alimentacion'];
  $habitat= $_POST['habitat'];
+ $especie=$_POST['especie'];
  $extinto= $_POST['extinto'];
 
- /*$sql = "INSERT INTO animales (nombre, descripcion, alimentacion, extinto) 
-         VALUES (?, ?, ?, 0)";
-
- $conexion = conexion();
-
- $sentencia = $conexion->prepare($sql);
- $sentencia->execute([$nombre, $descripcion, $alimento,$habitat,$extinto]);
- */
+ $sql = "INSERT INTO animales (nombre, descripcion, alimentacion, habitat, extinto,id_especie) 
+         VALUES ('$nombre', '$descripcion', '$alimento','$habitat', '$extinto','$especie')";
+$conexion=conexion();
+$conexion->exec($sql);
+ /*$Tabla=$conexion->prepare($sql);
+ //var_dump($Tabla);
+ $Tabla->exec();*/
+ 
 ?>

@@ -12,13 +12,15 @@ function conexion()
 
 function TraerDatosMSQL()
 {
-  $tabla = 'animales';
+  $conexion = conexion();//creo la conexion con msql como una puerta
+
+  //$tabla = 'animales';
   $sql_todo = 'SELECT * FROM animales';
   $sql_parte='SELECT Nombre, descripcion, alimentacion, habitat FROM animales';
-  $conexion = conexion();//creo la conexion con msql como una puerta
-  $resultado = $conexion->query($sql_parte);
+  $resultado = $conexion->prepare($sql_parte);
+  $resultado->execute();
   $tarea = $resultado->fetchAll(PDO::FETCH_NAMED);//traigo informacion dura del msql la parte string mas que nada
 
-  return $tarea;//arreglo con los datos en fila, cada fila seria un arreglo
+  return $tarea;//la matrix con todos los datos del msql, cada fila seria un arreglo en si
 }
 ?>
