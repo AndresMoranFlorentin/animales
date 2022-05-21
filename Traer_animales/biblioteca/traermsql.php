@@ -17,7 +17,7 @@ function TraerDatosMSQL()
   //$tabla = 'animales';
   $sql_todo = 'SELECT * FROM animales';
   $sql_parte='SELECT Nombre, descripcion, alimentacion, habitat FROM animales';
-  $resultado = $conexion->prepare($sql_parte);
+  $resultado = $conexion->prepare($sql_todo);
   $resultado->execute();
   $tarea = $resultado->fetchAll(PDO::FETCH_NAMED);//traigo informacion dura del msql la parte string mas que nada
 

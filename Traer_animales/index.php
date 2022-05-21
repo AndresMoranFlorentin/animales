@@ -1,5 +1,6 @@
 <html>
 <h1>Listado de Tareas</h1>
+<div class="col-lg-4" style="background-color:#bbb">
 <form action="agregar_info.php" method="post">
     <label>Nombre: <input type="text" name="nombre"></label></p>
     <label>Descripcion: <input type="text" name="descripcion"></label>
@@ -26,7 +27,7 @@
     </label>
     <input type="submit">
 </form>
-
+</div>
 </html>
 <label></label>
 <label></label>
@@ -35,14 +36,20 @@
 require_once "biblioteca/traermsql.php";
 $todo_lo_que_hay = TraerDatosMSQL();
 echo ("<table border=1>");
+echo("<th><h2> </h2></th>");
+echo("<th><h2>Nombre</h2></th>");
+echo("<th><h2>Descripcion</h2></th>");
+echo("<th><h2>Alimentacion</h2></th>");
+echo("<th><h2>Habitat</h2></th>");
 foreach ($todo_lo_que_hay as $recorrer) {
     echo ("<tr>");
     foreach ($recorrer as $item) {
         echo "<td>";
         echo ($item);
         echo "</td>";
+        $id=$recorrer['id_animales'];
     }
-    echo ("<td>");
+    echo ('<td><a href="borrar_fila.php?id='.$id.'">Borrar</a></td>');
     echo ("</td>");
 }
 echo ("</tr>");

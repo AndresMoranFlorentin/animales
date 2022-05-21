@@ -14,7 +14,9 @@ require_once('biblioteca/traermsql.php');
  $sql = "INSERT INTO animales (nombre, descripcion, alimentacion, habitat, extinto,id_especie) 
          VALUES ('$nombre', '$descripcion', '$alimento','$habitat', '$extinto','$especie')";
 $conexion=conexion();
-$conexion->exec($sql);
+$preparado=$conexion->prepare($sql);
+$preparado->execute();
+
  /*$Tabla=$conexion->prepare($sql);
  //var_dump($Tabla);
  $Tabla->exec();*/
