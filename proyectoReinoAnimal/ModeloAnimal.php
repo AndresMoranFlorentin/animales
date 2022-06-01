@@ -2,7 +2,7 @@
 
 class Modelo_animal
 {
-  function Conexion()
+  function conexionSQL()
   {
     $user = "root";
     $pass = "";
@@ -14,7 +14,7 @@ class Modelo_animal
   }
   function traerContraseña($mail)
   {
-    $conexion = $this->Conexion();
+    $conexion = $this->conexionSQL();
     $sql = 'SELECT * FROM acceso WHERE email = ?';
     $query = $conexion->prepare($sql);
     $query->execute([$mail]);
@@ -24,7 +24,7 @@ class Modelo_animal
   }
   function traerAnimales()
   {
-    $conexion = $this->Conexion();/*llamo a la clase modelo animal para asi pedirle
+    $conexion = $this->conexionSQL();/*llamo a la clase modelo animal para asi pedirle
    algo que ella tenga, en este caso la conexion()*/ //creo la conexion con msql como una puerta
     $sql = 'SELECT e.especies, a.id_animales, a.nombre,a.descripcion,a.alimentacion, a.habitat,a.extinto ' .
            'FROM animales AS a , especies AS e ' .
@@ -38,7 +38,7 @@ class Modelo_animal
   }
   function traerUnaFila($id)
   {
-    $conexion = $this->Conexion();
+    $conexion = $this->conexionSQL();
     $sql = 'SELECT * FROM animales AS a , especies AS e ' .
     'WHERE a.id_animales=? AND a.id_especie=e.id_especie';
     $resultado = $conexion->prepare($sql);
@@ -51,7 +51,7 @@ class Modelo_animal
   {
     //echo "LLegaste hasta la funcion borrar fila en el modelo y el id es =".$id." ";
     $sql = "DELETE FROM animales WHERE id_animales=?";
-    $conexion = $this->Conexion();
+    $conexion = $this->conexionSQL();
     $preparado = $conexion->prepare($sql);
     $preparado->execute([$id]);
   }
@@ -60,7 +60,7 @@ class Modelo_animal
     $sql = "UPDATE animales 
     SET nombre=?,descripcion=?,alimentacion=?,
     habitat=?,extinto=?,id_especie=? WHERE id_animales=?";
-    $conexion = $this->Conexion();
+    $conexion = $this->conexionSQL();
     $preparado = $conexion->prepare($sql);
     $preparado->execute([$nombre, $descripcion, $alimento, $habitat,$extinto, $especie, $id]);
   }
@@ -70,7 +70,7 @@ class Modelo_animal
 
     $sql = "INSERT INTO animales (nombre, descripcion, alimentacion, habitat, extinto,id_especie) 
                     VALUES (?, ?, ?, ?, ?, ?)"; //nombres de las columnas de la tabla
-    $conexion = $this->Conexion();
+    $conexion = $this->conexionSQL();
     $preparado = $conexion->prepare($sql);
     $preparado->execute($nombre,$descripcion,$alimento,$habitat,$extinto,$especie);
   }
