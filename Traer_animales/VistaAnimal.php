@@ -9,30 +9,44 @@ class Vista_Animal
 
         $smarty = new Smarty();
         $smarty->assign('BASE_URL', BASE_URL);
-        $smarty->display('Plantillas/intro.tpl');
+        $smarty->display('template/intro.tpl');
     }
     function Mostrar_edicion($fila)
     {
         $smarty = new Smarty();
 
         $smarty->assign('fila', $fila);
-        $smarty->display('Plantillas/PaginaEdicion.tpl');
+        $smarty->display('template/PaginaEdicion.tpl');
+    }
+    function Mostrar_login(){
+        $smarty = new Smarty();
+        $smarty->display('template/login.tpl');
     }
     function Mostrar_error()
     {
 
         $smarty = new Smarty();
-        $smarty->assign('BASE_URL', BASE_URL);
-        $smarty->display('Plantillas/error.tpl');
+       // $smarty->assign('BASE_URL', BASE_URL);
+        $smarty->display('template/error.tpl');
     }
-
-    function Mostrar_Tabla($todo_lo_que_hay)
+    function mostrarTablaAdmin($matrixAnimales)
     {
         $smarty = new Smarty();
         $smarty->assign('BASE_URL', BASE_URL);
-        $smarty->assign('animales', $todo_lo_que_hay);
-        $smarty->display('Plantillas/intro.tpl');
-        $smarty->display('Plantillas/formulario.tpl');
-        $smarty->display('Plantillas/tabla.tpl');
+        $smarty->assign('animales', $matrixAnimales);
+        $smarty->display('template/intro.tpl');
+        $smarty->display('template/formulario.tpl');
+        $smarty->display('template/tablaAdmin.tpl');
+        $smarty->display('template/footer.tpl');
+
+    }
+    function mostrarTablaNoAdmin($matrixAnimales)
+    { 
+        $smarty = new Smarty();
+        $smarty->assign('BASE_URL', BASE_URL);
+        $smarty->assign('animales', $matrixAnimales);
+        $smarty->display('template/intro.tpl');
+        $smarty->display('template/tablaNoAdmin.tpl');
+        $smarty->display('template/footer.tpl');
     }
 }

@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-05-27 00:54:17
-  from 'C:\xampp\htdocs\web2\Traer_animales\Plantillas\formulario.tpl' */
+/* Smarty version 4.1.0, created on 2022-06-01 00:40:05
+  from 'C:\xampp\htdocs\web2\Traer_animales\template\formulario.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_62900519ed6bb0_71430691',
+  'unifunc' => 'content_62969945038d74_29992142',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'daa78144038e8c7ea606f8bee4ee0a9553a73e09' => 
+    '65907195970d8b668a8ee890dd02c064645e64e3' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\web2\\Traer_animales\\Plantillas\\formulario.tpl',
+      0 => 'C:\\xampp\\htdocs\\web2\\Traer_animales\\template\\formulario.tpl',
       1 => 1653603675,
       2 => 'file',
     ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62900519ed6bb0_71430691 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62969945038d74_29992142 (Smarty_Internal_Template $_smarty_tpl) {
 ?> <h2>Listado de animales</h2>
         
             <form action="route.php?action=agregar" method="post" class="my-form">

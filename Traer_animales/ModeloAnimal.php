@@ -12,12 +12,24 @@ class Modelo_animal
 
     return $conexion;
   }
+  function traerContraseña($mail)
+  {
+    $conexion = $this->Conexion();
+    $sql = 'SELECT * FROM acceso WHERE email = ?';
+    $query = $conexion->prepare($sql);
+    $query->execute([$mail]);
+    $usuario = $query->fetch(PDO::FETCH_ASSOC);
 
-  function TraerDatosMSQL()
+    return $usuario;
+  }
+  function traerAnimales()
   {
     $conexion = $this->Conexion();/*llamo a la clase modelo animal para asi pedirle
    algo que ella tenga, en este caso la conexion()*/ //creo la conexion con msql como una puerta
-    $sql = 'SELECT * FROM animales ORDER BY id_especie ASC';
+    $sql = 'SELECT e.especies, a.id_animales, a.nombre,a.descripcion,a.alimentacion, a.habitat,a.extinto ' .
+           'FROM animales AS a , especies AS e ' .
+           'WHERE e.id_especie = a.id_especie; ' .
+           'ORDER BY id_especie ASC';
     $resultado = $conexion->prepare($sql);
     $resultado->execute();
     $tarea = $resultado->fetchAll(PDO::FETCH_NAMED); //traigo informacion dura del msql la parte string mas que nada
@@ -27,7 +39,8 @@ class Modelo_animal
   function traerUnaFila($id)
   {
     $conexion = $this->Conexion();
-    $sql = "SELECT * FROM animales WHERE id_animales={$id}";
+    $sql = "SELECT * FROM animales AS a , especies AS e '. 
+    'WHERE (a.id_animales={$id}) AND (a.id_especie=e.id_especie)";
     $resultado = $conexion->prepare($sql);
     $resultado->execute();
     $tarea = $resultado->fetchAll(PDO::FETCH_NAMED);
@@ -45,12 +58,13 @@ class Modelo_animal
   function Actualizar_fila($nombre, $descripcion, $alimento, $habitat, $especie, $extinto, $id)
   {
     $sql = "UPDATE animales 
-    SET Nombre=?,descripcion=?,alimentacion=?,
+    SET nombre=?,descripcion=?,alimentacion=?,
     habitat=?,extinto=?,id_especie=? WHERE id_animales=?";
     $conexion = $this->Conexion();
     $preparado = $conexion->prepare($sql);
-    $preparado->execute([$nombre,$descripcion,$alimento,$habitat,$extinto,$especie,$id]);
+    $preparado->execute([$nombre, $descripcion, $alimento, $habitat, $extinto, $especie, $id]);
   }
+
   function Agregar_info($nombre, $descripcion, $alimento, $habitat, $especie, $extinto)
   {
 

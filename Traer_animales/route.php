@@ -2,6 +2,7 @@
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 require_once 'ControladorAnimal.php';
 $controlador = new Controlador_Animal();
+$vista = new Vista_Animal();
 
 if (!empty($_GET['action'])) {
     $action = $_GET['action'];
@@ -15,7 +16,13 @@ $params = explode('/', $action);
 // determina que camino seguir según la acción
 switch ($params[0]) {
     case 'home':
-        $controlador->Traer_tabla();
+        $controlador->MostrarAnimalesAccesoPublico();
+        break;
+    case 'acceder':
+        $controlador->Traer_form_login();
+        break;
+    case 'loguearse':
+        $controlador->Login();
         break;
     case 'borrar':
         $controlador->Borrar($params[1]);
@@ -27,7 +34,7 @@ switch ($params[0]) {
         $controlador->Editar_Fila();
         break;
     case 'agregar':
-        $controlador->Agregar_datos($_POST);
+        $controlador->agregar_datos_a_tabla_animal();
         break;
     default:
         echo ('404 Page not found');
