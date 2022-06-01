@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-06-01 17:05:04
+/* Smarty version 4.1.0, created on 2022-06-01 19:56:44
   from 'C:\xampp\htdocs\web2\Traer_animales\template\PaginaEdicion.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_62978020048b22_88278367',
+  'unifunc' => 'content_6297a85c860e15_34769456',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b293f1cdcba689f3dca7465e65282bc9208b9559' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\Traer_animales\\template\\PaginaEdicion.tpl',
-      1 => 1654095899,
+      1 => 1654106195,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62978020048b22_88278367 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6297a85c860e15_34769456 (Smarty_Internal_Template $_smarty_tpl) {
 ?><h1>Esta es la fila que se vera afectada por tu edicion:</h1>
 <label></label>
 <table border=1>
@@ -103,7 +103,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </label>
         <label>Extinto o no:
             <select name="extinto">
-                <option>------</option>
                 <option value="0">Extinto</option>
                 <option value="1">No Extinto</option>
             </select>

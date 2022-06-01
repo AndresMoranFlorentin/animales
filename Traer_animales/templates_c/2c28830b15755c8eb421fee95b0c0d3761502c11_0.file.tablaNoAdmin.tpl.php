@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-06-01 00:53:13
+/* Smarty version 4.1.0, created on 2022-06-01 19:46:38
   from 'C:\xampp\htdocs\web2\Traer_animales\template\tablaNoAdmin.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_62969c59409d59_28829850',
+  'unifunc' => 'content_6297a5fec72734_17302190',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2c28830b15755c8eb421fee95b0c0d3761502c11' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\Traer_animales\\template\\tablaNoAdmin.tpl',
-      1 => 1654037584,
+      1 => 1654105578,
       2 => 'file',
     ),
   ),
@@ -20,9 +20,10 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62969c59409d59_28829850 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6297a5fec72734_17302190 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div>
-    <table border=1>
+
+    <table border='1'>
         <th>
             <h2>Especie</h2>
         </th>

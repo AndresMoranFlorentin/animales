@@ -41,14 +41,14 @@
 <h1>Escriba los datos que piensa editar a traves de este formulario:</h1>
 <label></label>
 <form action="route.php?action=actualizar" method="post" class="my-form">
-    <div class="container" style="background-color:rgb(132, 230, 200)">
+    <div class="form-group" style="background-color:rgb(132, 230, 200)">
         <label>Especie: <input type="text" name="nombre" value="{$animal.especies}" required></label>
         <label>Nombre: <input type="text" name="nombre" value="{$animal.nombre}" required></label>
         <label>Descripcion: <input type="text" name="descripcion" value="{$animal.descripcion}" required></label>
         <label>Alimentacion: <input type="text" name="alimentacion" value="{$animal.alimentacion}" required></label>
         <label>Habitat: <input type="text" name="habitat" value="{$animal.habitat}" required></label>
         <label>Especie:
-            <select name="especie">
+            <select name="especie" class="form-control">
                 <option>------</option>
                 <option value="1">Mamifero</option>
                 <option value="4">Reptil</option>
@@ -63,7 +63,6 @@
         </label>
         <label>Extinto o no:
             <select name="extinto">
-                <option>------</option>
                 <option value="0">Extinto</option>
                 <option value="1">No Extinto</option>
             </select>

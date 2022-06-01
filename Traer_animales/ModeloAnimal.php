@@ -39,15 +39,15 @@ class Modelo_animal
   function traerUnaFila($id)
   {
     $conexion = $this->Conexion();
-    $sql = "SELECT * FROM animales AS a , especies AS e '. 
-    'WHERE (a.id_animales={$id}) AND (a.id_especie=e.id_especie)";
+    $sql = 'SELECT * FROM animales AS a , especies AS e ' .
+    'WHERE a.id_animales=? AND a.id_especie=e.id_especie';
     $resultado = $conexion->prepare($sql);
-    $resultado->execute();
+    $resultado->execute([$id]);
     $tarea = $resultado->fetchAll(PDO::FETCH_NAMED);
 
     return $tarea;
   }
-  function Borrar_fila($id)
+  function borrarFilaAnimal($id)
   {
     //echo "LLegaste hasta la funcion borrar fila en el modelo y el id es =".$id." ";
     $sql = "DELETE FROM animales WHERE id_animales=?";
@@ -55,23 +55,23 @@ class Modelo_animal
     $preparado = $conexion->prepare($sql);
     $preparado->execute([$id]);
   }
-  function Actualizar_fila($nombre, $descripcion, $alimento, $habitat, $especie, $extinto, $id)
+  function actualizarFila($nombre, $descripcion, $alimento, $habitat, $especie, $extinto, $id)
   {
     $sql = "UPDATE animales 
     SET nombre=?,descripcion=?,alimentacion=?,
     habitat=?,extinto=?,id_especie=? WHERE id_animales=?";
     $conexion = $this->Conexion();
     $preparado = $conexion->prepare($sql);
-    $preparado->execute([$nombre, $descripcion, $alimento, $habitat, $extinto, $especie, $id]);
+    $preparado->execute([$nombre, $descripcion, $alimento, $habitat,$extinto, $especie, $id]);
   }
 
-  function Agregar_info($nombre, $descripcion, $alimento, $habitat, $especie, $extinto)
+  function agregarInfoAnimal($nombre, $descripcion, $alimento, $habitat, $especie, $extinto)
   {
 
     $sql = "INSERT INTO animales (nombre, descripcion, alimentacion, habitat, extinto,id_especie) 
-                    VALUES ('$nombre', '$descripcion', '$alimento','$habitat', '$extinto','$especie')"; //nombres de las columnas de la tabla
+                    VALUES (?, ?, ?, ?, ?, ?)"; //nombres de las columnas de la tabla
     $conexion = $this->Conexion();
     $preparado = $conexion->prepare($sql);
-    $preparado->execute();
+    $preparado->execute($nombre,$descripcion,$alimento,$habitat,$extinto,$especie);
   }
 }

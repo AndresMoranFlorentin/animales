@@ -16,25 +16,25 @@ $params = explode('/', $action);
 // determina que camino seguir según la acción
 switch ($params[0]) {
     case 'home':
-        $controlador->MostrarAnimalesAccesoPublico();
+        $controlador->mostrarAnimalesAccesoPublico();
         break;
     case 'acceder':
-        $controlador->Traer_form_login();
+        $controlador->traerFormLogin();
         break;
     case 'loguearse':
         $controlador->Login();
         break;
     case 'borrar':
-        $controlador->Borrar($params[1]);
+        $controlador->borrar($params[1]);
         break;
     case 'editar':
-        $controlador->Preparar($params[1]);
+        $controlador->preparar($params[1]);
         break;
     case 'actualizar':
-        $controlador->Editar_Fila();
+        $controlador->editarFila();
         break;
     case 'agregar':
-        $controlador->agregar_datos_a_tabla_animal();
+        $controlador->agregarDatosTablaAnimal();
         break;
     default:
         echo ('404 Page not found');

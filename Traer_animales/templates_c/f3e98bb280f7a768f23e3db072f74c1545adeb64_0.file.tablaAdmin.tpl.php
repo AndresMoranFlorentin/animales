@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-06-01 16:33:48
+/* Smarty version 4.1.0, created on 2022-06-01 19:56:53
   from 'C:\xampp\htdocs\web2\Traer_animales\template\tablaAdmin.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_629778ccd7d881_78945001',
+  'unifunc' => 'content_6297a865824856_38250251',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f3e98bb280f7a768f23e3db072f74c1545adeb64' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\Traer_animales\\template\\tablaAdmin.tpl',
-      1 => 1654093896,
+      1 => 1654105996,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_629778ccd7d881_78945001 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6297a865824856_38250251 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div>
     <table border=1>
         <th>
@@ -60,7 +60,7 @@ $_smarty_tpl->tpl_vars['animal']->do_else = false;
                 <td><?php echo $_smarty_tpl->tpl_vars['animal']->value['habitat'];?>
 </td>
                 <?php if ($_smarty_tpl->tpl_vars['animal']->value['extinto'] == 0) {?>
-                    <td>no extinto</td>
+                    <td>No extinto</td>
 
                 <?php } else { ?>
                     <td>Extinto</td>
