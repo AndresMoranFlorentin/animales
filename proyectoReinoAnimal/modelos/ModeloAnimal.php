@@ -20,13 +20,13 @@ class Modelo_animal extends Modelo
   function traerUnaFila($id)
   {
     $conexion = $this->conexionSQL();
-    $sql = 'SELECT * FROM animales AS a , especies AS e ' .
+    $sql = 'SELECT a.*,e.especies FROM animales AS a , especies AS e ' .
     'WHERE a.id_animales=? AND a.id_especie=e.id_especie';
     $resultado = $conexion->prepare($sql);
     $resultado->execute([$id]);
-    $tarea = $resultado->fetchAll(PDO::FETCH_NAMED);
+    $animal = $resultado->fetchAll(PDO::FETCH_NAMED);
 
-    return $tarea;
+    return $animal[0];
   }
   function borrarFilaAnimal($id)
   {

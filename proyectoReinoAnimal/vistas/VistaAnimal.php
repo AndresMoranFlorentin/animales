@@ -11,11 +11,11 @@ class Vista_Animal
         $smarty->assign('BASE_URL', BASE_URL);
         $smarty->display('template/intro.tpl');
     }
-    function mostrarEdicionAnimal($fila)
+    function mostrarEdicionAnimal($fila,$especie)
     {
         $smarty = new Smarty();
-
-        $smarty->assign('fila', $fila);
+        $smarty->assign('especie',$especie);
+        $smarty->assign('animal', $fila);
         $smarty->display('template/PaginaEdicion.tpl');
     }
     

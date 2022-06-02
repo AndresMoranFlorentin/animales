@@ -1,6 +1,7 @@
 <?php
 require_once "vistas/VistaAnimal.php";
 require_once "modelos/ModeloAnimal.php";
+require_once "modelos/ModeloEspecie.php";
 //echo "LLegaste hasta el controlador y el id es =".$id." ";
 
 class Controlador_Animal
@@ -28,12 +29,12 @@ class Controlador_Animal
         $this->vista->mostrarTablaAdmin($matrix);
     }
     function preparar($id)
-    {
+    {   $modeloespecie= New ModeloEspecie();
         $fila = $this->modelo->traerUnaFila($id);
-        $this->vista->mostrarEdicionAnimal($fila);
-        //primero tiene que llamar a un formulario de tpl, y que cargue todos los datos necesarios para editar
-        //luego los enviara al ruteo nuevamente y esta ves insertara la informacion en el id que se viene arrastrando
-    }
+        
+        $especie=$modeloespecie->traerEspecies();
+        $this->vista->mostrarEdicionAnimal($fila,$especie);
+     }
     function editarFila()
     {
         if (

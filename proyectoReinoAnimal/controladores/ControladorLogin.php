@@ -28,7 +28,6 @@ class ControladorLogin
             $email = $_POST['email'];
             $contraseña = $_POST['contraseña'];
             $tabla_usuario = $this->modelologin->traerContraseña($email);
-
             if ($tabla_usuario && password_verify($contraseña, ($tabla_usuario['contrasenia']))) {
                 session_start();
                 $_SESSION["logueado"] = true;
