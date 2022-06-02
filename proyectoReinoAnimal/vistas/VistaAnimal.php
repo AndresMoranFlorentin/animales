@@ -18,10 +18,7 @@ class Vista_Animal
         $smarty->assign('fila', $fila);
         $smarty->display('template/PaginaEdicion.tpl');
     }
-    function mostrarLogin(){
-        $smarty = new Smarty();
-        $smarty->display('template/login.tpl');
-    }
+    
     function mostrarError()
     {
 

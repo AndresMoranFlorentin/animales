@@ -1,27 +1,8 @@
 <?php
+require_once "Modelo.php" ;
 
-class Modelo_animal
+class Modelo_animal extends Modelo
 {
-  function conexionSQL()
-  {
-    $user = "root";
-    $pass = "";
-    $db = "reino_animal";
-    $host = "localhost";
-    $conexion = new PDO("mysql:host=$host;dbname=$db", $user, $pass); //conecta php con la base de datos
-
-    return $conexion;
-  }
-  function traerContraseña($mail)
-  {
-    $conexion = $this->conexionSQL();
-    $sql = 'SELECT * FROM acceso WHERE email = ?';
-    $query = $conexion->prepare($sql);
-    $query->execute([$mail]);
-    $usuario = $query->fetch(PDO::FETCH_ASSOC);
-
-    return $usuario;
-  }
   function traerAnimales()
   {
     $conexion = $this->conexionSQL();/*llamo a la clase modelo animal para asi pedirle

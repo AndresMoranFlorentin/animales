@@ -1,4 +1,4 @@
- <h2>Listado de animales</h2>
+ <h2>Agregar a animales</h2>
         
             <form action="route.php?action=agregar" method="post" class="my-form">
              <div class="container" style="background-color:#bbb">

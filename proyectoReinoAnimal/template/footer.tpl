@@ -1,4 +1,4 @@
-<div style="background-color:rgb(13, 71, 119)">
+<!--<div style="background-color:rgb(13, 71, 119)">
 <h2>Seccion para Administradores </h2>
   <p>Clickea aqui :</p>
    <button><a action="loguearse" href="route.php?action=loguearse">Ir a Sitio Administrador</a></button>
@@ -9,4 +9,4 @@
   <p>Clickea aqui :</p>
    <button><a action="home" href="route.php?action=home">Ir a Sitio Publico</a></button>
   <label></label>
-</div>
+</div>-->

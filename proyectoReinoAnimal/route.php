@@ -1,8 +1,10 @@
 <?php
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 require_once 'controladores/ControladorAnimal.php';
+require_once 'controladores/ControladorLogin.php';
 $controlador = new Controlador_Animal();
 $vista = new Vista_Animal();
+$controladorLogin=New ControladorLogin();
 
 if (!empty($_GET['action'])) {
     $action = $_GET['action'];
@@ -19,10 +21,10 @@ switch ($params[0]) {
         $controlador->mostrarAnimalesAccesoPublico();
         break;
     case 'acceder':
-        $controlador->traerFormLogin();
+        $controladorLogin->traerFormLogin();
         break;
     case 'loguearse':
-        $controlador->Login();
+        $controladorLogin->Login();
         break;
     case 'borrar':
         $controlador->borrar($params[1]);

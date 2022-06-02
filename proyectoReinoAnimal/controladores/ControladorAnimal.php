@@ -14,34 +14,6 @@ class Controlador_Animal
         $this->modelo = new Modelo_animal();
         $this->vista = new Vista_Animal();
     }
-    function traerFormLogin()
-    {
-
-        $this->vista->mostrarLogin();
-    }
-    function Login()
-    {
-
-        if (!empty($_POST['nombre']) && !empty($_POST['email']) && !empty($_POST['contraseña'])) {
-
-            //$Contraseña= password_hash($_POST['contraseña'], PASSWORD_BCRYPT);
-            $email = $_POST['email'];
-            $Contraseña = $_POST['contraseña'];
-            $tabla_usuario = $this->modelo->traerContraseña($email);
-
-            if ($tabla_usuario && password_verify($Contraseña, ($tabla_usuario['contrasenia']))) {
-                //Guardo datos en el arreglo de sesion
-                $_SESSION["logueado"] = true;
-                $_SESSION["username"] = $email;
-                $matrix = $this->modelo->traerAnimales();
-                $this->vista->mostrarTablaAdmin($matrix);
-            } else {
-                echo "<h2>Acceso denegado</h2>";
-            }
-        } else {
-            $this->vista->mostrarLogin();
-        }
-    }
     function mostrarAnimalesAccesoPublico()
     {
         $matrix = $this->modelo->traerAnimales();

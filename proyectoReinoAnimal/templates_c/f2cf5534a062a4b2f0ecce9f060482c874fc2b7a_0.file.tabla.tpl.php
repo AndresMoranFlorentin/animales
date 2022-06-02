@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-06-02 00:37:33
+/* Smarty version 4.1.0, created on 2022-06-02 20:26:39
   from 'C:\xampp\htdocs\web2\proyectoReinoAnimal\template\tabla.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_6297ea2df28448_33523360',
+  'unifunc' => 'content_629900df9e0821_50376583',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f2cf5534a062a4b2f0ecce9f060482c874fc2b7a' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\proyectoReinoAnimal\\template\\tabla.tpl',
-      1 => 1654115124,
+      1 => 1654194393,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6297ea2df28448_33523360 (Smarty_Internal_Template $_smarty_tpl) {
+function content_629900df9e0821_50376583 (Smarty_Internal_Template $_smarty_tpl) {
 ?><head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -38,12 +38,6 @@ function content_6297ea2df28448_33523360 (Smarty_Internal_Template $_smarty_tpl)
  src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     <?php echo '</script'; ?>
->
-
-    <link rel="stylesheet" href="../css/bootstrap.min.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/bootstrap-theme.min.css" crossorigin="anonymous">
-    <?php echo '<script'; ?>
- src="js/bootstrap.min.js" crossorigin="anonymous"><?php echo '</script'; ?>
 >
 </head>
 <div>

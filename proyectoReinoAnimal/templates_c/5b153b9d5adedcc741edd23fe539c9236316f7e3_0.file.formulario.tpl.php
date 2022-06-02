@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-06-02 00:39:28
+/* Smarty version 4.1.0, created on 2022-06-02 20:25:31
   from 'C:\xampp\htdocs\web2\proyectoReinoAnimal\template\formulario.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_6297eaa026edd3_46333424',
+  'unifunc' => 'content_6299009b909731_52558186',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5b153b9d5adedcc741edd23fe539c9236316f7e3' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\proyectoReinoAnimal\\template\\formulario.tpl',
-      1 => 1654103423,
+      1 => 1654194326,
       2 => 'file',
     ),
   ),
@@ -20,8 +20,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6297eaa026edd3_46333424 (Smarty_Internal_Template $_smarty_tpl) {
-?> <h2>Listado de animales</h2>
+function content_6299009b909731_52558186 (Smarty_Internal_Template $_smarty_tpl) {
+?> <h2>Agregar a animales</h2>
         
             <form action="route.php?action=agregar" method="post" class="my-form">
              <div class="container" style="background-color:#bbb">
