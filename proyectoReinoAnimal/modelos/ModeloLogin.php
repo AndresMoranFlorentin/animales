@@ -3,6 +3,7 @@ require_once "Modelo.php" ;
 
 
 class ModeloLogin extends Modelo {
+  
 function traerContraseña($mail)
   {
     $conexion = $this->conexionSQL();

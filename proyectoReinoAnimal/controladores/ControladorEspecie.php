@@ -1,20 +1,23 @@
 <?php
-require_once "vistas/VistaAnimal.php";
-require_once "modelos/ModeloAnimal.php";
+require_once "vistas/VistaEspecie.php";
+require_once "modelos/ModeloEspecie.php";
 //echo "LLegaste hasta el controlador y el id es =".$id." ";
 
-class Controlador_Animal
+class ControladorEspecie
 {
 
-    private $modelo;
-    private $vista;
 
     public function __construct()
     {
-        $this->modelo = new Modelo_animal();
-        $this->vista = new Vista_Animal();
+        $this->modelo = new ModeloEspecie();
+        $this->vista = new VistaEspecie();
     }
+    function mostrarEspecies(){
 
+  
 
+    }
+   
     
 }
+?>

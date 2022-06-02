@@ -32,6 +32,17 @@
             <th>
                 <h2>Extinto</h2>
             </th>
+            {if $habilitarAdmin == 'HABILITO ADMIN'}
+                <th>
+                <h2>Borrar</h2>
+            </th>
+            <th>
+                <h2>Editar</h2>
+            </th>
+            {else}
+
+            {/if}
+          
         </thead>
         {foreach $animales  item=animal}
             <tr>
@@ -48,7 +59,7 @@
                     <td>Extinto</td>
                 {/if}
 
-                {if $botones == 'SI'}
+                {if $habilitarAdmin == 'HABILITO ADMIN'}
 
                     <td><a action="borrar" href="route.php?action=borrar/{$id}">Borrar</a></td>
                     <td><a action="editar" href="route.php?action=editar/{$id}">Editar</a></td>

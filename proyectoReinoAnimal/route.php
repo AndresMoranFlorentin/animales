@@ -4,8 +4,9 @@ require_once 'controladores/ControladorAnimal.php';
 require_once 'controladores/ControladorLogin.php';
 $controlador = new Controlador_Animal();
 $vista = new Vista_Animal();
-$controladorLogin=New ControladorLogin();
-
+$controladorLogin = new ControladorLogin();
+session_start();
+print_r($_SESSION);
 if (!empty($_GET['action'])) {
     $action = $_GET['action'];
 } else {

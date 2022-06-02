@@ -14,6 +14,7 @@ class Controlador_Animal
     {
         $this->modelo = new Modelo_animal();
         $this->vista = new Vista_Animal();
+        
     }
     function mostrarAnimalesAccesoPublico()
     {

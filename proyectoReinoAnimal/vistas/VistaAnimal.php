@@ -28,11 +28,11 @@ class Vista_Animal
     }
     function mostrarTablaAdmin($matrixAnimales)
     {
-        $habilitarBotonesTabla='SI';
+        $habilitarAdmin='HABILITO ADMIN';
         $smarty = new Smarty();
         $smarty->assign('BASE_URL', BASE_URL);
         $smarty->assign('animales', $matrixAnimales);
-        $smarty->assign('botones', $habilitarBotonesTabla);
+        $smarty->assign('habilitarAdmin', $habilitarAdmin);
         $smarty->display('template/intro.tpl');
         $smarty->display('template/formulario.tpl');
         $smarty->display('template/tabla.tpl');
@@ -40,11 +40,11 @@ class Vista_Animal
 
     }
     function mostrarTablaNoAdmin($matrixAnimales)
-    {   $habilitarBotonesTabla='NO';
+    {   $habilitarAdmin='NO HABILITO';
         $smarty = new Smarty();
         $smarty->assign('BASE_URL', BASE_URL);
         $smarty->assign('animales', $matrixAnimales);
-        $smarty->assign('botones', $habilitarBotonesTabla);
+        $smarty->assign('habilitarAdmin', $habilitarAdmin);
         $smarty->display('template/intro.tpl');
         $smarty->display('template/tabla.tpl');
         $smarty->display('template/footer.tpl');
