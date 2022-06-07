@@ -11,27 +11,46 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
 </head>
-<div>
-    <table class="table table-bordered">
-        <thead class="thead-dark">
-            <th>
-                <h2>Especie</h2>
-            </th>
-            <th>
-                <h2>Nombre</h2>
-            </th>
-            <th>
-                <h2>Descripcion</h2>
-            </th>
-            <th>
-                <h2>Alimentacion</h2>
-            </th>
-            <th>
-                <h2>Habitat</h2>
-            </th>
-            <th>
-                <h2>Extinto</h2>
-            </th>
+
+<div style="background-color:rgb(223, 45, 230)">
+    <ul class="nav nav-mytabs" id="myTab" role="tablist">
+        <li class="nav-item" style="background-color:rgb(19, 66, 7)">
+            <a class="nav-link active" href="route.php?action=home">Inicio</a>
+        </li>
+        <li class="nav-item" style="background-color:rgb(180, 27, 27)">
+            <a class="nav-link" href="route.php?action=animalesAdmin">Animales</a>
+        </li>
+        <li class="nav-item" style="background-color:rgb(13, 51, 104)">
+            <a class="nav-link" href="route.php?action=especiesAdmin">Especies</a>
+        </li>
+    </ul>
+</div>
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <th>
+            <h2>Especie</h2>
+        </th>
+        <th>
+            <h2>Nombre</h2>
+        </th>
+        <th>
+            <h2>Descripcion</h2>
+        </th>
+        <th>
+            <h2>Alimentacion</h2>
+        </th>
+        <th>
+            <h2>Habitat</h2>
+        </th>
+        <th>
+            <h2>Extinto</h2>
+        </th>
+        <th>
+            <h2>Borrar</h2>
+        </th>
+        <th>
+            <h2>Editar</h2>
+        </th>
         {foreach $animales  item=animal}
             <tr>
                 {$id = $animal.id_animales}
@@ -46,10 +65,11 @@
                 {else}
                     <td>Extinto</td>
                 {/if}
-
+                <td><a action="borrar" href="route.php?action=borrar/{$id}">Borrar</a></td>
+                <td><a action="editar" href="route.php?action=editar/{$id}">Editar</a></td>
                 </td>
 
             </tr>
         {{/foreach}}
-    </table>
+</table>
 </div>

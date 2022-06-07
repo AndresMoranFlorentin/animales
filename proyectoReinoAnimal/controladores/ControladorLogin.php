@@ -4,23 +4,40 @@ require_once "vistas/VistaAnimal.php";
 require_once "vistas/VistaLogin.php";
 require_once "modelos/ModeloLogin.php";
 require_once "modelos/ModeloAnimal.php";
+require_once "controladores/ControladorEspecie.php";
+
+
 require_once "helperUser.php";
-class ControladorLogin 
+class ControladorLogin
 {
-   
+
     public function __construct()
     {
         $this->modelologin = new ModeloLogin();
         $this->vistalogin = new VistaLogin();
         $this->modeloanimal = new Modelo_animal();
         $this->vistaanimal = new Vista_Animal();
-        $this->helperUser=New helperUser();
+        $this->helperUser = new helperUser();
         $this->helperUser->checklogueo();
+        $this->controladorEspecie = new ControladorEspecie();
     }
     function traerFormLogin()
     {
 
         $this->vistalogin->mostrarLogin();
+    }
+
+    function mostrarAdminAnimal()
+    {
+
+        $this->helperUser->checklogueo();
+        $matrix = $this->modeloanimal->traerAnimales();
+        $this->vistaanimal->mostrarTablaAdmin($matrix);
+    }
+    function mostrarAdminEspecie()
+    {
+        $this->helperUser->checklogueo();
+        $this->controladorEspecie->mostrarEspeciesAdmin();
     }
     function Login()
     {
@@ -33,12 +50,9 @@ class ControladorLogin
             $tabla_usuario = $this->modelologin->traerContraseña($email);
 
             if ($tabla_usuario && password_verify($contraseña, ($tabla_usuario['contrasenia']))) {
-                
+
                 $this->helperUser->iniciarSesion($tabla_usuario);
-
-                $matrix = $this->modeloanimal->traerAnimales();
-                $this->vistaanimal->mostrarTablaAdmin($matrix);
-
+                $this->mostrarAdminAnimal();
             } else {
                 echo "<h2>Acceso denegado</h2>";
             }

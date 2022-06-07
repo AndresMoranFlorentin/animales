@@ -5,8 +5,9 @@ require_once 'controladores/ControladorLogin.php';
 $controlador = new Controlador_Animal();
 $vista = new Vista_Animal();
 $controladorLogin = new ControladorLogin();
-session_start();
-print_r($_SESSION);
+$controladorEspecie=New ControladorEspecie();
+/*session_start();
+print_r($_SESSION);*/
 if (!empty($_GET['action'])) {
     $action = $_GET['action'];
 } else {
@@ -27,6 +28,12 @@ switch ($params[0]) {
     case 'loguearse':
         $controladorLogin->Login();
         break;
+    case 'animalesAdmin':
+        $controladorLogin->mostrarAdminAnimal();
+        break;
+    case 'especiesAdmin':
+        $controladorLogin->mostrarAdminEspecie();
+        break;
     case 'borrar':
         $controlador->borrar($params[1]);
         break;
@@ -34,6 +41,18 @@ switch ($params[0]) {
         $controlador->preparar($params[1]);
         break;
     case 'actualizar':
+        $controlador->editarFila();
+        break;
+    case 'agregar':
+        $controlador->agregarDatosTablaAnimal();
+        break;
+    case 'borrarEspecie':
+        $controladorEspecie->borrarEspecie($params[1]);
+        break;
+    case 'editarEspecie':
+        $controlador->preparar($params[1]);
+        break;
+    case 'actualizarEspecie':
         $controlador->editarFila();
         break;
     case 'agregar':

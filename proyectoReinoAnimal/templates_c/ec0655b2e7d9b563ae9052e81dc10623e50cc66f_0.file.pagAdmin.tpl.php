@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-06-03 15:39:38
-  from 'C:\xampp\htdocs\web2\proyectoReinoAnimal\template\tabla.tpl' */
+/* Smarty version 4.1.0, created on 2022-06-03 15:58:43
+  from 'C:\xampp\htdocs\web2\proyectoReinoAnimal\template\pagAdmin.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_629a0f1adaf008_61840026',
+  'unifunc' => 'content_629a1393074101_52873685',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'f2cf5534a062a4b2f0ecce9f060482c874fc2b7a' => 
+    'ec0655b2e7d9b563ae9052e81dc10623e50cc66f' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\web2\\proyectoReinoAnimal\\template\\tabla.tpl',
-      1 => 1654263572,
+      0 => 'C:\\xampp\\htdocs\\web2\\proyectoReinoAnimal\\template\\pagAdmin.tpl',
+      1 => 1654264717,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_629a0f1adaf008_61840026 (Smarty_Internal_Template $_smarty_tpl) {
+function content_629a1393074101_52873685 (Smarty_Internal_Template $_smarty_tpl) {
 ?><head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -40,27 +40,46 @@ function content_629a0f1adaf008_61840026 (Smarty_Internal_Template $_smarty_tpl)
     <?php echo '</script'; ?>
 >
 </head>
-<div>
-    <table class="table table-bordered">
-        <thead class="thead-dark">
-            <th>
-                <h2>Especie</h2>
-            </th>
-            <th>
-                <h2>Nombre</h2>
-            </th>
-            <th>
-                <h2>Descripcion</h2>
-            </th>
-            <th>
-                <h2>Alimentacion</h2>
-            </th>
-            <th>
-                <h2>Habitat</h2>
-            </th>
-            <th>
-                <h2>Extinto</h2>
-            </th>
+
+<div style="background-color:rgb(223, 45, 230)">
+    <ul class="nav nav-mytabs" id="myTab" role="tablist">
+        <li class="nav-item" style="background-color:rgb(19, 66, 7)">
+            <a class="nav-link active" href="route.php?action=home">Inicio</a>
+        </li>
+        <li class="nav-item" style="background-color:rgb(180, 27, 27)">
+            <a class="nav-link" href="route.php?action=animales">Animales</a>
+        </li>
+        <li class="nav-item" style="background-color:rgb(13, 51, 104)">
+            <a class="nav-link" href="route.php?action=especies">Especies</a>
+        </li>
+    </ul>
+</div>
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <th>
+            <h2>Especie</h2>
+        </th>
+        <th>
+            <h2>Nombre</h2>
+        </th>
+        <th>
+            <h2>Descripcion</h2>
+        </th>
+        <th>
+            <h2>Alimentacion</h2>
+        </th>
+        <th>
+            <h2>Habitat</h2>
+        </th>
+        <th>
+            <h2>Extinto</h2>
+        </th>
+        <th>
+            <h2>Borrar</h2>
+        </th>
+        <th>
+            <h2>Editar</h2>
+        </th>
         <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['animales']->value, 'animal');
 $_smarty_tpl->tpl_vars['animal']->do_else = true;
@@ -85,7 +104,10 @@ $_smarty_tpl->tpl_vars['animal']->do_else = false;
                 <?php } else { ?>
                     <td>Extinto</td>
                 <?php }?>
-
+                <td><a action="borrar" href="route.php?action=borrar/<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+">Borrar</a></td>
+                <td><a action="editar" href="route.php?action=editar/<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+">Editar</a></td>
                 </td>
 
             </tr>
@@ -95,6 +117,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
 $_prefixVariable1 = ob_get_clean();
 echo $_prefixVariable1;?>
 
-    </table>
-</div><?php }
+</table>
+</div>
+
+<!--<td><a action="borrar" href="route.php?action=borrar/<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+">Borrar</a></td>
+            <td><a action="editar" href="route.php?action=editar/<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+">Editar</a></td>
+          </td>--><?php }
 }
