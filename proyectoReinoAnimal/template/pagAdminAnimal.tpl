@@ -11,20 +11,29 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
 </head>
-
+<h1> Seccion Animales</h1>
 <div style="background-color:rgb(223, 45, 230)">
     <ul class="nav nav-mytabs" id="myTab" role="tablist">
         <li class="nav-item" style="background-color:rgb(19, 66, 7)">
-            <a class="nav-link active" href="route.php?action=home">Inicio</a>
+            <a class="nav-link active" href="home">Inicio</a>
         </li>
         <li class="nav-item" style="background-color:rgb(180, 27, 27)">
-            <a class="nav-link" href="route.php?action=animalesAdmin">Animales</a>
+            <a class="nav-link" href="animalesAdmin">Animales</a>
         </li>
         <li class="nav-item" style="background-color:rgb(13, 51, 104)">
-            <a class="nav-link" href="route.php?action=especiesAdmin">Especies</a>
+            <a class="nav-link" href="especiesAdmin">Especies</a>
+        </li>
+        <li class="nav-item" style="background-color:rgb(185, 240, 226)">
+            <a class="nav-link" href="logout">Desloguearse</a>
         </li>
     </ul>
 </div>
+<label></label>
+<label></label>
+<button><a action="mostrarFormAnimales" href="mostrarFormAnimales">Agregar info a Tabla animal</a></button>
+<label></label>
+<label></label>
+<div>
 <table class="table table-bordered">
     <thead class="thead-dark">
         <th>
@@ -59,14 +68,14 @@
                 <td class="border-top">{$animal.descripcion}</td>
                 <td>{$animal.alimentacion}</td>
                 <td>{$animal.habitat}</td>
-                {if $animal.extinto == 0}
+                {if $animal.extinto == "0"}
                     <td>No extinto</td>
 
                 {else}
                     <td>Extinto</td>
                 {/if}
-                <td><a action="borrar" href="route.php?action=borrar/{$id}">Borrar</a></td>
-                <td><a action="editar" href="route.php?action=editar/{$id}">Editar</a></td>
+                <td><a action="borrar" href="borrarAnimal/{$id}">Borrar</a></td>
+                <td><a action="editar" href="editarAnimal/{$id}">Editar</a></td>
                 </td>
 
             </tr>

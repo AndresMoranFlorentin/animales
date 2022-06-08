@@ -13,20 +13,33 @@
 </head>
 
 <h1> Seccion Especies</h1>
-<div style="background-color:rgb(223, 45, 230)">
-    <ul class="nav nav-mytabs" id="myTab" role="tablist">
-        <li class="nav-item" style="background-color:rgb(19, 66, 7)">
-            <a class="nav-link active" href="route.php?action=home">Inicio</a>
-        </li>
-        <li class="nav-item" style="background-color:rgb(180, 27, 27)">
-            <a class="nav-link" href="route.php?action=animalesAdmin">Animales</a>
-        </li>
-        <li class="nav-item" style="background-color:rgb(6, 40, 150)">
-            <a class="nav-link" href="route.php?action=especiesAdmin">Especies</a>
-        </li>
-    </ul>
-</div>
-<div>
+{if $habilito=='acceso Privado'}
+    <div style="background-color:rgb(223, 45, 230)">
+        <ul class="nav nav-mytabs" id="myTab" role="tablist">
+            <li class="nav-item" style="background-color:rgb(19, 66, 7)">
+                <a class="nav-link active" href="home">Inicio</a>
+            </li>
+            <li class="nav-item" style="background-color:rgb(180, 27, 27)">
+                <a class="nav-link" href="animalesAdmin">Animales</a>
+            </li>
+            <li class="nav-item" style="background-color:rgb(6, 40, 150)">
+                <a class="nav-link" href="especiesAdmin">Especies</a>
+            </li>
+            <li class="nav-item" style="background-color:rgb(185, 240, 226)">
+                <a class="nav-link" href="logout">Desloguearse</a>
+            </li>
+        </ul>
+    </div>
+    <div>
+
+        <label></label>
+        <label></label>
+        <button><a action="mostrarFormEspecies" href="mostrarFormEspecies">Agregar info a Tabla
+                Especies</a></button>
+        <label></label>
+        <label></label>
+    {else}
+    {/if}
     <table class="table table-bordered">
         <thead class="thead-dark">
             <th>
@@ -35,25 +48,30 @@
             <th>
                 <h2>Vertebrado?</h2>
             </th>
-            <th>
-                <h2>Borrar</h2>
-            </th>
-            <th>
-                <h2>Editar</h2>
-            </th>
+            {if $habilito=='acceso Privado'}
+                <th>
+                    <h2>Borrar</h2>
+                </th>
+                <th>
+                    <h2>Editar</h2>
+                </th>
+            {/if}
             {foreach $especies  item=espec}
                 <tr>
                     {$id = $espec.id_especie}
                     <td>{$espec.especies}</td>
-                    {if $espec.vertebrados == 0}
+                    {if $espec.vertebrados == "0"}
 
                         <td>Invertebrado</td>
 
                     {else}
                         <td>Vertebrado</td>
                     {/if}
-                    <td><a action="borrar" href="route.php?action=borrarEspecie/{$id}">Borrar</a></td>
-                    <td><a action="editar" href="route.php?action=editarEspecie/{$id}">Editar</a></td>
+                    {if $habilito=='acceso Privado'}
+                        <td><a action="borrar" href="borrarEspecie/{$id}">Borrar</a></td>
+                        <td><a action="editar" href="editarEspecie/{$id}">Editar</a></td>
+                    {else}
+                    {/if}
                     </td>
                 </tr>
             {{/foreach}}

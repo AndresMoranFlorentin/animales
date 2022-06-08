@@ -4,7 +4,7 @@ require_once "modelos/ModeloAnimal.php";
 require_once "modelos/ModeloEspecie.php";
 //echo "LLegaste hasta el controlador y el id es =".$id." ";
 
-class Controlador_Animal
+class ControladorAnimal
 {
 
     private $modelo;
@@ -12,8 +12,8 @@ class Controlador_Animal
 
     public function __construct()
     {
-        $this->modelo = new Modelo_animal();
-        $this->vista = new Vista_Animal();
+        $this->modelo = new ModeloAnimal();
+        $this->vista = new VistaAnimal();
         
     }
     function mostrarAnimalesAccesoPublico()
@@ -32,9 +32,9 @@ class Controlador_Animal
     function preparar($id)
     {   $modeloespecie= New ModeloEspecie();
         $fila = $this->modelo->traerUnaFila($id);
-        
         $especie=$modeloespecie->traerEspecies();
-        $this->vista->mostrarEdicionAnimal($fila,$especie);
+        $editar='editar animal';
+        $this->vista->mostrarEdicionAnimal($fila,$especie,$editar);
      }
     function editarFila()
     {
@@ -61,9 +61,15 @@ class Controlador_Animal
         $matrix = $this->modelo->traerAnimales();
         $this->vista->mostrarTablaAdmin($matrix);
     }
+    function mostrarAgregarAnimales(){
+        $modeloEspecie= new ModeloEspecie();
+        $especies=$modeloEspecie->traerEspecies();
+        $tipoDeForm='animales';
+        $this->vista->mostrarFormularioAgregar($tipoDeForm,$especies);
+
+    }
     function agregarDatosTablaAnimal()
     {
-        //$nombre,$descripcion, $alimento,$habitat,$especie,$extinto
         if (
             !isset($_POST['nombre'])
             && !isset($_POST['descripcion'])

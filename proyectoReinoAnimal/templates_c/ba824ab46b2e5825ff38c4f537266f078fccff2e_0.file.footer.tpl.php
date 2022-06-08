@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-06-02 20:04:13
+/* Smarty version 4.1.0, created on 2022-06-08 15:42:37
   from 'C:\xampp\htdocs\web2\proyectoReinoAnimal\template\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_6298fb9d8b69d5_11925036',
+  'unifunc' => 'content_62a0a74de5a656_74489167',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6298fb9d8b69d5_11925036 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62a0a74de5a656_74489167 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!--<div style="background-color:rgb(13, 71, 119)">
 <h2>Seccion para Administradores </h2>
   <p>Clickea aqui :</p>

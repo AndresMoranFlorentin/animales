@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-06-03 15:39:38
+/* Smarty version 4.1.0, created on 2022-06-08 15:42:37
   from 'C:\xampp\htdocs\web2\proyectoReinoAnimal\template\tabla.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_629a0f1adaf008_61840026',
+  'unifunc' => 'content_62a0a74de3c3f3_67440357',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_629a0f1adaf008_61840026 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62a0a74de3c3f3_67440357 (Smarty_Internal_Template $_smarty_tpl) {
 ?><head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">

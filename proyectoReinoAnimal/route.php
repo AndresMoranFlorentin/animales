@@ -2,10 +2,11 @@
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 require_once 'controladores/ControladorAnimal.php';
 require_once 'controladores/ControladorLogin.php';
-$controlador = new Controlador_Animal();
-$vista = new Vista_Animal();
+require_once 'controladores/ControladorEspecie.php';
+$controladorAnimal = new ControladorAnimal();
+$vista = new VistaAnimal();
 $controladorLogin = new ControladorLogin();
-$controladorEspecie=New ControladorEspecie();
+$controladorEspecie = new ControladorEspecie();
 /*session_start();
 print_r($_SESSION);*/
 if (!empty($_GET['action'])) {
@@ -20,7 +21,8 @@ $params = explode('/', $action);
 // determina que camino seguir según la acción
 switch ($params[0]) {
     case 'home':
-        $controlador->mostrarAnimalesAccesoPublico();
+        $controladorAnimal->mostrarAnimalesAccesoPublico();
+        $controladorEspecie->mostrarEspeciesAccesoPublico();
         break;
     case 'acceder':
         $controladorLogin->traerFormLogin();
@@ -34,29 +36,38 @@ switch ($params[0]) {
     case 'especiesAdmin':
         $controladorLogin->mostrarAdminEspecie();
         break;
-    case 'borrar':
-        $controlador->borrar($params[1]);
+    case 'logout':
+        $controladorLogin->desLoguearse();
         break;
-    case 'editar':
-        $controlador->preparar($params[1]);
+    case 'borrarAnimal':
+        $controladorAnimal->borrar($params[1]);
         break;
-    case 'actualizar':
-        $controlador->editarFila();
+    case 'editarAnimal':
+        $controladorAnimal->preparar($params[1]);
         break;
-    case 'agregar':
-        $controlador->agregarDatosTablaAnimal();
+    case 'actualizarAnimal':
+        $controladorAnimal->editarFila();
+        break;
+    case 'mostrarFormAnimales':
+        $controladorAnimal->mostrarAgregarAnimales();
+        break;
+    case 'agregarAnimales':
+        $controladorAnimal->agregarDatosTablaAnimal();
+        break;
+    case 'mostrarFormEspecies':
+        $controladorEspecie->mostrarAgregarEspecies();
+        break;
+    case 'agregarEspecies':
+        $controladorEspecie->AgregarEspecies();
         break;
     case 'borrarEspecie':
         $controladorEspecie->borrarEspecie($params[1]);
         break;
     case 'editarEspecie':
-        $controlador->preparar($params[1]);
+        $controladorEspecie->prepararEspecie($params[1]);
         break;
     case 'actualizarEspecie':
-        $controlador->editarFila();
-        break;
-    case 'agregar':
-        $controlador->agregarDatosTablaAnimal();
+        $controladorEspecie->editarFilaEspecie();
         break;
     default:
         echo ('404 Page not found');

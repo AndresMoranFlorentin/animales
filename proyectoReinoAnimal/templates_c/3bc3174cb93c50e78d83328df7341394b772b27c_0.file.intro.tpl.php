@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-06-03 15:26:30
+/* Smarty version 4.1.0, created on 2022-06-08 15:42:37
   from 'C:\xampp\htdocs\web2\proyectoReinoAnimal\template\intro.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_629a0c067884a3_21242446',
+  'unifunc' => 'content_62a0a74ddfa755_97035939',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3bc3174cb93c50e78d83328df7341394b772b27c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\proyectoReinoAnimal\\template\\intro.tpl',
-      1 => 1654262786,
+      1 => 1654692553,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_629a0c067884a3_21242446 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62a0a74ddfa755_97035939 (Smarty_Internal_Template $_smarty_tpl) {
 ?><body>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -44,10 +44,10 @@ function content_629a0c067884a3_21242446 (Smarty_Internal_Template $_smarty_tpl)
     <div>
       <ul>
         <li>
-          <a href="route.php?action=home">Inicio</a>
+          <a href="home">Inicio</a>
         </li>
         <li>
-          <a href="route.php?action=loguearse">Login</a>
+          <a href="loguearse">Login</a>
         </li>
       </ul>
   </header>

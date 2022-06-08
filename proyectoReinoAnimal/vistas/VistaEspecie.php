@@ -1,25 +1,40 @@
 <?php
-require_once "smarty/libs/Smarty.class.php" ;
+require_once "smarty/libs/Smarty.class.php";
 
-class VistaEspecie {
+class VistaEspecie
+{
 
 
 
-    function mostrarEspecies($matrixEspecie){
+  function mostrarEspecies($matrixEspecie,$habilito)
+  {
 
-         $smarty=New Smarty();
-         $smarty->assign('BASE_URL', BASE_URL);
-         $smarty->assign('especies', $matrixEspecie);
-         $smarty->display('template/formulario.tpl');
-         $smarty->display('template/pagAdminEspecie.tpl');
+    $smarty = new Smarty();
+    $smarty->assign('BASE_URL', BASE_URL);
+    $smarty->assign('especies', $matrixEspecie);
+    $smarty->assign('habilito', $habilito);
+    $smarty->display('template/pagAdminEspecie.tpl');
+  }
+  function mostrarFormularioAgregar($tipoDeForm,$especies)
+  {
+    $smarty = new Smarty();
+    $smarty->assign('BASE_URL', BASE_URL);
+    $smarty->assign('especies', $especies);
+    $smarty->assign('tipoDeForm', $tipoDeForm);
+    $smarty->display('template/formularioParaAgregar.tpl');
+  }
+  function mostrarErrorEjecucionBorrar($nombresEspecies)
+  {
 
-    }
-   function mostrarErrorEjecucionBorrar($nombresEspecies){
-
-    $smarty=New Smarty();
+    $smarty = new Smarty();
     $smarty->assign('nombres', $nombresEspecies);
     $smarty->display('template/errorBorrarEspecie.tpl');
-
-   }
-
+  }
+  function mostrarEdicionEspecie($editar, $modeloEspecie)
+  {
+    $smarty = new Smarty();
+    $smarty->assign('tipoDeEdicion', $editar);
+    $smarty->assign('especie', $modeloEspecie);
+    $smarty->display('template/PaginaEdicion.tpl');
+  }
 }

@@ -15,8 +15,8 @@ class ControladorLogin
     {
         $this->modelologin = new ModeloLogin();
         $this->vistalogin = new VistaLogin();
-        $this->modeloanimal = new Modelo_animal();
-        $this->vistaanimal = new Vista_Animal();
+        $this->modeloanimal = new ModeloAnimal();
+        $this->vistaanimal = new VistaAnimal();
         $this->helperUser = new helperUser();
         $this->helperUser->checklogueo();
         $this->controladorEspecie = new ControladorEspecie();
@@ -26,6 +26,10 @@ class ControladorLogin
 
         $this->vistalogin->mostrarLogin();
     }
+function desLoguearse(){
+    $this->helperUser->logout();
+    header('location:' . BASE_URL . 'home');
+}
 
     function mostrarAdminAnimal()
     {
@@ -35,9 +39,9 @@ class ControladorLogin
         $this->vistaanimal->mostrarTablaAdmin($matrix);
     }
     function mostrarAdminEspecie()
-    {
+    { 
         $this->helperUser->checklogueo();
-        $this->controladorEspecie->mostrarEspeciesAdmin();
+        $this->controladorEspecie-> mostrarEspeciesAdmin();
     }
     function Login()
     {

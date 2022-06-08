@@ -1,7 +1,7 @@
 <?php
 require_once "Modelo.php" ;
 
-class Modelo_animal extends Modelo
+class ModeloAnimal extends Modelo
 {
   function traerAnimales()
   {
@@ -30,7 +30,6 @@ class Modelo_animal extends Modelo
   }
   function borrarFilaAnimal($id)
   {
-    //echo "LLegaste hasta la funcion borrar fila en el modelo y el id es =".$id." ";
     $sql = "DELETE FROM animales WHERE id_animales=?";
     $conexion = $this->conexionSQL();
     $preparado = $conexion->prepare($sql);
@@ -53,6 +52,6 @@ class Modelo_animal extends Modelo
                     VALUES (?, ?, ?, ?, ?, ?)"; //nombres de las columnas de la tabla
     $conexion = $this->conexionSQL();
     $preparado = $conexion->prepare($sql);
-    $preparado->execute($nombre,$descripcion,$alimento,$habitat,$extinto,$especie);
+    $preparado->execute([$nombre,$descripcion,$alimento,$habitat,$extinto,$especie]);
   }
 }

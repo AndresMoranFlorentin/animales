@@ -15,10 +15,10 @@
     <div>
       <ul>
         <li>
-          <a href="route.php?action=home">Inicio</a>
+          <a href="home">Inicio</a>
         </li>
         <li>
-          <a href="route.php?action=loguearse">Login</a>
+          <a href="loguearse">Login</a>
         </li>
       </ul>
   </header>

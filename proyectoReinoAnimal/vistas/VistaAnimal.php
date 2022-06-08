@@ -1,7 +1,7 @@
 <?php
 require_once('smarty/libs/Smarty.class.php');
 
-class Vista_Animal
+class VistaAnimal
 {
 
     function mostrarAnimales()
@@ -11,11 +11,12 @@ class Vista_Animal
         $smarty->assign('BASE_URL', BASE_URL);
         $smarty->display('template/intro.tpl');
     }
-    function mostrarEdicionAnimal($fila,$especie)
+    function mostrarEdicionAnimal($fila,$especie,$editar)
     {
         $smarty = new Smarty();
         $smarty->assign('especie',$especie);
         $smarty->assign('animal', $fila);
+        $smarty->assign('tipoDeEdicion', $editar);
         $smarty->display('template/PaginaEdicion.tpl');
     }
     
@@ -31,9 +32,17 @@ class Vista_Animal
         $smarty = new Smarty();
         $smarty->assign('BASE_URL', BASE_URL);
         $smarty->assign('animales', $matrixAnimales);
-        $smarty->display('template/formulario.tpl');
         $smarty->display('template/pagAdminAnimal.tpl');
         $smarty->display('template/footer.tpl');
+
+    }
+    function mostrarFormularioAgregar($tipoDeForm,$especies){
+        $smarty = new Smarty();
+        $smarty->assign('BASE_URL', BASE_URL);
+        $smarty->assign('tipoDeForm', $tipoDeForm);
+        $smarty->assign('especies', $especies);
+        $smarty->display('template/formularioParaAgregar.tpl');
+
 
     }
     function mostrarTablaNoAdmin($matrixAnimales)

@@ -8,20 +8,23 @@ class helperUser
 
     function iniciarSesion($tabla_user)
     {
-        print_r($tabla_user);
         session_start();
         $_SESSION["logueado"] = true;
         $_SESSION["username"] = $tabla_user['email'];
     }
-
+    function logout()
+    {
+        session_start();
+        session_destroy();
+    }
     function cerrarSesion()
     {
-
         unset($_SESSION["logueado"]);
     }
+
     function checklogueo()
     {
-
+    
         if (isset($_SESSION["logueado"])) {
 
             return $_SESSION["logueado"];
