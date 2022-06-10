@@ -13,20 +13,20 @@
 </head>
 
 <h1> Seccion Especies</h1>
-{if $habilito=='acceso Privado'}
+{if $habilito=='acceso privado'}
     <div style="background-color:rgb(223, 45, 230)">
         <ul class="nav nav-mytabs" id="myTab" role="tablist">
             <li class="nav-item" style="background-color:rgb(19, 66, 7)">
-                <a class="nav-link active" href="home">Inicio</a>
+                <a class="nav-link active" href="{$BASE_URL}home">Inicio</a>
             </li>
             <li class="nav-item" style="background-color:rgb(180, 27, 27)">
-                <a class="nav-link" href="animalesAdmin">Animales</a>
+                <a class="nav-link" href="{$BASE_URL}animalesAdmin">Animales</a>
             </li>
             <li class="nav-item" style="background-color:rgb(6, 40, 150)">
-                <a class="nav-link" href="especiesAdmin">Especies</a>
+                <a class="nav-link" href="{$BASE_URL}especiesAdmin">Especies</a>
             </li>
             <li class="nav-item" style="background-color:rgb(185, 240, 226)">
-                <a class="nav-link" href="logout">Desloguearse</a>
+                <a class="nav-link" href="{$BASE_URL}logout">Desloguearse</a>
             </li>
         </ul>
     </div>
@@ -34,7 +34,7 @@
 
         <label></label>
         <label></label>
-        <button><a action="mostrarFormEspecies" href="mostrarFormEspecies">Agregar info a Tabla
+        <button><a action="mostrarFormEspecies" href="{$BASE_URL}mostrarFormEspecies">Agregar info a Tabla
                 Especies</a></button>
         <label></label>
         <label></label>
@@ -48,7 +48,7 @@
             <th>
                 <h2>Vertebrado?</h2>
             </th>
-            {if $habilito=='acceso Privado'}
+            {if $habilito=='acceso privado'}
                 <th>
                     <h2>Borrar</h2>
                 </th>
@@ -67,9 +67,9 @@
                     {else}
                         <td>Vertebrado</td>
                     {/if}
-                    {if $habilito=='acceso Privado'}
-                        <td><a action="borrar" href="borrarEspecie/{$id}">Borrar</a></td>
-                        <td><a action="editar" href="editarEspecie/{$id}">Editar</a></td>
+                    {if $habilito=='acceso privado'}
+                        <td><a action="borrar" href="{$BASE_URL}borrarEspecie/{$id}">Borrar</a></td>
+                        <td><a action="editar" href="{$BASE_URL}editarEspecie/{$id}">Editar</a></td>
                     {else}
                     {/if}
                     </td>

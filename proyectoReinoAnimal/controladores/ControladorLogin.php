@@ -18,8 +18,28 @@ class ControladorLogin
         $this->modeloanimal = new ModeloAnimal();
         $this->vistaanimal = new VistaAnimal();
         $this->helperUser = new helperUser();
-        $this->helperUser->checklogueo();
         $this->controladorEspecie = new ControladorEspecie();
+    }
+    function Login()
+    {
+
+        if (!empty($_POST['nombre']) && !empty($_POST['email']) && !empty($_POST['contraseña'])) {
+
+            //$Contraseña= password_hash($_POST['contraseña'], PASSWORD_BCRYPT);
+            $email = $_POST['email'];
+            $contraseña = $_POST['contraseña'];
+            $tabla_usuario = $this->modelologin->traerContraseña($email);
+
+            if ($tabla_usuario && password_verify($contraseña, ($tabla_usuario['contrasenia']))) {
+
+                $this->helperUser->iniciarSesion($tabla_usuario);
+                $this->mostrarAdminAnimal();
+            } else {
+                header('location:' . BASE_URL . 'loguearse');
+            }
+        } else {
+            $this->vistalogin->mostrarLogin();
+        }
     }
     function traerFormLogin()
     {
@@ -40,28 +60,13 @@ function desLoguearse(){
     }
     function mostrarAdminEspecie()
     { 
-        $this->helperUser->checklogueo();
+        $validacion=$this->helperUser->checklogueo();
+        if($validacion){
         $this->controladorEspecie-> mostrarEspeciesAdmin();
-    }
-    function Login()
-    {
-
-        if (!empty($_POST['nombre']) && !empty($_POST['email']) && !empty($_POST['contraseña'])) {
-
-            //$Contraseña= password_hash($_POST['contraseña'], PASSWORD_BCRYPT);
-            $email = $_POST['email'];
-            $contraseña = $_POST['contraseña'];
-            $tabla_usuario = $this->modelologin->traerContraseña($email);
-
-            if ($tabla_usuario && password_verify($contraseña, ($tabla_usuario['contrasenia']))) {
-
-                $this->helperUser->iniciarSesion($tabla_usuario);
-                $this->mostrarAdminAnimal();
-            } else {
-                echo "<h2>Acceso denegado</h2>";
             }
-        } else {
-            $this->vistalogin->mostrarLogin();
+        else {
+            header('location:' . BASE_URL . 'loguearse');
         }
+
     }
 }

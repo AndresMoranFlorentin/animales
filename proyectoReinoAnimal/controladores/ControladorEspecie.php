@@ -11,15 +11,23 @@ class ControladorEspecie
     {
         $this->modelo = new ModeloEspecie();
         $this->vista = new VistaEspecie();
-        $this->helper= new helperUser();
+        $this->helper = new helperUser();
     }
     function mostrarEspeciesAdmin()
-    { 
-            $habilito = 'acceso Privado';
+    {
+        $validacion = $this->helper->checklogueo();
+        
+        if ($validacion) {
+            $habilito = 'acceso privado';
             $matrixEspecies = $this->modelo->traerEspecies();
-            $this->vista->mostrarEspecies($matrixEspecies,$habilito);
+            $this->vista->mostrarEspecies($matrixEspecies, $habilito);
+
+        } else {
+
+            echo "resulto falso";
         }
-       
+    }
+
     function mostrarEspeciesAccesoPublico()
     {
         $habilito = 'acceso Publico';
@@ -42,8 +50,8 @@ class ControladorEspecie
     function mostrarAgregarEspecies()
     {
         $tipoDeForm = 'especies';
-        $especies=$this->modelo->traerEspecies();
-        $this->vista->mostrarFormularioAgregar($tipoDeForm,$especies);
+        $especies = $this->modelo->traerEspecies();
+        $this->vista->mostrarFormularioAgregar($tipoDeForm, $especies);
     }
     function prepararEspecie($id)
     {

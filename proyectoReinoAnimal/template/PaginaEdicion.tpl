@@ -2,7 +2,7 @@
 
 {if $tipoDeEdicion =='editar animal'}
     <label></label>
-    <form action="actualizarAnimal" method="post" class="my-form">
+    <form action="{$BASE_URL}actualizarAnimal" method="post" class="my-form">
         <div class="form-group" style="background-color:rgb(132, 230, 200)">
             <label>Nombre: <input type="text" name="nombre" value="{$animal.nombre}" required></label>
             <label>Descripcion: <input type="text" name="descripcion" value="{$animal.descripcion}" required></label>
@@ -22,8 +22,13 @@
             </label>
             <label>Extinto o no:
                 <select name="extinto">
-                    <option value="0">No Extinto</option>
+                {if $animal.extinto == 0}
+                    <option selected value="0">No Extinto</option>
                     <option value="1">Extinto</option>
+                {else}
+                    <option value="0">No Extinto</option>
+                    <option selected value="1">Extinto</option>
+                {/if}
                 </select>
             </label>
             <input type="hidden" value="{$animal.id_animales}" name="id" />
@@ -32,7 +37,7 @@
     </form>
 {elseif $tipoDeEdicion =='editar especie'}
 
-    <form action="actualizarEspecie" method="post" class="my-form">
+    <form action="{$BASE_URL}actualizarEspecie" method="post" class="my-form">
 
         <div class="container" style="background-color:rgb(132, 218, 115)">
             <label>Nombre de Especie: <input type="text" name="nombreEspecie" value="{$especie.especies}"></label></p>

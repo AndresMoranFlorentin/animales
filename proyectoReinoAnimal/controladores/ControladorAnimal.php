@@ -30,14 +30,19 @@ class ControladorAnimal
         $this->vista->mostrarTablaAdmin($matrix);
     }
     function preparar($id)
-    {   $modeloespecie= New ModeloEspecie();
+    {  echo "llegaste a la funcion preparar ";
+         $modeloespecie= New ModeloEspecie();
         $fila = $this->modelo->traerUnaFila($id);
         $especie=$modeloespecie->traerEspecies();
+        var_dump($fila);
+        echo "                   ||||||                       ";
+        var_dump($especie);
         $editar='editar animal';
         $this->vista->mostrarEdicionAnimal($fila,$especie,$editar);
      }
     function editarFila()
-    {
+    {  
+        echo "llegaste a editar fila";
         if (
             !isset($_POST['nombre'])
             && !isset($_POST['descripcion'])

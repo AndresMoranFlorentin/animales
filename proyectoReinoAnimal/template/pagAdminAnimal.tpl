@@ -15,22 +15,22 @@
 <div style="background-color:rgb(223, 45, 230)">
     <ul class="nav nav-mytabs" id="myTab" role="tablist">
         <li class="nav-item" style="background-color:rgb(19, 66, 7)">
-            <a class="nav-link active" href="home">Inicio</a>
+            <a class="nav-link active" href="{$BASE_URL}home">Inicio</a>
         </li>
         <li class="nav-item" style="background-color:rgb(180, 27, 27)">
-            <a class="nav-link" href="animalesAdmin">Animales</a>
+            <a class="nav-link" href="{$BASE_URL}animalesAdmin">Animales</a>
         </li>
         <li class="nav-item" style="background-color:rgb(13, 51, 104)">
-            <a class="nav-link" href="especiesAdmin">Especies</a>
+            <a class="nav-link" href="{$BASE_URL}especiesAdmin">Especies</a>
         </li>
         <li class="nav-item" style="background-color:rgb(185, 240, 226)">
-            <a class="nav-link" href="logout">Desloguearse</a>
+            <a class="nav-link" href="{$BASE_URL}logout">Desloguearse</a>
         </li>
     </ul>
 </div>
 <label></label>
 <label></label>
-<button><a action="mostrarFormAnimales" href="mostrarFormAnimales">Agregar info a Tabla animal</a></button>
+<button><a action="mostrarFormAnimales" href="{$BASE_URL}mostrarFormAnimales">Agregar info a Tabla animal</a></button>
 <label></label>
 <label></label>
 <div>
@@ -74,8 +74,8 @@
                 {else}
                     <td>Extinto</td>
                 {/if}
-                <td><a action="borrar" href="borrarAnimal/{$id}">Borrar</a></td>
-                <td><a action="editar" href="editarAnimal/{$id}">Editar</a></td>
+                <td><a action="borrar" href="{$BASE_URL}borrarAnimal/{$id}">Borrar</a></td>
+                <td><a action="editar" href="{$BASE_URL}editarAnimal/{$id}">Editar</a></td>
                 </td>
 
             </tr>

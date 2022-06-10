@@ -33,6 +33,7 @@ class VistaEspecie
   function mostrarEdicionEspecie($editar, $modeloEspecie)
   {
     $smarty = new Smarty();
+    $smarty->assign('BASE_URL', BASE_URL);
     $smarty->assign('tipoDeEdicion', $editar);
     $smarty->assign('especie', $modeloEspecie);
     $smarty->display('template/PaginaEdicion.tpl');

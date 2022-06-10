@@ -14,6 +14,7 @@ class VistaAnimal
     function mostrarEdicionAnimal($fila,$especie,$editar)
     {
         $smarty = new Smarty();
+        $smarty->assign('BASE_URL', BASE_URL);
         $smarty->assign('especie',$especie);
         $smarty->assign('animal', $fila);
         $smarty->assign('tipoDeEdicion', $editar);

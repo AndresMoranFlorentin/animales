@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-06-08 15:42:37
+/* Smarty version 4.1.0, created on 2022-06-10 17:18:12
   from 'C:\xampp\htdocs\web2\proyectoReinoAnimal\template\intro.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_62a0a74ddfa755_97035939',
+  'unifunc' => 'content_62a360b4a4bc52_88943669',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3bc3174cb93c50e78d83328df7341394b772b27c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\proyectoReinoAnimal\\template\\intro.tpl',
-      1 => 1654692553,
+      1 => 1654874288,
       2 => 'file',
     ),
   ),
@@ -20,8 +20,16 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62a0a74ddfa755_97035939 (Smarty_Internal_Template $_smarty_tpl) {
-?><body>
+function content_62a360b4a4bc52_88943669 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyecto Reino Animal</title>
+
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <?php echo '<script'; ?>
@@ -39,27 +47,44 @@ function content_62a0a74ddfa755_97035939 (Smarty_Internal_Template $_smarty_tpl)
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
   <?php echo '</script'; ?>
 >
+
+</head>
+
+<body>
   <header>
-    <h1> Reino animal</h1>
-    <div>
-      <ul>
-        <li>
-          <a href="home">Inicio</a>
-        </li>
-        <li>
-          <a href="loguearse">Login</a>
-        </li>
-      </ul>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#"> Reino Animal
+        <img src="imagenes/lobo.png" alt="logo" width="150px">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="nav justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link active" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+home">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+loguearse">Login</a>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
   </header>
-  <h2>Los Animales y sus clasificaciones: </h2>
-  <p>Los animales pueden clasificarse en diferentes grupos, dependiendo
-    de sus características más comunes, si son de sangre fría o caliente,si son terrestres o acuáticos, si ponen huevos,
-    o por su tipo de piel, si tienen escamas, branquias, aletas, alas, caparazones, esqueletos externos o internos, en
-    esta pagina lo que se mostrara
-    son los animales y ejemplares pero definidos por su especie como mamiferos,reptiles, aves, entre otros o incluso en
-    otra clasificacion
-    aun mas extensa vertebrados o invertebrados.</p>
-  <label></label>
-  <label></label>
-</body><?php }
+  <main>
+    <h2>clasificaciones: </h2>
+
+    <p>Los animales pueden clasificarse en diferentes grupos. Dependiendo de sus características más comunes,
+      si son de sangre fría o caliente,si son terrestres o acuáticos, si ponen huevos,
+      o por su tipo de piel, si tienen escamas, branquias, aletas, alas, caparazones, esqueletos externos o internos,
+      en esta pagina lo que se mostrara son los animales y ejemplares pero definidos por su especie como
+      mamiferos,reptiles, aves, entre otros o incluso en otra clasificacion aun mas extensa vertebrados o invertebrados.
+    </p>
+
+<img src="imagenes/fauna.jpg" width="300 px" alt="portada"><?php }
 }
