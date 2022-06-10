@@ -15,17 +15,11 @@ class ControladorEspecie
     }
     function mostrarEspeciesAdmin()
     {
-        $validacion = $this->helper->checklogueo();
-        
-        if ($validacion) {
+
             $habilito = 'acceso privado';
             $matrixEspecies = $this->modelo->traerEspecies();
             $this->vista->mostrarEspecies($matrixEspecies, $habilito);
 
-        } else {
-
-            echo "resulto falso";
-        }
     }
 
     function mostrarEspeciesAccesoPublico()

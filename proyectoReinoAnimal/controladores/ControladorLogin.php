@@ -46,27 +46,30 @@ class ControladorLogin
 
         $this->vistalogin->mostrarLogin();
     }
-function desLoguearse(){
-    $this->helperUser->logout();
-    header('location:' . BASE_URL . 'home');
-}
+    function desLoguearse()
+    {
+        $this->helperUser->logout();
+        header('location:' . BASE_URL . 'home');
+    }
 
     function mostrarAdminAnimal()
     {
 
-        $this->helperUser->checklogueo();
-        $matrix = $this->modeloanimal->traerAnimales();
-        $this->vistaanimal->mostrarTablaAdmin($matrix);
-    }
-    function mostrarAdminEspecie()
-    { 
-        $validacion=$this->helperUser->checklogueo();
-        if($validacion){
-        $this->controladorEspecie-> mostrarEspeciesAdmin();
-            }
-        else {
+        $validacion = $this->helperUser->checklogueo();
+        if ($validacion) {
+            $matrix = $this->modeloanimal->traerAnimales();
+            $this->vistaanimal->mostrarTablaAdmin($matrix);
+        } else {
             header('location:' . BASE_URL . 'loguearse');
         }
-
+    }
+    function mostrarAdminEspecie()
+    {
+        $validacion = $this->helperUser->checklogueo();
+        if ($validacion) {
+            $this->controladorEspecie->mostrarEspeciesAdmin();
+        } else {
+            header('location:' . BASE_URL . 'loguearse');
+        }
     }
 }
