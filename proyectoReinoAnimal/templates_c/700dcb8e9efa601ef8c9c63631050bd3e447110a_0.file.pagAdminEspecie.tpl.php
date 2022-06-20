@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-06-09 23:03:54
-  from 'C:\xampp\htdocs\web2\proyectoReinoAnimal\template\pagAdminEspecie.tpl' */
+/* Smarty version 4.1.1, created on 2022-06-20 19:16:48
+  from 'C:\xampp\htdocs\web_2\animales\proyectoReinoAnimal\template\pagAdminEspecie.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '4.1.0',
-  'unifunc' => 'content_62a2603a1aa4f5_61175591',
+  'version' => '4.1.1',
+  'unifunc' => 'content_62b0ab80e78f12_79040690',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '214544fee13b28636d2925bb7db21ed673ec1b6f' => 
+    '700dcb8e9efa601ef8c9c63631050bd3e447110a' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\web2\\proyectoReinoAnimal\\template\\pagAdminEspecie.tpl',
-      1 => 1654808564,
+      0 => 'C:\\xampp\\htdocs\\web_2\\animales\\proyectoReinoAnimal\\template\\pagAdminEspecie.tpl',
+      1 => 1655732544,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62a2603a1aa4f5_61175591 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62b0ab80e78f12_79040690 (Smarty_Internal_Template $_smarty_tpl) {
 ?><head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -121,8 +121,8 @@ editarEspecie/<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
             <?php ob_start();
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
-$_prefixVariable1 = ob_get_clean();
-echo $_prefixVariable1;?>
+$_prefixVariable2 = ob_get_clean();
+echo $_prefixVariable2;?>
 
     </table>
 </div><?php }

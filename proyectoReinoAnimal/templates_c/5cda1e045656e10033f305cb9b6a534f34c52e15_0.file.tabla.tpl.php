@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-06-09 22:44:16
-  from 'C:\xampp\htdocs\web2\proyectoReinoAnimal\template\tabla.tpl' */
+/* Smarty version 4.1.1, created on 2022-06-20 19:16:48
+  from 'C:\xampp\htdocs\web_2\animales\proyectoReinoAnimal\template\tabla.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '4.1.0',
-  'unifunc' => 'content_62a25ba0ae1356_44572227',
+  'version' => '4.1.1',
+  'unifunc' => 'content_62b0ab80deb027_95595966',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'f2cf5534a062a4b2f0ecce9f060482c874fc2b7a' => 
+    '5cda1e045656e10033f305cb9b6a534f34c52e15' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\web2\\proyectoReinoAnimal\\template\\tabla.tpl',
-      1 => 1654263572,
+      0 => 'C:\\xampp\\htdocs\\web_2\\animales\\proyectoReinoAnimal\\template\\tabla.tpl',
+      1 => 1655732544,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62a25ba0ae1356_44572227 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62b0ab80deb027_95595966 (Smarty_Internal_Template $_smarty_tpl) {
 ?><head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
