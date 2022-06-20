@@ -23,7 +23,7 @@ class ControladorLogin
     function Login()
     {
 
-        if (!empty($_POST['nombre']) && !empty($_POST['email']) && !empty($_POST['contraseña'])) {
+        if (!empty($_POST['email']) && !empty($_POST['contraseña'])) {
 
             //$Contraseña= password_hash($_POST['contraseña'], PASSWORD_BCRYPT);
             $email = $_POST['email'];

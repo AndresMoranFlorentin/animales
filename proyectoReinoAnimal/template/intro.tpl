@@ -20,7 +20,7 @@
   </script>
 
 </head>
-
+<div class="container-fluid">
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -56,3 +56,4 @@
     </p>
 
 <img src="imagenes/fauna.jpg" width="300 px" alt="portada">
+</div>

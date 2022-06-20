@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-06-20 19:16:48
+/* Smarty version 4.1.1, created on 2022-06-20 20:57:30
   from 'C:\xampp\htdocs\web_2\animales\proyectoReinoAnimal\template\intro.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62b0ab80d95e52_16523098',
+  'unifunc' => 'content_62b0c31a26b4f1_79076118',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6caeece659b63d06d72eb1e4b963302707d1cf50' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web_2\\animales\\proyectoReinoAnimal\\template\\intro.tpl',
-      1 => 1655732544,
+      1 => 1655751444,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62b0ab80d95e52_16523098 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62b0c31a26b4f1_79076118 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="es">
 
@@ -49,7 +49,7 @@ function content_62b0ab80d95e52_16523098 (Smarty_Internal_Template $_smarty_tpl)
 >
 
 </head>
-
+<div class="container-fluid">
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -86,5 +86,7 @@ loguearse">Login</a>
       mamiferos,reptiles, aves, entre otros o incluso en otra clasificacion aun mas extensa vertebrados o invertebrados.
     </p>
 
-<img src="imagenes/fauna.jpg" width="300 px" alt="portada"><?php }
+<img src="imagenes/fauna.jpg" width="300 px" alt="portada">
+</div>
+<?php }
 }

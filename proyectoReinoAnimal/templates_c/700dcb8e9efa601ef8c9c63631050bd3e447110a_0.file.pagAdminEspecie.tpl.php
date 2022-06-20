@@ -1,27 +1,29 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-06-20 19:16:48
+/* Smarty version 4.1.1, created on 2022-06-20 21:20:37
   from 'C:\xampp\htdocs\web_2\animales\proyectoReinoAnimal\template\pagAdminEspecie.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62b0ab80e78f12_79040690',
+  'unifunc' => 'content_62b0c8858c3395_58801304',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '700dcb8e9efa601ef8c9c63631050bd3e447110a' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web_2\\animales\\proyectoReinoAnimal\\template\\pagAdminEspecie.tpl',
-      1 => 1655732544,
+      1 => 1655752831,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
+    'file:template/navegadorAdmin.tpl' => 1,
   ),
 ),false)) {
-function content_62b0ab80e78f12_79040690 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62b0c8858c3395_58801304 (Smarty_Internal_Template $_smarty_tpl) {
 ?><head>
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <?php echo '<script'; ?>
@@ -41,28 +43,11 @@ function content_62b0ab80e78f12_79040690 (Smarty_Internal_Template $_smarty_tpl)
 >
 </head>
 
+<div class="container-fluid">
 <h1> Seccion Especies</h1>
 <?php if ($_smarty_tpl->tpl_vars['habilito']->value == 'acceso privado') {?>
-    <div style="background-color:rgb(223, 45, 230)">
-        <ul class="nav nav-mytabs" id="myTab" role="tablist">
-            <li class="nav-item" style="background-color:rgb(19, 66, 7)">
-                <a class="nav-link active" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-home">Inicio</a>
-            </li>
-            <li class="nav-item" style="background-color:rgb(180, 27, 27)">
-                <a class="nav-link" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-animalesAdmin">Animales</a>
-            </li>
-            <li class="nav-item" style="background-color:rgb(6, 40, 150)">
-                <a class="nav-link" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-especiesAdmin">Especies</a>
-            </li>
-            <li class="nav-item" style="background-color:rgb(185, 240, 226)">
-                <a class="nav-link" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-logout">Desloguearse</a>
-            </li>
-        </ul>
-    </div>
+    <?php $_smarty_tpl->_subTemplateRender("file:template/navegadorAdmin.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
     <div>
 
         <label></label>
@@ -121,9 +106,10 @@ editarEspecie/<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
             <?php ob_start();
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
-$_prefixVariable2 = ob_get_clean();
-echo $_prefixVariable2;?>
+$_prefixVariable1 = ob_get_clean();
+echo $_prefixVariable1;?>
 
     </table>
+</div>
 </div><?php }
 }
