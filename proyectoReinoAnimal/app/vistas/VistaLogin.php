@@ -6,8 +6,8 @@ class VistaLogin {
     function mostrarLogin(){
         $smarty = new Smarty();
         $smarty->assign('BASE_URL',BASE_URL);
-        $smarty->display('template/login.tpl');
-        $smarty->display('template/intro.tpl');
+        $smarty->display('app/template/login.tpl');
+        $smarty->display('app/template/intro.tpl');
     }
 
 }

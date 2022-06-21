@@ -1,13 +1,11 @@
 
 <?php
-require_once "vistas/VistaAnimal.php";
-require_once "vistas/VistaLogin.php";
-require_once "modelos/ModeloLogin.php";
-require_once "modelos/ModeloAnimal.php";
-require_once "controladores/ControladorEspecie.php";
-
-
-require_once "helperUser.php";
+require_once "app/vistas/VistaAnimal.php";
+require_once "app/vistas/VistaLogin.php";
+require_once "app/modelos/ModeloLogin.php";
+require_once "app/modelos/ModeloAnimal.php";
+require_once "app/controladores/ControladorEspecie.php";
+require_once "app/controladores/helperUser.php";
 class ControladorLogin
 {
 

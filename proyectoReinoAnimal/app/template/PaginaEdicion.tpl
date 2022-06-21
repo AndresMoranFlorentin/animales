@@ -1,4 +1,4 @@
-{include file= "template/navegadorAdmin.tpl"}
+{include file= "app/template/navegadorAdmin.tpl"}
 <div class="container-fluid">
     <h1>Escriba los datos que piensa editar a traves de este formulario:</h1>
 

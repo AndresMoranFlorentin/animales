@@ -16,7 +16,7 @@
 <div class="container-fluid">
 <h1> Seccion Especies</h1>
 {if $habilito=='acceso privado'}
-    {include file= "template/navegadorAdmin.tpl"}
+    {include file= "app/template/navegadorAdmin.tpl"}
     <div>
 
         <label></label>

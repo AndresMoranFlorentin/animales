@@ -1,27 +1,27 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-06-20 21:20:37
-  from 'C:\xampp\htdocs\web_2\animales\proyectoReinoAnimal\template\pagAdminEspecie.tpl' */
+/* Smarty version 4.1.1, created on 2022-06-21 15:43:51
+  from 'C:\xampp\htdocs\web_2\animales\proyectoReinoAnimal\app\template\pagAdminEspecie.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62b0c8858c3395_58801304',
+  'unifunc' => 'content_62b1cb1700ad06_70149986',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '700dcb8e9efa601ef8c9c63631050bd3e447110a' => 
+    '44faf6a6d36a47b7330b21c276602cd25b5d0dc9' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\web_2\\animales\\proyectoReinoAnimal\\template\\pagAdminEspecie.tpl',
-      1 => 1655752831,
+      0 => 'C:\\xampp\\htdocs\\web_2\\animales\\proyectoReinoAnimal\\app\\template\\pagAdminEspecie.tpl',
+      1 => 1655816712,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
-    'file:template/navegadorAdmin.tpl' => 1,
+    'file:app/template/navegadorAdmin.tpl' => 1,
   ),
 ),false)) {
-function content_62b0c8858c3395_58801304 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62b1cb1700ad06_70149986 (Smarty_Internal_Template $_smarty_tpl) {
 ?><head>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -46,7 +46,7 @@ function content_62b0c8858c3395_58801304 (Smarty_Internal_Template $_smarty_tpl)
 <div class="container-fluid">
 <h1> Seccion Especies</h1>
 <?php if ($_smarty_tpl->tpl_vars['habilito']->value == 'acceso privado') {?>
-    <?php $_smarty_tpl->_subTemplateRender("file:template/navegadorAdmin.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+    <?php $_smarty_tpl->_subTemplateRender("file:app/template/navegadorAdmin.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
     <div>
 
@@ -106,8 +106,8 @@ editarEspecie/<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
             <?php ob_start();
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
-$_prefixVariable1 = ob_get_clean();
-echo $_prefixVariable1;?>
+$_prefixVariable2 = ob_get_clean();
+echo $_prefixVariable2;?>
 
     </table>
 </div>

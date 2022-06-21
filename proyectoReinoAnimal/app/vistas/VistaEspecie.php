@@ -13,7 +13,7 @@ class VistaEspecie
     $smarty->assign('BASE_URL', BASE_URL);
     $smarty->assign('especies', $matrixEspecie);
     $smarty->assign('habilito', $habilito);
-    $smarty->display('template/pagAdminEspecie.tpl');
+    $smarty->display('app/template/pagAdminEspecie.tpl');
   }
   function mostrarFormularioAgregar($tipoDeForm,$especies)
   {
@@ -21,14 +21,14 @@ class VistaEspecie
     $smarty->assign('BASE_URL', BASE_URL);
     $smarty->assign('especies', $especies);
     $smarty->assign('tipoDeForm', $tipoDeForm);
-    $smarty->display('template/formularioParaAgregar.tpl');
+    $smarty->display('app/template/formularioParaAgregar.tpl');
   }
   function mostrarErrorEjecucionBorrar($nombresEspecies)
   {
 
     $smarty = new Smarty();
     $smarty->assign('nombres', $nombresEspecies);
-    $smarty->display('template/errorBorrarEspecie.tpl');
+    $smarty->display('app/template/errorBorrarEspecie.tpl');
   }
   function mostrarEdicionEspecie($editar, $modeloEspecie)
   {
@@ -36,6 +36,6 @@ class VistaEspecie
     $smarty->assign('BASE_URL', BASE_URL);
     $smarty->assign('tipoDeEdicion', $editar);
     $smarty->assign('especie', $modeloEspecie);
-    $smarty->display('template/PaginaEdicion.tpl');
+    $smarty->display('app/template/PaginaEdicion.tpl');
   }
 }

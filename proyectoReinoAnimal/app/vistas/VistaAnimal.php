@@ -9,7 +9,7 @@ class VistaAnimal
 
         $smarty = new Smarty();
         $smarty->assign('BASE_URL', BASE_URL);
-        $smarty->display('template/intro.tpl');
+        $smarty->display('app/template/intro.tpl');
     }
     function mostrarEdicionAnimal($fila,$especie,$editar)
     {
@@ -18,23 +18,23 @@ class VistaAnimal
         $smarty->assign('especie',$especie);
         $smarty->assign('animal', $fila);
         $smarty->assign('tipoDeEdicion', $editar);
-        $smarty->display('template/PaginaEdicion.tpl');
+        $smarty->display('app/template/PaginaEdicion.tpl');
     }
     
     function mostrarError()
     {
 
         $smarty = new Smarty();
-       // $smarty->assign('BASE_URL', BASE_URL);
-        $smarty->display('template/error.tpl');
+        $smarty->assign('BASE_URL', BASE_URL);
+        $smarty->display('app/template/error.tpl');
     }
     function mostrarTablaAdmin($matrixAnimales)
     {
         $smarty = new Smarty();
         $smarty->assign('BASE_URL', BASE_URL);
         $smarty->assign('animales', $matrixAnimales);
-        $smarty->display('template/pagAdminAnimal.tpl');
-        $smarty->display('template/footer.tpl');
+        $smarty->display('app/template/pagAdminAnimal.tpl');
+        $smarty->display('app/template/footer.tpl');
 
     }
     function mostrarFormularioAgregar($tipoDeForm,$especies){
@@ -42,7 +42,7 @@ class VistaAnimal
         $smarty->assign('BASE_URL', BASE_URL);
         $smarty->assign('tipoDeForm', $tipoDeForm);
         $smarty->assign('especies', $especies);
-        $smarty->display('template/formularioParaAgregar.tpl');
+        $smarty->display('app/template/formularioParaAgregar.tpl');
 
 
     }
@@ -51,8 +51,8 @@ class VistaAnimal
         $smarty = new Smarty();
         $smarty->assign('BASE_URL', BASE_URL);
         $smarty->assign('animales', $matrixAnimales);
-        $smarty->display('template/intro.tpl');
-        $smarty->display('template/tabla.tpl');
-        $smarty->display('template/footer.tpl');
+        $smarty->display('app/template/intro.tpl');
+        $smarty->display('app/template/tabla.tpl');
+        $smarty->display('app/template/footer.tpl');
     }
 }

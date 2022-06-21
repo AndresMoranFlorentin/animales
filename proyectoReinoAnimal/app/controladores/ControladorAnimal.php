@@ -1,7 +1,7 @@
 <?php
-require_once "vistas/VistaAnimal.php";
-require_once "modelos/ModeloAnimal.php";
-require_once "modelos/ModeloEspecie.php";
+require_once "app/vistas/VistaAnimal.php";
+require_once "app/modelos/ModeloAnimal.php";
+require_once "app/modelos/ModeloEspecie.php";
 //echo "LLegaste hasta el controlador y el id es =".$id." ";
 
 class ControladorAnimal

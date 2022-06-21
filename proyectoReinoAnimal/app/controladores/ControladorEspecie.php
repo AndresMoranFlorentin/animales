@@ -1,7 +1,7 @@
 <?php
-require_once "vistas/VistaEspecie.php";
-require_once "modelos/ModeloEspecie.php";
-require_once "controladores/helperUser.php";
+require_once "app/vistas/VistaEspecie.php";
+require_once "app/modelos/ModeloEspecie.php";
+require_once "app/controladores/helperUser.php";
 
 class ControladorEspecie
 {

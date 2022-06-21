@@ -13,7 +13,7 @@
 </head>
 <div class="container-fluid">
     <h1> Seccion Animales</h1>
-    {include file="template/navegadorAdmin.tpl"}
+    {include file="app/template/navegadorAdmin.tpl"}
     <label></label>
     <label></label>
     <button><a action="mostrarFormAnimales" href="{$BASE_URL}mostrarFormAnimales">Agregar info a Tabla

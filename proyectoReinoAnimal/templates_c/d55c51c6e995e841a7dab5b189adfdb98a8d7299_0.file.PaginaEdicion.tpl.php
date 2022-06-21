@@ -1,28 +1,28 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-06-20 21:38:58
-  from 'C:\xampp\htdocs\web_2\animales\proyectoReinoAnimal\template\PaginaEdicion.tpl' */
+/* Smarty version 4.1.1, created on 2022-06-21 15:44:25
+  from 'C:\xampp\htdocs\web_2\animales\proyectoReinoAnimal\app\template\PaginaEdicion.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.1',
-  'unifunc' => 'content_62b0ccd2b38ea8_98047273',
+  'unifunc' => 'content_62b1cb39ee56f4_31317118',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '755d2e2d89eeace001fa19b54e64e49db7b13477' => 
+    'd55c51c6e995e841a7dab5b189adfdb98a8d7299' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\web_2\\animales\\proyectoReinoAnimal\\template\\PaginaEdicion.tpl',
-      1 => 1655753933,
+      0 => 'C:\\xampp\\htdocs\\web_2\\animales\\proyectoReinoAnimal\\app\\template\\PaginaEdicion.tpl',
+      1 => 1655816732,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
-    'file:template/navegadorAdmin.tpl' => 1,
+    'file:app/template/navegadorAdmin.tpl' => 1,
   ),
 ),false)) {
-function content_62b0ccd2b38ea8_98047273 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->_subTemplateRender("file:template/navegadorAdmin.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+function content_62b1cb39ee56f4_31317118 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_subTemplateRender("file:app/template/navegadorAdmin.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <div class="container-fluid">
     <h1>Escriba los datos que piensa editar a traves de este formulario:</h1>

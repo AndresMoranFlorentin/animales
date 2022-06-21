@@ -1,8 +1,8 @@
 <?php
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
-require_once 'controladores/ControladorAnimal.php';
-require_once 'controladores/ControladorLogin.php';
-require_once 'controladores/ControladorEspecie.php';
+require_once 'app/controladores/ControladorAnimal.php';
+require_once 'app/controladores/ControladorLogin.php';
+require_once 'app/controladores/ControladorEspecie.php';
 $controladorAnimal = new ControladorAnimal();
 $vista = new VistaAnimal();
 $controladorLogin = new ControladorLogin();
