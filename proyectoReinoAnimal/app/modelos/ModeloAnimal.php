@@ -28,6 +28,17 @@ class ModeloAnimal extends Modelo
 
     return $animal[0];
   }
+  function busquedaDelAnimal($animal,$especie){
+    $sql='SELECT a.*,e.especies FROM animales AS a , especies AS e ' .
+    'WHERE a.nombre =? AND e.especies =?';
+    $conexion=$this->conexionSQL();
+    $busqueda=$conexion->prepare($sql);
+    $busqueda->execute([$animal,$especie]);
+
+    $resultado=$busqueda->fetchAll(PDO::FETCH_OBJ);
+
+    return $resultado[0];
+  }
   function borrarFilaAnimal($id)
   {
     $sql = "DELETE FROM animales WHERE id_animales=?";

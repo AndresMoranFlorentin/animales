@@ -14,7 +14,6 @@ class ControladorAnimal
     {
         $this->modelo = new ModeloAnimal();
         $this->vista = new VistaAnimal();
-        
     }
     function mostrarAnimalesAccesoPublico()
     {
@@ -30,15 +29,15 @@ class ControladorAnimal
         $this->vista->mostrarTablaAdmin($matrix);
     }
     function preparar($id)
-    { 
-         $modeloespecie= New ModeloEspecie();
+    {
+        $modeloespecie = new ModeloEspecie();
         $fila = $this->modelo->traerUnaFila($id);
-        $especie=$modeloespecie->traerEspecies();
-        $editar='editar animal';
-        $this->vista->mostrarEdicionAnimal($fila,$especie,$editar);
-     }
+        $especie = $modeloespecie->traerEspecies();
+        $editar = 'editar animal';
+        $this->vista->mostrarEdicionAnimal($fila, $especie, $editar);
+    }
     function editarFila()
-    {  
+    {
         if (
             !isset($_POST['nombre'])
             && !isset($_POST['descripcion'])
@@ -62,12 +61,12 @@ class ControladorAnimal
         $matrix = $this->modelo->traerAnimales();
         $this->vista->mostrarTablaAdmin($matrix);
     }
-    function mostrarAgregarAnimales(){
-        $modeloEspecie= new ModeloEspecie();
-        $especies=$modeloEspecie->traerEspecies();
-        $tipoDeForm='animales';
-        $this->vista->mostrarFormularioAgregar($tipoDeForm,$especies);
-
+    function mostrarAgregarAnimales()
+    {
+        $modeloEspecie = new ModeloEspecie();
+        $especies = $modeloEspecie->traerEspecies();
+        $tipoDeForm = 'animales';
+        $this->vista->mostrarFormularioAgregar($tipoDeForm, $especies);
     }
     function agregarDatosTablaAnimal()
     {
@@ -94,5 +93,31 @@ class ControladorAnimal
 
         $matrix = $this->modelo->traerAnimales();
         $this->vista->mostrarTablaAdmin($matrix);
+    }
+    function buscarAnimal()
+    {
+
+        if (empty($_POST["animal"]) && empty($_POST["especie"])) {
+
+            $animal = $_POST["animal"];
+            $especie = $_POST["especie"];
+
+            $busqueda = $this->modelo->busquedaDelAnimal($animal, $especie);
+
+            if (isset($busqueda[0])) {
+                $matrixAnimales = $this->modelo->traerAnimales();
+                $valor = "si";
+                $this->vista->mostrarBusquedaObtenida($busqueda, $valor, $matrixAnimales);
+            } else {
+                $matrixAnimales = $this->modelo->traerAnimales();
+                $valor = "no";
+                $this->vista->mostrarBusquedaObtenida($busqueda, $valor, $matrixAnimales);
+            }
+        }
+        else{
+
+            header('location:' . BASE_URL . 'animalesAdmin');
+
+        }
     }
 }

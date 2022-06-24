@@ -37,6 +37,7 @@ class VistaAnimal
         $smarty->display('app/template/footer.tpl');
 
     }
+    
     function mostrarFormularioAgregar($tipoDeForm,$especies){
         $smarty = new Smarty();
         $smarty->assign('BASE_URL', BASE_URL);
