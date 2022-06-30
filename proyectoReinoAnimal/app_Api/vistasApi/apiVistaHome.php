@@ -3,15 +3,22 @@ require_once "smarty/libs/Smarty.class.php";
 
 class apiVistaHome
 {
-    public function verHome($animales,$especies,$status)
+    public function response($animales,$status)
     {
 
         header("Content-Type: application/json");
         header("HTTP/1.1 " . $status . " " . $this->_requestStatus($status));
         echo json_encode($animales);
-        echo json_encode($especies);
+       
     }
+    public function verComentarios($comentarios,$status)
+    {
 
+        header("Content-Type: application/json");
+        header("HTTP/1.1 " . $status . " " . $this->_requestStatus($status));
+        echo json_encode($comentarios);
+       
+    }
     private function _requestStatus($code)
     {
         $status = array(

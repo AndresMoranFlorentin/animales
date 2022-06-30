@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-06-21 15:44:25
-  from 'C:\xampp\htdocs\web_2\animales\proyectoReinoAnimal\app\template\PaginaEdicion.tpl' */
+/* Smarty version 4.0.0, created on 2022-06-29 01:32:21
+  from 'C:\xampp\htdocs\web2\animales\proyectoReinoAnimal\app\template\PaginaEdicion.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '4.1.1',
-  'unifunc' => 'content_62b1cb39ee56f4_31317118',
+  'version' => '4.0.0',
+  'unifunc' => 'content_62bb8f85449094_76111396',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'd55c51c6e995e841a7dab5b189adfdb98a8d7299' => 
+    '669bc732563e92903631ceeaba30956ce2701e07' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\web_2\\animales\\proyectoReinoAnimal\\app\\template\\PaginaEdicion.tpl',
-      1 => 1655816732,
+      0 => 'C:\\xampp\\htdocs\\web2\\animales\\proyectoReinoAnimal\\app\\template\\PaginaEdicion.tpl',
+      1 => 1656091991,
       2 => 'file',
     ),
   ),
@@ -21,32 +21,32 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:app/template/navegadorAdmin.tpl' => 1,
   ),
 ),false)) {
-function content_62b1cb39ee56f4_31317118 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62bb8f85449094_76111396 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:app/template/navegadorAdmin.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <div class="container-fluid">
     <h1>Escriba los datos que piensa editar a traves de este formulario:</h1>
 
     <?php if ($_smarty_tpl->tpl_vars['tipoDeEdicion']->value == 'editar animal') {?>
-
+<div  style="background-color:rgb(200, 200, 115)">
         <form action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 actualizarAnimal" method="post" class="my-form">
             <div class="form-group">
                 <label for="exampleFormControlInput1">Nombre</label>
                 <input type="text" name="nombre" value="<?php echo $_smarty_tpl->tpl_vars['animal']->value['nombre'];?>
-" required>>
+" required>
             </div>
             <label>Descripcion</label>
             <textarea class="form-control" name="descripcion" rows="3" value="<?php echo $_smarty_tpl->tpl_vars['animal']->value['descripcion'];?>
 "
                 required><?php echo $_smarty_tpl->tpl_vars['animal']->value['descripcion'];?>
 </textarea>
-            <label></label>
+            <label>Alimentacion</label>
             <textarea class="form-control" name="alimentacion" rows="3" value="<?php echo $_smarty_tpl->tpl_vars['animal']->value['alimentacion'];?>
 "
                 required><?php echo $_smarty_tpl->tpl_vars['animal']->value['alimentacion'];?>
 </textarea>
-            <label></label>
+            <label>Habitat</label>
             <textarea class="form-control" name="habitat" rows="2" value="<?php echo $_smarty_tpl->tpl_vars['animal']->value['habitat'];?>
 "
                 required><?php echo $_smarty_tpl->tpl_vars['animal']->value['habitat'];?>
@@ -92,7 +92,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 " name="id" />
                 <input class="btn-primary" type="submit">
         </form>
-
+</div>
 
 
     <?php } elseif ($_smarty_tpl->tpl_vars['tipoDeEdicion']->value == 'editar especie') {?>

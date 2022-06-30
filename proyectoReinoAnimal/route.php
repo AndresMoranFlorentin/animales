@@ -54,9 +54,6 @@ switch ($params[0]) {
     case 'agregarAnimales':
         $controladorAnimal->agregarDatosTablaAnimal();
         break;
-    case 'buscarAnimal':
-        $controladorAnimal->buscarAnimal();
-        break;
     case 'mostrarFormEspecies':
         $controladorEspecie->mostrarAgregarEspecies();
         break;

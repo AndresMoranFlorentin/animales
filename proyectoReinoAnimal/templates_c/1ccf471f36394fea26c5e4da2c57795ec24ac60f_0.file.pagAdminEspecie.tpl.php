@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-06-21 15:43:51
-  from 'C:\xampp\htdocs\web_2\animales\proyectoReinoAnimal\app\template\pagAdminEspecie.tpl' */
+/* Smarty version 4.0.0, created on 2022-06-30 05:28:48
+  from 'C:\xampp\htdocs\web2\animales\proyectoReinoAnimal\app\template\pagAdminEspecie.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '4.1.1',
-  'unifunc' => 'content_62b1cb1700ad06_70149986',
+  'version' => '4.0.0',
+  'unifunc' => 'content_62bd1870a554f5_40133112',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '44faf6a6d36a47b7330b21c276602cd25b5d0dc9' => 
+    '1ccf471f36394fea26c5e4da2c57795ec24ac60f' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\web_2\\animales\\proyectoReinoAnimal\\app\\template\\pagAdminEspecie.tpl',
-      1 => 1655816712,
+      0 => 'C:\\xampp\\htdocs\\web2\\animales\\proyectoReinoAnimal\\app\\template\\pagAdminEspecie.tpl',
+      1 => 1656559685,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:app/template/navegadorAdmin.tpl' => 1,
   ),
 ),false)) {
-function content_62b1cb1700ad06_70149986 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62bd1870a554f5_40133112 (Smarty_Internal_Template $_smarty_tpl) {
 ?><head>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -106,10 +106,18 @@ editarEspecie/<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
             <?php ob_start();
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
-$_prefixVariable2 = ob_get_clean();
-echo $_prefixVariable2;?>
+$_prefixVariable1 = ob_get_clean();
+echo $_prefixVariable1;?>
 
     </table>
 </div>
+        <?php if ($_smarty_tpl->tpl_vars['permiso_logueado']->value == "administrador" && $_smarty_tpl->tpl_vars['habilito']->value !== "publico") {?>
+            <h1>ERES ADMINISTRADOR</h1>
+
+        <?php } elseif ($_smarty_tpl->tpl_vars['permiso_logueado']->value == "usuario" && $_smarty_tpl->tpl_vars['habilito']->value !== "publico") {?>
+            <h1>ERES ENTONCES UN USUARIO</h1>
+        <?php } else { ?>
+
+        <?php }?>
 </div><?php }
 }

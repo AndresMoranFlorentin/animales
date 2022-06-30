@@ -2,18 +2,22 @@
 require_once "app/vistas/VistaAnimal.php";
 require_once "app/modelos/ModeloAnimal.php";
 require_once "app/modelos/ModeloEspecie.php";
+require_once "app/controladores/Controlador.php";
+require_once "app/controladores/helperUser.php";
 //echo "LLegaste hasta el controlador y el id es =".$id." ";
 
-class ControladorAnimal
+class ControladorAnimal extends Controlador
 {
 
     private $modelo;
     private $vista;
+    private $helperUser;
 
     public function __construct()
     {
         $this->modelo = new ModeloAnimal();
         $this->vista = new VistaAnimal();
+        $this->helperUser = new helperUser();
     }
     function mostrarAnimalesAccesoPublico()
     {
@@ -21,23 +25,39 @@ class ControladorAnimal
         $this->vista->mostrarTablaNoAdmin($matrix);
     }
 
+
     function borrar($id)
     {
+        if ($this->helperUser->checklogueo()) {
+            $this->modelo->borrarFilaAnimal($id);
+            $matrix = $this->modelo->traerAnimales();
+            $permiso =$this->esAdmin_o_Usuario();
+            $this->vista->mostrarTablaAdmin($matrix, $permiso);
+        } else {
 
-        $this->modelo->borrarFilaAnimal($id);
-        $matrix = $this->modelo->traerAnimales();
-        $this->vista->mostrarTablaAdmin($matrix);
+            header('location:' . BASE_URL . 'home');
+        }
     }
+
+
     function preparar($id)
     {
-        $modeloespecie = new ModeloEspecie();
-        $fila = $this->modelo->traerUnaFila($id);
-        $especie = $modeloespecie->traerEspecies();
-        $editar = 'editar animal';
-        $this->vista->mostrarEdicionAnimal($fila, $especie, $editar);
+        if ($this->helperUser->checklogueo()) {
+
+            $modeloespecie = new ModeloEspecie();
+            $fila = $this->modelo->traerUnaFila($id);
+            $especie = $modeloespecie->traerEspecies();
+            $editar = 'editar animal';
+            $this->vista->mostrarEdicionAnimal($fila, $especie, $editar);
+        } else {
+
+            header('location:' . BASE_URL . 'home');
+        }
     }
+
     function editarFila()
     {
+
         if (
             !isset($_POST['nombre'])
             && !isset($_POST['descripcion'])
@@ -46,55 +66,89 @@ class ControladorAnimal
             && !isset($_POST['especie'])
             && !isset($_POST['extinto'])
             && !isset($_POST['id_animales'])
-        ) {
+        )  {
+
             $this->vista->mostrarError();
             die();
+
+        } else {
+            $nombre = $_POST['nombre'];
+            $descripcion = $_POST['descripcion'];
+            $alimento = $_POST['alimentacion'];
+            $habitat = $_POST['habitat'];
+            $especie = $_POST['especie'];
+            $extinto = $_POST['extinto'];
+            $id = $_POST['id'];
+
+            $this->modelo->actualizarFila($nombre, $descripcion, $alimento, $habitat, $especie, $extinto, $id);
+            $matrix = $this->modelo->traerAnimales();
+            $permiso = $this->esAdmin_o_Usuario();
+           
+            $this->vista->mostrarTablaAdmin($matrix, $permiso);
         }
-        $nombre = $_POST['nombre'];
-        $descripcion = $_POST['descripcion'];
-        $alimento = $_POST['alimentacion'];
-        $habitat = $_POST['habitat'];
-        $especie = $_POST['especie'];
-        $extinto = $_POST['extinto'];
-        $id = $_POST['id'];
-        $this->modelo->actualizarFila($nombre, $descripcion, $alimento, $habitat, $especie, $extinto, $id);
-        $matrix = $this->modelo->traerAnimales();
-        $this->vista->mostrarTablaAdmin($matrix);
+    }
+
+
+    function mostrarAdministradorAnimal()
+    {
+
+        $validacion = $this->helperUser->es_Admin();
+
+        if ($validacion) {
+            $admin = "administrador";
+            $matrix = $this->modelo->traerAnimales();
+            $this->vista->mostrarTablaAdmin($matrix, $admin);
+        } else {
+
+            header('location:' . BASE_URL . 'home');
+        }
     }
     function mostrarAgregarAnimales()
     {
-        $modeloEspecie = new ModeloEspecie();
-        $especies = $modeloEspecie->traerEspecies();
-        $tipoDeForm = 'animales';
-        $this->vista->mostrarFormularioAgregar($tipoDeForm, $especies);
+        if ($this->helperUser->checklogueo()) {
+
+            $modeloEspecie = new ModeloEspecie();
+            $especies = $modeloEspecie->traerEspecies();
+            $tipoDeForm = 'animales';
+            $this->vista->mostrarFormularioAgregar($tipoDeForm, $especies);
+        } else {
+            header('location:' . BASE_URL . 'home');
+        }
     }
     function agregarDatosTablaAnimal()
     {
-        if (
-            !isset($_POST['nombre'])
-            && !isset($_POST['descripcion'])
-            && !isset($_POST['alimentacion'])
-            && !isset($_POST['habitat'])
-            && !isset($_POST['especie'])
-            && !isset($_POST['extinto'])
-        ) {
 
-            $this->vista->mostrarError();
-            die();
+        if ($this->helperUser->checklogueo()) {
+            if (
+                !isset($_POST['nombre'])
+                && !isset($_POST['descripcion'])
+                && !isset($_POST['alimentacion'])
+                && !isset($_POST['habitat'])
+                && !isset($_POST['especie'])
+                && !isset($_POST['extinto'])
+            ) {
+
+                $this->vista->mostrarError();
+                die();
+            }
+            $nombre = $_POST['nombre'];
+            $descripcion = $_POST['descripcion'];
+            $alimento = $_POST['alimentacion'];
+            $habitat = $_POST['habitat'];
+            $especie = $_POST['especie'];
+            $extinto = $_POST['extinto'];
+            $this->modelo->agregarInfoAnimal($nombre, $descripcion, $alimento, $habitat, $especie, $extinto);
+
+            $permiso = $this->esAdmin_o_Usuario();
+        
+            $matrix = $this->modelo->traerAnimales();
+;
+            $this->vista->mostrarTablaAdmin($matrix, $permiso);
+        } else {
+            header('location:' . BASE_URL . 'home');
         }
-        $nombre = $_POST['nombre'];
-        $descripcion = $_POST['descripcion'];
-        $alimento = $_POST['alimentacion'];
-        $habitat = $_POST['habitat'];
-        $especie = $_POST['especie'];
-        $extinto = $_POST['extinto'];
-        $this->modelo->agregarInfoAnimal($nombre, $descripcion, $alimento, $habitat, $especie, $extinto);
-
-
-        $matrix = $this->modelo->traerAnimales();
-        $this->vista->mostrarTablaAdmin($matrix);
     }
-    function buscarAnimal()
+    /*  function buscarAnimal()
     {
 
         if (empty($_POST["animal"]) && empty($_POST["especie"])) {
@@ -119,5 +173,5 @@ class ControladorAnimal
             header('location:' . BASE_URL . 'animalesAdmin');
 
         }
-    }
+    }*/
 }

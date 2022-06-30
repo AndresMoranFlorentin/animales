@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-06-21 15:50:03
-  from 'C:\xampp\htdocs\web_2\animales\proyectoReinoAnimal\app\template\errorBorrarEspecie.tpl' */
+/* Smarty version 4.0.0, created on 2022-06-29 01:32:33
+  from 'C:\xampp\htdocs\web2\animales\proyectoReinoAnimal\app\template\errorBorrarEspecie.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '4.1.1',
-  'unifunc' => 'content_62b1cc8ba99922_25335815',
+  'version' => '4.0.0',
+  'unifunc' => 'content_62bb8f914bfb95_29315641',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'e8c9c5145ded244f742fb50b4ab5157d41891e9c' => 
+    'e879f8a352255e60fa2d6651bc892f636bbe9ec6' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\web_2\\animales\\proyectoReinoAnimal\\app\\template\\errorBorrarEspecie.tpl',
-      1 => 1655819400,
+      0 => 'C:\\xampp\\htdocs\\web2\\animales\\proyectoReinoAnimal\\app\\template\\errorBorrarEspecie.tpl',
+      1 => 1656079707,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62b1cc8ba99922_25335815 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62bb8f914bfb95_29315641 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <h2>Debera borrar primero los siguientes animales, si desea eliminar esa especie:</h2>
 <label></label>

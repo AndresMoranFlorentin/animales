@@ -9,8 +9,8 @@ $router = new Router();
 
 // define la tabla de ruteo
 $router->addRoute('home', 'GET', 'apiControladorHome', 'mostrarHome');
-$router->addRoute('Especie', 'POST', 'apiControladorEspecie', 'generarNuevaEspecies');
-$router->addRoute('Animal/:ID', 'DELETE', 'apiControladorAnimal', 'borrarAnimal');
+$router->addRoute('comentario', 'GET', 'apiControladorHome', 'mostrarComentarios');
+$router->addRoute('comentario/:ID', 'DELETE', 'apiControladorHome', 'borrarComentario');
 //$router->addRoute('tareas/:ID', 'GET', 'ApiTaskController', 'obtenerTarea');
 
 // rutea

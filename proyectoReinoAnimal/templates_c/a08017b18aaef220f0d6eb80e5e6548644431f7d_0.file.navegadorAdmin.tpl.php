@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-06-21 15:44:05
-  from 'C:\xampp\htdocs\web_2\animales\proyectoReinoAnimal\app\template\navegadorAdmin.tpl' */
+/* Smarty version 4.0.0, created on 2022-06-28 21:33:45
+  from 'C:\xampp\htdocs\web2\animales\proyectoReinoAnimal\app\template\navegadorAdmin.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '4.1.1',
-  'unifunc' => 'content_62b1cb25f01490_31590753',
+  'version' => '4.0.0',
+  'unifunc' => 'content_62bb5799897854_82817497',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '2b95a277eca6c1c93fd4302bb80466413c0a45aa' => 
+    'a08017b18aaef220f0d6eb80e5e6548644431f7d' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\web_2\\animales\\proyectoReinoAnimal\\app\\template\\navegadorAdmin.tpl',
-      1 => 1655754005,
+      0 => 'C:\\xampp\\htdocs\\web2\\animales\\proyectoReinoAnimal\\app\\template\\navegadorAdmin.tpl',
+      1 => 1656079707,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62b1cb25f01490_31590753 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62bb5799897854_82817497 (Smarty_Internal_Template $_smarty_tpl) {
 ?><head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">

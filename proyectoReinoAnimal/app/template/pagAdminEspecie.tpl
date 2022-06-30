@@ -64,4 +64,12 @@
             {{/foreach}}
     </table>
 </div>
+        {if $permiso_logueado=="administrador" && $habilito !== "publico"}
+            <h1>ERES ADMINISTRADOR</h1>
+
+        {elseif $permiso_logueado=="usuario" && $habilito !== "publico"}
+            <h1>ERES ENTONCES UN USUARIO</h1>
+        {else}
+
+        {/if}
 </div>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-06-21 15:43:50
-  from 'C:\xampp\htdocs\web_2\animales\proyectoReinoAnimal\app\template\intro.tpl' */
+/* Smarty version 4.0.0, created on 2022-06-28 19:24:14
+  from 'C:\xampp\htdocs\web2\animales\proyectoReinoAnimal\app\template\intro.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '4.1.1',
-  'unifunc' => 'content_62b1cb16e90d71_94300737',
+  'version' => '4.0.0',
+  'unifunc' => 'content_62bb393ec78a67_33275130',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '59d487dcd58b4b119d8d9e303110dabb78fd50a9' => 
+    'dddbd8ca60863a6d12f33560564778007604c035' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\web_2\\animales\\proyectoReinoAnimal\\app\\template\\intro.tpl',
-      1 => 1655816667,
+      0 => 'C:\\xampp\\htdocs\\web2\\animales\\proyectoReinoAnimal\\app\\template\\intro.tpl',
+      1 => 1656435608,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62b1cb16e90d71_94300737 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62bb393ec78a67_33275130 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="es">
 
@@ -46,6 +46,9 @@ function content_62b1cb16e90d71_94300737 (Smarty_Internal_Template $_smarty_tpl)
  src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
   <?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"><?php echo '</script'; ?>
 >
 
 </head>

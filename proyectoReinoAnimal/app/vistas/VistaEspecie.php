@@ -4,17 +4,16 @@ require_once "smarty/libs/Smarty.class.php";
 class VistaEspecie
 {
 
-
-
-  function mostrarEspecies($matrixEspecie,$habilito)
+  function mostrarEspecies($matrixEspecie,$habilito,$permiso)
   {
-
     $smarty = new Smarty();
     $smarty->assign('BASE_URL', BASE_URL);
     $smarty->assign('especies', $matrixEspecie);
     $smarty->assign('habilito', $habilito);
+    $smarty->assign('permiso_logueado', $permiso);
     $smarty->display('app/template/pagAdminEspecie.tpl');
   }
+
   function mostrarFormularioAgregar($tipoDeForm,$especies)
   {
     $smarty = new Smarty();
@@ -23,6 +22,7 @@ class VistaEspecie
     $smarty->assign('tipoDeForm', $tipoDeForm);
     $smarty->display('app/template/formularioParaAgregar.tpl');
   }
+
   function mostrarErrorEjecucionBorrar($nombresEspecies)
   {
 
@@ -30,6 +30,7 @@ class VistaEspecie
     $smarty->assign('nombres', $nombresEspecies);
     $smarty->display('app/template/errorBorrarEspecie.tpl');
   }
+
   function mostrarEdicionEspecie($editar, $modeloEspecie)
   {
     $smarty = new Smarty();

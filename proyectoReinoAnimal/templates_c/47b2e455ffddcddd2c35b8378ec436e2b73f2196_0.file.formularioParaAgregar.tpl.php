@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-06-21 15:50:09
-  from 'C:\xampp\htdocs\web_2\animales\proyectoReinoAnimal\app\template\formularioParaAgregar.tpl' */
+/* Smarty version 4.0.0, created on 2022-06-29 16:00:58
+  from 'C:\xampp\htdocs\web2\animales\proyectoReinoAnimal\app\template\formularioParaAgregar.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '4.1.1',
-  'unifunc' => 'content_62b1cc91a22c78_96493970',
+  'version' => '4.0.0',
+  'unifunc' => 'content_62bc5b1a9e3af9_16822636',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '7a27841062b4b4919ee6a529cb530f42d97221f6' => 
+    '47b2e455ffddcddd2c35b8378ec436e2b73f2196' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\web_2\\animales\\proyectoReinoAnimal\\app\\template\\formularioParaAgregar.tpl',
-      1 => 1655819258,
+      0 => 'C:\\xampp\\htdocs\\web2\\animales\\proyectoReinoAnimal\\app\\template\\formularioParaAgregar.tpl',
+      1 => 1656079707,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:app/template/navegadorAdmin.tpl' => 1,
   ),
 ),false)) {
-function content_62b1cc91a22c78_96493970 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62bc5b1a9e3af9_16822636 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:app/template/navegadorAdmin.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
  <?php if ($_smarty_tpl->tpl_vars['tipoDeForm']->value == 'animales') {?>

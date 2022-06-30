@@ -5,8 +5,11 @@ require_once "app/vistas/VistaLogin.php";
 require_once "app/modelos/ModeloLogin.php";
 require_once "app/modelos/ModeloAnimal.php";
 require_once "app/controladores/ControladorEspecie.php";
+require_once "app/controladores/ControladorAnimal.php";
 require_once "app/controladores/helperUser.php";
-class ControladorLogin
+require_once "app/controladores/Controlador.php";
+
+class ControladorLogin extends Controlador
 {
 
     public function __construct()
@@ -15,25 +18,38 @@ class ControladorLogin
         $this->vistalogin = new VistaLogin();
         $this->modeloanimal = new ModeloAnimal();
         $this->vistaanimal = new VistaAnimal();
+        $this->controladorAnimal = new ControladorAnimal();
         $this->helperUser = new helperUser();
         $this->controladorEspecie = new ControladorEspecie();
+        $this->Controlador= new Controlador();
+
     }
+
     function Login()
     {
 
-        if (!empty($_POST['email']) && !empty($_POST['contraseña'])) {
+        if (!empty($_POST['mail']) && !empty($_POST['contraseña'])) {
 
             //$Contraseña= password_hash($_POST['contraseña'], PASSWORD_BCRYPT);
-            $email = $_POST['email'];
+            $email = $_POST['mail'];
             $contraseña = $_POST['contraseña'];
             $tabla_usuario = $this->modelologin->traerContraseña($email);
 
             if ($tabla_usuario && password_verify($contraseña, ($tabla_usuario['contrasenia']))) {
 
                 $this->helperUser->iniciarSesion($tabla_usuario);
-                $this->mostrarAdminAnimal();
+
+                if ($this->helperUser->es_Usuario()) {
+
+                    $this->mostrarAdminAnimal();
+                } elseif ($this->helperUser->es_Admin()) {
+
+                    $this->controladorAnimal->mostrarAdministradorAnimal();
+                } else {
+                    header('location:' . BASE_URL . 'home');
+                }
             } else {
-                header('location:' . BASE_URL . 'loguearse');
+                header('location:' . BASE_URL . 'home');
             }
         } else {
             $this->vistalogin->mostrarLogin();
@@ -41,9 +57,9 @@ class ControladorLogin
     }
     function traerFormLogin()
     {
-
         $this->vistalogin->mostrarLogin();
     }
+
     function desLoguearse()
     {
         $this->helperUser->logout();
@@ -52,22 +68,23 @@ class ControladorLogin
 
     function mostrarAdminAnimal()
     {
-
-        $validacion = $this->helperUser->checklogueo();
-        if ($validacion) {
-            $matrix = $this->modeloanimal->traerAnimales();
-            $this->vistaanimal->mostrarTablaAdmin($matrix);
-        } else {
-            header('location:' . BASE_URL . 'loguearse');
-        }
+            $admin =$this->esAdmin_o_Usuario();
+            $matrixAnimal = $this->modeloanimal->traerAnimales();
+            $this->vistaanimal->mostrarTablaAdmin($matrixAnimal, $admin);
     }
+
     function mostrarAdminEspecie()
     {
-        $validacion = $this->helperUser->checklogueo();
-        if ($validacion) {
-            $this->controladorEspecie->mostrarEspeciesAdmin();
+        $logueado = $this->helperUser->checklogueo();
+       
+        if ($logueado) {
+            $permiso =$this->Controlador->esAdmin_o_Usuario();
+            
+            $this->controladorEspecie->mostrarEspeciesAdmin($permiso);
+
         } else {
-            header('location:' . BASE_URL . 'loguearse');
+
+            header('location:' . BASE_URL . 'home');
         }
     }
 }

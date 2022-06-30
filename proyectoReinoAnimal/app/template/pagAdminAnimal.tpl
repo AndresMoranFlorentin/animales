@@ -17,10 +17,11 @@
 
 <label></label>
 <label></label>
-<button><a action="mostrarFormAnimales" href="{$BASE_URL}mostrarFormAnimales">Agregar info a Tabla
-        Animal</a></button>
+<button><a action="mostrarFormAnimales" href="{$BASE_URL}mostrarFormAnimales">
+Agregar info a Tabla Animal</a></button>
 <label></label>
 <label></label>
+
 <div>
     <table class="table table-bordered">
         <thead class="thead-dark">
@@ -70,5 +71,9 @@
             {{/foreach}}
     </table>
 </div>
-
+{if $permiso_logueado == "administrador"}
+    <h1>ESTAS COMO ADMINISTRADOR</h1>
+   {else}
+    <h1>ENTONCES SOS UN USUARIO</h1>
+{/if}
 </div>

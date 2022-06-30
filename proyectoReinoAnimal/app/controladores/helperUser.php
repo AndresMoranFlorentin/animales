@@ -8,7 +8,31 @@ class helperUser
     {
         $this->start();
         $_SESSION["logueado"] = true;
-        $_SESSION["username"] = $tabla_user['email'];
+        $_SESSION["username"] = $tabla_user['mail'];
+        $_SESSION["rol"] = $tabla_user['rol'];
+    }
+
+    function es_Admin()
+    {
+        $this->start();
+        
+        if (isset($_SESSION["rol"]) && $_SESSION["rol"]=="administrador") {
+
+            return true;
+        }
+
+        return false;
+    }
+    function es_Usuario()
+    {
+        $this->start();
+        
+        if (isset($_SESSION["rol"]) && $_SESSION["rol"]=="usuario") {
+
+            return true;
+        }
+
+        return false;
     }
     function start()
     {

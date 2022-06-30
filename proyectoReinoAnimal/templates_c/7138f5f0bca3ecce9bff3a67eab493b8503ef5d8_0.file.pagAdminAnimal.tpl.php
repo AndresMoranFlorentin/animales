@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.1, created on 2022-06-24 16:45:01
-  from 'C:\xampp\htdocs\web_2\animales\proyectoReinoAnimal\app\template\pagAdminAnimal.tpl' */
+/* Smarty version 4.0.0, created on 2022-06-30 00:43:10
+  from 'C:\xampp\htdocs\web2\animales\proyectoReinoAnimal\app\template\pagAdminAnimal.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '4.1.1',
-  'unifunc' => 'content_62b5cded6a6c96_48410756',
+  'version' => '4.0.0',
+  'unifunc' => 'content_62bcd57ee5d541_20243235',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '8286964fcc8cb463beb4fd23c95e57c94b8c0871' => 
+    '7138f5f0bca3ecce9bff3a67eab493b8503ef5d8' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\web_2\\animales\\proyectoReinoAnimal\\app\\template\\pagAdminAnimal.tpl',
-      1 => 1656081887,
+      0 => 'C:\\xampp\\htdocs\\web2\\animales\\proyectoReinoAnimal\\app\\template\\pagAdminAnimal.tpl',
+      1 => 1656542558,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:app/template/navegadorAdmin.tpl' => 1,
   ),
 ),false)) {
-function content_62b5cded6a6c96_48410756 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62bcd57ee5d541_20243235 (Smarty_Internal_Template $_smarty_tpl) {
 ?><head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -49,10 +49,11 @@ function content_62b5cded6a6c96_48410756 (Smarty_Internal_Template $_smarty_tpl)
 <label></label>
 <label></label>
 <button><a action="mostrarFormAnimales" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-mostrarFormAnimales">Agregar info a Tabla
-        Animal</a></button>
+mostrarFormAnimales">
+Agregar info a Tabla Animal</a></button>
 <label></label>
 <label></label>
+
 <div>
     <table class="table table-bordered">
         <thead class="thead-dark">
@@ -121,6 +122,10 @@ echo $_prefixVariable1;?>
 
     </table>
 </div>
-
+<?php if ($_smarty_tpl->tpl_vars['permiso_logueado']->value == "administrador") {?>
+    <h1>ESTAS COMO ADMINISTRADOR</h1>
+   <?php } else { ?>
+    <h1>ENTONCES SOS UN USUARIO</h1>
+<?php }?>
 </div><?php }
 }

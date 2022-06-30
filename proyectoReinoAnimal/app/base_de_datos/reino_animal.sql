@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-06-2022 a las 23:55:38
+-- Tiempo de generación: 30-06-2022 a las 05:29:42
 -- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 8.0.19
+-- Versión de PHP: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,27 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `reino_animal`
 --
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `acceso`
---
-
-CREATE TABLE `acceso` (
-  `id_usuario` int(11) NOT NULL,
-  `nombre` text NOT NULL,
-  `contrasenia` text NOT NULL,
-  `email` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `acceso`
---
-
-INSERT INTO `acceso` (`id_usuario`, `nombre`, `contrasenia`, `email`) VALUES
-(1, 'Andres', '$2y$10$.LVupr8J/VHSUFoEyq971.9C/58F1x/LlyusWXrQIiTJgz7hQ8hOy', 'moranandres729@gmail.com'),
-(2, 'Solange', 'Solange_neco_web2021', 'solange34@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -69,13 +48,13 @@ INSERT INTO `animales` (`id_animales`, `nombre`, `descripcion`, `alimentacion`, 
 (5, 'Arañas', 'Las arañas son del orden de artropodos pero no insectos, tienen el cuerpo dividido en dos partes denominadas tagmas, y cuentan con cuatro pares de patas. en la boca tienen un par de uñas venenosas y otro de apéndices o palpos que en los machos sirven para la cópula. En el extremo del abdomen tiene el ano y las hileras u órganos productores de la seda con la que tapiza su vivienda, caza sus presas y se traslada de un lugar a otro', 'otras arañas, insectos de menor tamaño como moscas', 'En todo el mundo', 1, 7),
 (20, 'Mosca', 'Insecto de cuerpo negro de unos 6 mm de largo, con dos alas transparentes cruzadas de nervios, seis patas muy finas con uñas y ventosas, ojos grandes y salientes, y un aparato bucal para chupar las sustancias de que se alimenta.', 'heces, basura y animales en descomposición ', 'En todo el mundo Exepto en el polo sur y norte', 1, 8),
 (21, 'Vacas', 'Mamífero rumiante bóvido, hembra, de unos 150 cm de altura y 250 cm de longitud, cuerpo muy robusto, pelo corto, cabeza gruesa provista de dos cuernos curvos y puntiagudos, hocico ancho, papada en el pecho, y cola larga con un mechón en el extremo; de él se aprovechan la leche, la carne y la piel.', 'pasto, plantas no venenosas, y cereales ', 'todas partes del mundo que el ser humano las crie', 0, 1),
-(22, 'Sapo', 'animal semi-acuatico de cuerpo más grueso que la rana y con la piel sembrada de verrugas.\r\nel sapo es un animal nocturno, que se caracteriza por sus patas cortas, sus ojos saltones y su piel con verrugas.', 'y se alimenta de insectos y pequeños vertebrados\"', 'en las zonas tropicales', 0, 3),
+(22, 'Sapo', 'animal semi-acuatico de cuerpo más grueso que la rana y con la piel sembrada de verrugas.\r\nel sapo es un animal nocturno, que se caracteriza por sus patas cortas, sus ojos saltones y su piel con verrugas', 'y se alimenta de insectos y pequeños vertebrados', 'en las zonas tropicales', 1, 3),
 (24, 'Perro', 'Animal', 'balanceado', 'todo el mundo', 1, 1),
 (44, 'pez globo', 'El pez globo es uno de los peces más curiosos del mundo acuático, famoso por ser capaz de hincharse hasta convertir su cuerpo alargado en una auténtica bola esférica. Sin embargo, detrás de su aspecto divertido se esconde uno de los animales más venenosos del mundo.', 'es insectivoro y en ciertas ocasiones carnivoros', 'Los oceanos atlantico y pacifico', 1, 5),
 (51, 'Jabalí', 'El jabalí es el primo salvaje del cerdo doméstico. Es un animal vigoroso, de cuerpo grueso y redondo, cabeza grande y alargada terminada en largo y estrecho hocico, la jeta. Tiene las orejas grandes, enhiestas y de forma triangular. El cuerpo del jabalí está cubierto de pelo. Esta pelambre, compuesta por las cerdas -pelos largos y gruesos- y la borra -pelusa compacta y apelmazada-, presenta bastantes variaciones de color, aunque con predominio del pardo oscuro.. Es característico en el jabalí un', 'Omnivoro', 'abarca Europa, Asia y el norte de África y ha sido introducida en el continente americano, Australia', 1, 1),
 (78, 'Cachalote', 'Mamífero marino de 15 a 20 m de largo, cuya cabeza alcanza casi la tercera parte de la longitud total del cuerpo y guarda gran cantidad de grasa; tiene boca provista de dientes, y un solo orificio nasal; es agresivo, se alimenta de calamares y vive en aguas profundas', 'es carnivoro, su alimento mas comun son los calama', 'los mares', 1, 1),
 (80, 'Camaleon ', 'Reptil de tamano no mayor a un metro, con la habilidad de cambiar de colores y camuflarse', 'es insectivoroo', 'Madagascar', 1, 4),
-(81, 'Lombris', 'gusano, ser invertebrado, de cuerpo cilindrico a veces anillado, que no supera los 10 cm,y totalmente inofensivo.', 'nutrientes y desechos que hay en la tierra', 'en la capa de la tierra llamado humus,todo el mundo exepto el polo sur y norte', 1, 6);
+(81, 'Lombris', 'gusano, ser invertebrado, de cuerpo cilindrico a generalmente anillado, que no supera los 10 cm, y es totalmente inofensivo.', 'nutrientes y desechos que hay en la tierra', 'en la capa de la tierra llamado humus, todo el mundo excepto el polo sur y norte', 1, 6);
 
 -- --------------------------------------------------------
 
@@ -104,15 +83,54 @@ INSERT INTO `especies` (`id_especie`, `especies`, `vertebrados`) VALUES
 (8, 'Insectos', 0),
 (9, 'Aves', 1);
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tabla_comentarios`
+--
+
+CREATE TABLE `tabla_comentarios` (
+  `id` int(11) NOT NULL,
+  `comentario` varchar(500) NOT NULL,
+  `puntaje` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tabla_comentarios`
+--
+
+INSERT INTO `tabla_comentarios` (`id`, `comentario`, `puntaje`) VALUES
+(1, 'esta tabla de animal esta incompleta faltan muchos animales conocidos', 3),
+(2, 'faltan muchas especies, pero estan las principales', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id_usuario` int(200) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `mail` varchar(100) NOT NULL,
+  `contrasenia` varchar(100) NOT NULL,
+  `rol` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id_usuario`, `nombre`, `mail`, `contrasenia`, `rol`) VALUES
+(1, 'Andres', 'moranandres729@gmail.com', '$2a$10$aroIJEsrDzjH1rIrov/k/e.19YiZZGnZDjAHnSNyfCAvdy7zVbDBu', 'administrador'),
+(2, 'Solange', 'solange34@gmail.com', '$2a$10$InB5xEdSE2XsfCKsHG1r6eZ.cBu75JHPccmiKJ4xgsR.eL7ep3sjq', 'administrador'),
+(3, 'Lautaro', 'lautaro123@gmail.com', '$2a$10$fCNpWtHMeMqnAphBgqyJq.xt7VFxrJEaVZXXLOWsJKCOQjgyO/SkO', 'usuario'),
+(4, 'lucas', 'lucas@gmail.com', '$2a$10$p26xicAauPEi/iQpzFK1VuAAv1FhMElhBWMrk7foGCJWUyP4VPfIO', 'usuario'),
+(5, 'facundo', 'facundoTutor@gmail.com', '$2a$10$uvbbaXYy3fhV0Y/mfGX2S.R6Pdk6E0BN00ZtfEracIj23Bz.3sfuq', 'usuario');
+
 --
 -- Índices para tablas volcadas
 --
-
---
--- Indices de la tabla `acceso`
---
-ALTER TABLE `acceso`
-  ADD PRIMARY KEY (`id_usuario`);
 
 --
 -- Indices de la tabla `animales`
@@ -128,26 +146,44 @@ ALTER TABLE `especies`
   ADD PRIMARY KEY (`id_especie`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- Indices de la tabla `tabla_comentarios`
 --
+ALTER TABLE `tabla_comentarios`
+  ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de la tabla `acceso`
+-- Indices de la tabla `usuarios`
 --
-ALTER TABLE `acceso`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id_usuario`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
 
 --
 -- AUTO_INCREMENT de la tabla `animales`
 --
 ALTER TABLE `animales`
-  MODIFY `id_animales` int(180) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+  MODIFY `id_animales` int(180) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- AUTO_INCREMENT de la tabla `especies`
 --
 ALTER TABLE `especies`
-  MODIFY `id_especie` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_especie` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `tabla_comentarios`
+--
+ALTER TABLE `tabla_comentarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id_usuario` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas

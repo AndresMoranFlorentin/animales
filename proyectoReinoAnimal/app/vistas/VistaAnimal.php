@@ -28,11 +28,13 @@ class VistaAnimal
         $smarty->assign('BASE_URL', BASE_URL);
         $smarty->display('app/template/error.tpl');
     }
-    function mostrarTablaAdmin($matrixAnimales)
+    
+    function mostrarTablaAdmin($matrixAnimales, $admin)
     {
         $smarty = new Smarty();
         $smarty->assign('BASE_URL', BASE_URL);
         $smarty->assign('animales', $matrixAnimales);
+        $smarty->assign('permiso_logueado', $admin);
         $smarty->display('app/template/pagAdminAnimal.tpl');
         $smarty->display('app/template/footer.tpl');
 
@@ -51,9 +53,10 @@ class VistaAnimal
     {  
         $smarty = new Smarty();
         $smarty->assign('BASE_URL', BASE_URL);
-        $smarty->assign('animales', $matrixAnimales);
+       // $smarty->assign('animales', $matrixAnimales);
         $smarty->display('app/template/intro.tpl');
-        $smarty->display('app/template/tabla.tpl');
+        $smarty->display('app/template/template_vue/seccionComentario.tpl');
+        $smarty->display('app/template/template_vue/tabla_animal.tpl');
         $smarty->display('app/template/footer.tpl');
     }
 }
