@@ -11,11 +11,13 @@
 </script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
+<link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
 
 {literal}
     <div class="container-fluid">
         <section id="template-vue-comentarios">
-             <h1>{{ subtitle }}</h1>
+            
              <div class="row">
                 <div class="col-8">
                    <h2>Comentarios</h2>
@@ -23,7 +25,7 @@
                 <div class="col">
                    <h2>Puntaje</h2>
                 </div>
-                 <div class="col">
+                 <div v-if ="permiso_logueado == administrador" class="col">
                    <h2>Borrar</h2>
                 </div>
 
@@ -35,11 +37,14 @@
                 <div class="col">
                    <p>{{ comentar.puntaje }}</p>
                 </div>
-                <div class="col">
-                    <a :data-id= "comentar.id" class="btn-eliminar" href="#">Eliminar</a>
+                <div v-if ="permiso_logueado == administrador" class="col">
+                    <a :data_id="comentar.id" v-on:click="borrar"  href="#">Eliminar</a>
                 </div>
+               
              </div> 
         </section>
     </div>
-<script src="api_js/comentarios.js"></script>
 {/literal}
+
+{include file ="app/template/formularioComentario.tpl"}
+

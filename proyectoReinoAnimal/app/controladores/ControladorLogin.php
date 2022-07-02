@@ -21,8 +21,7 @@ class ControladorLogin extends Controlador
         $this->controladorAnimal = new ControladorAnimal();
         $this->helperUser = new helperUser();
         $this->controladorEspecie = new ControladorEspecie();
-        $this->Controlador= new Controlador();
-
+        $this->Controlador = new Controlador();
     }
 
     function Login()
@@ -68,23 +67,47 @@ class ControladorLogin extends Controlador
 
     function mostrarAdminAnimal()
     {
-            $admin =$this->esAdmin_o_Usuario();
-            $matrixAnimal = $this->modeloanimal->traerAnimales();
-            $this->vistaanimal->mostrarTablaAdmin($matrixAnimal, $admin);
+        $admin = $this->esAdmin_o_Usuario();
+
+        $matrixAnimal = $this->modeloanimal->traerAnimales();
+
+        $usuarios = $this->traeme_Los_Usuarios();
+
+        $this->vistaanimal->mostrarTablaAdmin($matrixAnimal, $admin, $usuarios);
     }
 
     function mostrarAdminEspecie()
     {
         $logueado = $this->helperUser->checklogueo();
-       
-        if ($logueado) {
-            $permiso =$this->Controlador->esAdmin_o_Usuario();
-            
-            $this->controladorEspecie->mostrarEspeciesAdmin($permiso);
 
+        if ($logueado) {
+            $permiso = $this->Controlador->esAdmin_o_Usuario();
+
+            $this->controladorEspecie->mostrarEspeciesAdmin($permiso);
         } else {
 
             header('location:' . BASE_URL . 'home');
         }
+    }
+    function User_a_Admin($id)
+    {
+
+        $usuario = "administrador";
+
+        $this->modelologin->serUser_o_Admin($usuario, $id);
+        $this->mostrarAdminAnimal();
+    }
+    function Admin_a_User($id)
+    {
+
+        $usuario = "usuario";
+
+        $this->modelologin->serUser_o_Admin($usuario, $id);
+        header('location:' . BASE_URL . 'animalesAdmin');
+    }
+    function borrar_Usuario($id)
+    {
+        $this->modelologin->borrarUser($id);
+        header('location:' . BASE_URL . 'animalesAdmin');
     }
 }

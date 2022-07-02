@@ -10,6 +10,7 @@ $router = new Router();
 // define la tabla de ruteo
 $router->addRoute('home', 'GET', 'apiControladorHome', 'mostrarHome');
 $router->addRoute('comentario', 'GET', 'apiControladorHome', 'mostrarComentarios');
+$router->addRoute('comentario', 'POST', 'apiControladorHome', 'agregarComentario');
 $router->addRoute('comentario/:ID', 'DELETE', 'apiControladorHome', 'borrarComentario');
 //$router->addRoute('tareas/:ID', 'GET', 'ApiTaskController', 'obtenerTarea');
 

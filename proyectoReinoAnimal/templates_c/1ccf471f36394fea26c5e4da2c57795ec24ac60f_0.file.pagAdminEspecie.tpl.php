@@ -1,27 +1,28 @@
 <?php
-/* Smarty version 4.0.0, created on 2022-06-30 05:28:48
+/* Smarty version 4.0.0, created on 2022-06-30 15:18:54
   from 'C:\xampp\htdocs\web2\animales\proyectoReinoAnimal\app\template\pagAdminEspecie.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0',
-  'unifunc' => 'content_62bd1870a554f5_40133112',
+  'unifunc' => 'content_62bda2bec20ce6_09644127',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1ccf471f36394fea26c5e4da2c57795ec24ac60f' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\animales\\proyectoReinoAnimal\\app\\template\\pagAdminEspecie.tpl',
-      1 => 1656559685,
+      1 => 1656595131,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
     'file:app/template/navegadorAdmin.tpl' => 1,
+    'file:app/template/template_vue/seccionComentario.tpl' => 2,
   ),
 ),false)) {
-function content_62bd1870a554f5_40133112 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62bda2bec20ce6_09644127 (Smarty_Internal_Template $_smarty_tpl) {
 ?><head>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -112,10 +113,15 @@ echo $_prefixVariable1;?>
     </table>
 </div>
         <?php if ($_smarty_tpl->tpl_vars['permiso_logueado']->value == "administrador" && $_smarty_tpl->tpl_vars['habilito']->value !== "publico") {?>
-            <h1>ERES ADMINISTRADOR</h1>
+
+            <?php $_smarty_tpl->_subTemplateRender('file:app/template/template_vue/seccionComentario.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
 
         <?php } elseif ($_smarty_tpl->tpl_vars['permiso_logueado']->value == "usuario" && $_smarty_tpl->tpl_vars['habilito']->value !== "publico") {?>
-            <h1>ERES ENTONCES UN USUARIO</h1>
+
+            <?php $_smarty_tpl->_subTemplateRender('file:app/template/template_vue/seccionComentario.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
+?>
+            
         <?php } else { ?>
 
         <?php }?>

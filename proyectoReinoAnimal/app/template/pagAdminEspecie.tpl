@@ -65,10 +65,13 @@
     </table>
 </div>
         {if $permiso_logueado=="administrador" && $habilito !== "publico"}
-            <h1>ERES ADMINISTRADOR</h1>
+
+            {include file='app/template/template_vue/seccionComentario.tpl'}
 
         {elseif $permiso_logueado=="usuario" && $habilito !== "publico"}
-            <h1>ERES ENTONCES UN USUARIO</h1>
+
+            {include file='app/template/template_vue/seccionComentario.tpl'}
+            
         {else}
 
         {/if}

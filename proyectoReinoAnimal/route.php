@@ -7,6 +7,8 @@ $controladorAnimal = new ControladorAnimal();
 $vista = new VistaAnimal();
 $controladorLogin = new ControladorLogin();
 $controladorEspecie = new ControladorEspecie();
+$controladorHome = new Controlador();
+
 /*session_start();
 print_r($_SESSION);*/
 if (!empty($_GET['action'])) {
@@ -21,8 +23,7 @@ $params = explode('/', $action);
 // determina que camino seguir según la acción
 switch ($params[0]) {
     case 'home':
-        $controladorAnimal->mostrarAnimalesAccesoPublico();
-        $controladorEspecie->mostrarEspeciesAccesoPublico();
+        $controladorHome->mostrarHome();
         break;
     case 'acceder':
         $controladorLogin->traerFormLogin();
@@ -35,6 +36,15 @@ switch ($params[0]) {
         break;
     case 'especiesAdmin':
         $controladorLogin->mostrarAdminEspecie();
+        break;
+    case 'noSerAdmin':
+        $controladorLogin->Admin_a_User($params[1]);
+        break;
+    case 'hacerAdmin':
+        $controladorLogin->User_a_Admin($params[1]);
+        break;
+    case 'borrarUsuario':
+        $controladorLogin->borrar_Usuario($params[1]);
         break;
     case 'logout':
         $controladorLogin->desLoguearse();

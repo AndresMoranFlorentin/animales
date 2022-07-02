@@ -32,7 +32,9 @@ class ControladorAnimal extends Controlador
             $this->modelo->borrarFilaAnimal($id);
             $matrix = $this->modelo->traerAnimales();
             $permiso =$this->esAdmin_o_Usuario();
-            $this->vista->mostrarTablaAdmin($matrix, $permiso);
+            
+            $usuarios=$this->traeme_Los_Usuarios();
+            $this->vista->mostrarTablaAdmin($matrix, $permiso,$usuarios);
         } else {
 
             header('location:' . BASE_URL . 'home');
@@ -83,8 +85,8 @@ class ControladorAnimal extends Controlador
             $this->modelo->actualizarFila($nombre, $descripcion, $alimento, $habitat, $especie, $extinto, $id);
             $matrix = $this->modelo->traerAnimales();
             $permiso = $this->esAdmin_o_Usuario();
-           
-            $this->vista->mostrarTablaAdmin($matrix, $permiso);
+            $usuarios=$this->traeme_Los_Usuarios();
+            $this->vista->mostrarTablaAdmin($matrix, $permiso,$usuarios);
         }
     }
 
@@ -97,7 +99,8 @@ class ControladorAnimal extends Controlador
         if ($validacion) {
             $admin = "administrador";
             $matrix = $this->modelo->traerAnimales();
-            $this->vista->mostrarTablaAdmin($matrix, $admin);
+            $usuarios=$this->traeme_Los_Usuarios();
+            $this->vista->mostrarTablaAdmin($matrix, $admin,$usuarios);
         } else {
 
             header('location:' . BASE_URL . 'home');
@@ -142,8 +145,8 @@ class ControladorAnimal extends Controlador
             $permiso = $this->esAdmin_o_Usuario();
         
             $matrix = $this->modelo->traerAnimales();
-;
-            $this->vista->mostrarTablaAdmin($matrix, $permiso);
+            $usuarios=$this->traeme_Los_Usuarios();
+            $this->vista->mostrarTablaAdmin($matrix, $permiso,$usuarios);
         } else {
             header('location:' . BASE_URL . 'home');
         }

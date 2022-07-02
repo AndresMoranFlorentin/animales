@@ -15,12 +15,17 @@
 <h1> Seccion Animales</h1>
 {include file="app/template/navegadorAdmin.tpl"}
 
-<label></label>
-<label></label>
+{if $permiso_logueado == "administrador"}
+
+    {include file="app/template/permisosAdmin.tpl"}
+    
+{/if}
+<br>
+<br>
 <button><a action="mostrarFormAnimales" href="{$BASE_URL}mostrarFormAnimales">
 Agregar info a Tabla Animal</a></button>
-<label></label>
-<label></label>
+<br>
+<br>
 
 <div>
     <table class="table table-bordered">
@@ -65,15 +70,24 @@ Agregar info a Tabla Animal</a></button>
                     {/if}
                     <td><a action="borrar" href="{$BASE_URL}borrarAnimal/{$id}">Borrar</a></td>
                     <td><a action="editar" href="{$BASE_URL}editarAnimal/{$id}">Editar</a></td>
+                   
                     </td>
+                   
 
                 </tr>
             {{/foreach}}
     </table>
 </div>
 {if $permiso_logueado == "administrador"}
-    <h1>ESTAS COMO ADMINISTRADOR</h1>
+
+    {include file='app/template/template_vue/seccionComentario.tpl'}
+    
+
    {else}
-    <h1>ENTONCES SOS UN USUARIO</h1>
+    
+    {include file='app/template/template_vue/seccionComentario.tpl'}
+
 {/if}
 </div>
+
+<script src="api_js/comentarios.js"></script>

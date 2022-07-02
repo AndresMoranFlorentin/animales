@@ -1,27 +1,29 @@
 <?php
-/* Smarty version 4.0.0, created on 2022-06-30 00:43:10
+/* Smarty version 4.0.0, created on 2022-07-02 16:18:32
   from 'C:\xampp\htdocs\web2\animales\proyectoReinoAnimal\app\template\pagAdminAnimal.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0',
-  'unifunc' => 'content_62bcd57ee5d541_20243235',
+  'unifunc' => 'content_62c053b894c8f1_13421295',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7138f5f0bca3ecce9bff3a67eab493b8503ef5d8' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\animales\\proyectoReinoAnimal\\app\\template\\pagAdminAnimal.tpl',
-      1 => 1656542558,
+      1 => 1656771508,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
     'file:app/template/navegadorAdmin.tpl' => 1,
+    'file:app/template/permisosAdmin.tpl' => 1,
+    'file:app/template/template_vue/seccionComentario.tpl' => 2,
   ),
 ),false)) {
-function content_62bcd57ee5d541_20243235 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62c053b894c8f1_13421295 (Smarty_Internal_Template $_smarty_tpl) {
 ?><head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -46,13 +48,19 @@ function content_62bcd57ee5d541_20243235 (Smarty_Internal_Template $_smarty_tpl)
 <?php $_smarty_tpl->_subTemplateRender("file:app/template/navegadorAdmin.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
-<label></label>
-<label></label>
+<?php if ($_smarty_tpl->tpl_vars['permiso_logueado']->value == "administrador") {?>
+
+    <?php $_smarty_tpl->_subTemplateRender("file:app/template/permisosAdmin.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+    
+<?php }?>
+<br>
+<br>
 <button><a action="mostrarFormAnimales" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 mostrarFormAnimales">
 Agregar info a Tabla Animal</a></button>
-<label></label>
-<label></label>
+<br>
+<br>
 
 <div>
     <table class="table table-bordered">
@@ -111,7 +119,9 @@ borrarAnimal/<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
                     <td><a action="editar" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
 editarAnimal/<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
 ">Editar</a></td>
+                   
                     </td>
+                   
 
                 </tr>
             <?php ob_start();
@@ -123,9 +133,20 @@ echo $_prefixVariable1;?>
     </table>
 </div>
 <?php if ($_smarty_tpl->tpl_vars['permiso_logueado']->value == "administrador") {?>
-    <h1>ESTAS COMO ADMINISTRADOR</h1>
+
+    <?php $_smarty_tpl->_subTemplateRender('file:app/template/template_vue/seccionComentario.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+    
+
    <?php } else { ?>
-    <h1>ENTONCES SOS UN USUARIO</h1>
+    
+    <?php $_smarty_tpl->_subTemplateRender('file:app/template/template_vue/seccionComentario.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
+?>
+
 <?php }?>
-</div><?php }
+</div>
+
+<?php echo '<script'; ?>
+ src="api_js/comentarios.js"><?php echo '</script'; ?>
+><?php }
 }

@@ -8,7 +8,7 @@ function traerComentarios(){
 
     $conexion = $this->conexionSQL();
 
-    $sql = 'SELECT * FROM tabla_comentarios';
+    $sql = 'SELECT * FROM comentarios';
     $resultado = $conexion->prepare($sql);
     $resultado->execute();
     $comentarios= $resultado->fetchAll(PDO::FETCH_NAMED);
@@ -18,18 +18,27 @@ function traerComentarios(){
 }
 function traerComentario($id){
     $conexion = $this->conexionSQL();
-    $sql = 'SELECT * FROM tabla_comentarios ' .
+    $sql = 'SELECT * FROM comentarios ' .
     'WHERE tabla_comentarios.id=?';
     $resultado = $conexion->prepare($sql);
     $resultado->execute([$id]);
-    $animal = $resultado->fetchAll(PDO::FETCH_NAMED);
+    $comentario = $resultado->fetchAll(PDO::FETCH_NAMED);
 
-    return $animal[0];
+    return $comentario[0];
+
+}
+function guardarComentario($comentario, $puntaje){
+
+  $sql = "INSERT INTO comentarios (comentario, puntaje) 
+                    VALUES (?,?)"; //nombres de las columnas de la tabla
+    $conexion = $this->conexionSQL();
+    $preparado = $conexion->prepare($sql);
+    $preparado->execute([$comentario,$puntaje]);
 
 }
 function borrarComentario($id)
 {
-  $sql = "DELETE FROM tabla_comentarios WHERE id_animales=?";
+  $sql = "DELETE FROM comentarios WHERE id=?";
   $conexion = $this->conexionSQL();
   $preparado = $conexion->prepare($sql);
   $preparado->execute([$id]);

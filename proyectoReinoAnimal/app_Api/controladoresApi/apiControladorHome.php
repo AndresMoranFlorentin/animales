@@ -15,8 +15,9 @@ class apiControladorHome {
 
         $this->modeloAnimal=new ModeloAnimal();
         $this->modeloEspecie=new ModeloEspecie();
-        $this->modeloComentario=new ModeloComentarios();
+        $this->modeloComentarios=new ModeloComentarios();
         $this->apiVistaHome=new apiVistaHome();
+        $this->data = file_get_contents("php://input"); 
     }
    function mostrarHome(){
 
@@ -24,10 +25,28 @@ class apiControladorHome {
       $this->apiVistaHome->response($animales,"200");
 
    }
+   
+
+   function Json_a_php(){ 
+
+    return json_decode($this->data); 
+ }  
+
    function mostrarComentarios(){
 
-    $comentarios=$this->modeloComentario->traerComentarios();
+    $comentarios=$this->modeloComentarios->traerComentarios();
     $this->apiVistaHome->response($comentarios,"200");
+
+ }
+ function agregarComentario($params = []){
+
+    $body = $this->Json_a_php();
+    $comentarios = $body->comentario;
+    $puntajes = $body->puntaje;
+    
+    $this->modeloComentarios->guardarComentario($comentarios, $puntajes);
+
+    $this->mostrarComentarios();
 
  }
  public function borrarComentario($params = []) {
@@ -43,6 +62,3 @@ class apiControladorHome {
 }
 
 }
-
-
-?>

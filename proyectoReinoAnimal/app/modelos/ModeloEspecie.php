@@ -34,17 +34,17 @@ class ModeloEspecie extends Modelo
 
     return $coincidencia;
   }
-  function traerFilaEspecie($id){
+  function traerFilaEspecie($id)
+  {
 
     $conexion = $this->conexionSQL();
     $sql = 'SELECT * FROM especies ' .
-    'WHERE id_especie=? ';
+      'WHERE id_especie=? ';
     $resultado = $conexion->prepare($sql);
     $resultado->execute([$id]);
     $especie = $resultado->fetchAll(PDO::FETCH_NAMED);
 
     return $especie[0];
-
   }
   function agregarInfoEspecies($nombreEspecie, $vertebrado)
   {
@@ -54,12 +54,12 @@ class ModeloEspecie extends Modelo
     $preparado = $conexion->prepare($sql);
     $preparado->execute([$nombreEspecie, $vertebrado]);
   }
-function actualizarEspecie($nombreEspecie,$vertebrado,$id){
-  $sql = "UPDATE especies 
+  function actualizarEspecie($nombreEspecie, $vertebrado, $id)
+  {
+    $sql = "UPDATE especies 
   SET especies=?,vertebrados=?  WHERE id_especie=?";
-  $conexion = $this->conexionSQL();
-  $preparado = $conexion->prepare($sql);
-  $preparado->execute([$nombreEspecie, $vertebrado,$id]);
-
-}
+    $conexion = $this->conexionSQL();
+    $preparado = $conexion->prepare($sql);
+    $preparado->execute([$nombreEspecie, $vertebrado, $id]);
+  }
 }
