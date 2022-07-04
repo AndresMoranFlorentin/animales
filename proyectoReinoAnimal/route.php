@@ -3,12 +3,13 @@ define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'
 require_once 'app/controladores/ControladorAnimal.php';
 require_once 'app/controladores/ControladorLogin.php';
 require_once 'app/controladores/ControladorEspecie.php';
+require_once 'app/controladores/ControladorComentarios.php';
 $controladorAnimal = new ControladorAnimal();
 $vista = new VistaAnimal();
 $controladorLogin = new ControladorLogin();
 $controladorEspecie = new ControladorEspecie();
 $controladorHome = new Controlador();
-
+$controladorComentario = new ControladorComentarios();
 /*session_start();
 print_r($_SESSION);*/
 if (!empty($_GET['action'])) {
@@ -78,6 +79,12 @@ switch ($params[0]) {
         break;
     case 'actualizarEspecie':
         $controladorEspecie->editarFilaEspecie();
+        break;
+    case 'seccionAnimalPaginada':
+        $controladorAnimal->mostrarPaginacion();
+        break;
+    case 'seccionPaginada':
+        $controladorAnimal->mostrarPaginacion();
         break;
     default:
         echo ('404 Page not found');

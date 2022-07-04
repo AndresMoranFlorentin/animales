@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.0.0, created on 2022-06-29 19:39:31
+/* Smarty version 4.0.0, created on 2022-07-04 01:01:53
   from 'C:\xampp\htdocs\web2\animales\proyectoReinoAnimal\app\template\template_vue\tabla_animal.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0',
-  'unifunc' => 'content_62bc8e530631d3_67776542',
+  'unifunc' => 'content_62c21fe11d04b0_20469934',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '216a1de59d51c1758e031f50165ab1e38f5ea0b7' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\animales\\proyectoReinoAnimal\\app\\template\\template_vue\\tabla_animal.tpl',
-      1 => 1656524367,
+      1 => 1656889230,
       2 => 'file',
     ),
   ),
@@ -20,8 +20,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62bc8e530631d3_67776542 (Smarty_Internal_Template $_smarty_tpl) {
-?><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+function content_62c21fe11d04b0_20469934 (Smarty_Internal_Template $_smarty_tpl) {
+?>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <?php echo '<script'; ?>
  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

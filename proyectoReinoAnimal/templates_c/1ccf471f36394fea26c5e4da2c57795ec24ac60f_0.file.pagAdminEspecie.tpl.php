@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.0.0, created on 2022-06-30 15:18:54
+/* Smarty version 4.0.0, created on 2022-07-03 23:06:03
   from 'C:\xampp\htdocs\web2\animales\proyectoReinoAnimal\app\template\pagAdminEspecie.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0',
-  'unifunc' => 'content_62bda2bec20ce6_09644127',
+  'unifunc' => 'content_62c204bbe56676_30823895',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1ccf471f36394fea26c5e4da2c57795ec24ac60f' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\animales\\proyectoReinoAnimal\\app\\template\\pagAdminEspecie.tpl',
-      1 => 1656595131,
+      1 => 1656870157,
       2 => 'file',
     ),
   ),
@@ -22,9 +22,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:app/template/template_vue/seccionComentario.tpl' => 2,
   ),
 ),false)) {
-function content_62bda2bec20ce6_09644127 (Smarty_Internal_Template $_smarty_tpl) {
-?><head>
-
+function content_62c204bbe56676_30823895 (Smarty_Internal_Template $_smarty_tpl) {
+?>
+<head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <?php echo '<script'; ?>

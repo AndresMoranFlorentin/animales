@@ -31,10 +31,10 @@ class ControladorAnimal extends Controlador
         if ($this->helperUser->checklogueo()) {
             $this->modelo->borrarFilaAnimal($id);
             $matrix = $this->modelo->traerAnimales();
-            $permiso =$this->esAdmin_o_Usuario();
-            
-            $usuarios=$this->traeme_Los_Usuarios();
-            $this->vista->mostrarTablaAdmin($matrix, $permiso,$usuarios);
+            $permiso = $this->esAdmin_o_Usuario();
+
+            $usuarios = $this->traeme_Los_Usuarios();
+            $this->vista->mostrarTablaAdmin($matrix, $permiso, $usuarios);
         } else {
 
             header('location:' . BASE_URL . 'home');
@@ -68,11 +68,10 @@ class ControladorAnimal extends Controlador
             && !isset($_POST['especie'])
             && !isset($_POST['extinto'])
             && !isset($_POST['id_animales'])
-        )  {
+        ) {
 
             $this->vista->mostrarError();
             die();
-
         } else {
             $nombre = $_POST['nombre'];
             $descripcion = $_POST['descripcion'];
@@ -85,8 +84,8 @@ class ControladorAnimal extends Controlador
             $this->modelo->actualizarFila($nombre, $descripcion, $alimento, $habitat, $especie, $extinto, $id);
             $matrix = $this->modelo->traerAnimales();
             $permiso = $this->esAdmin_o_Usuario();
-            $usuarios=$this->traeme_Los_Usuarios();
-            $this->vista->mostrarTablaAdmin($matrix, $permiso,$usuarios);
+            $usuarios = $this->traeme_Los_Usuarios();
+            $this->vista->mostrarTablaAdmin($matrix, $permiso, $usuarios);
         }
     }
 
@@ -99,8 +98,8 @@ class ControladorAnimal extends Controlador
         if ($validacion) {
             $admin = "administrador";
             $matrix = $this->modelo->traerAnimales();
-            $usuarios=$this->traeme_Los_Usuarios();
-            $this->vista->mostrarTablaAdmin($matrix, $admin,$usuarios);
+            $usuarios = $this->traeme_Los_Usuarios();
+            $this->vista->mostrarTablaAdmin($matrix, $admin, $usuarios);
         } else {
 
             header('location:' . BASE_URL . 'home');
@@ -143,10 +142,43 @@ class ControladorAnimal extends Controlador
             $this->modelo->agregarInfoAnimal($nombre, $descripcion, $alimento, $habitat, $especie, $extinto);
 
             $permiso = $this->esAdmin_o_Usuario();
-        
+
             $matrix = $this->modelo->traerAnimales();
-            $usuarios=$this->traeme_Los_Usuarios();
-            $this->vista->mostrarTablaAdmin($matrix, $permiso,$usuarios);
+            $usuarios = $this->traeme_Los_Usuarios();
+            $this->vista->mostrarTablaAdmin($matrix, $permiso, $usuarios);
+        } else {
+            header('location:' . BASE_URL . 'home');
+        }
+    }
+    function mostrarPaginacion()
+    {
+        if ($this->helperUser->es_Usuario()) {
+
+            if (isset($_POST["boton"]) && $_POST["boton"] == "avance") {
+                $inicial = 0;
+                $limite = 3;
+
+                $animales = $this->modelo->traerAnimalesHasta(($inicial + 2), ($limite + 2));
+                echo $inicial;
+                echo $limite;
+                $this->vista->mostrarTablaPaginada($animales);
+                
+            } elseif (isset($_POST["boton"]) && $_POST["boton"] == "retroceso") {
+
+                $inicial = 11;
+                $limite = 13;
+                $animales = $this->modelo->traerAnimalesHasta(($inicial - 2), ($limite - 2));
+                echo $inicial;
+                echo $limite;
+                $this->vista->mostrarTablaPaginada($animales);
+            } else {
+                $inicial = 0;
+                $limite = 3;
+                $animales = $this->modelo->traerAnimalesHasta($inicial, $limite);
+                echo $inicial;
+                echo $limite;
+                $this->vista->mostrarTablaPaginada($animales);
+            }
         } else {
             header('location:' . BASE_URL . 'home');
         }

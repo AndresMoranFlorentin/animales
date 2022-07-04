@@ -1,3 +1,4 @@
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -10,9 +11,6 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
 </script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
-<link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
 
 {literal}
     <div class="container-fluid">
@@ -37,7 +35,7 @@
                 <div class="col">
                    <p>{{ comentar.puntaje }}</p>
                 </div>
-                <div v-if ="permiso_logueado == administrador" class="col">
+                <div class="col">
                     <a :data_id="comentar.id" v-on:click="borrar"  href="#">Eliminar</a>
                 </div>
                

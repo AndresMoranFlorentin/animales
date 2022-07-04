@@ -1,0 +1,6 @@
+/**
+* The classToCSS plugin automatically generates global style
+* Changes are invalid and will be overwritten
+*/
+.table { display: table; } 
+.table-bordered { display: table-bordered; } 

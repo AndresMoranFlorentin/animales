@@ -37,7 +37,6 @@ class VistaAnimal
         $smarty->assign('los_usuarios', $usuarios);
         $smarty->assign('permiso_logueado', $admin);
         $smarty->display('app/template/pagAdminAnimal.tpl');
-        $smarty->display('app/template/footer.tpl');
 
     }
     
@@ -57,5 +56,12 @@ class VistaAnimal
         $smarty->display('app/template/intro.tpl');
         $smarty->display('app/template/template_vue/tabla_animal.tpl');
         $smarty->display('app/template/footer.tpl');
+    }
+    function mostrarTablaPaginada($animales) {
+       $smarty=new Smarty();
+       $smarty->assign('BASE_URL', BASE_URL);
+       $smarty->assign('animales',$animales);
+       $smarty->display('app/template/navegadorAdmin.tpl');
+       $smarty->display('app/template/paginacionAnimal.tpl');
     }
 }

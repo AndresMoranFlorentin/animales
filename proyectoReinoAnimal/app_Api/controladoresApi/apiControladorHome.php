@@ -43,11 +43,31 @@ class apiControladorHome {
     $body = $this->Json_a_php();
     $comentarios = $body->comentario;
     $puntajes = $body->puntaje;
-    
-    $this->modeloComentarios->guardarComentario($comentarios, $puntajes);
+    $id = $body->id;
+    echo "body; ".$body." ";
+    //$this->modeloComentarios->guardarComentario($comentarios, $puntajes,$id);
 
-    $this->mostrarComentarios();
+    $this->apiVistaHome->response($body,"200");
 
+ }
+ function ordenarComentarios($GET){
+
+echo "LLEGASTE A ALA FUNCION ORDENAR COMENTARIO";
+
+   if($GET['orden']=="ascendente"){
+      
+   $comentarios=$this->modeloComentarios->traerAscen();
+   $this->apiVistaHome->response($comentarios,"200");
+
+   }
+   elseif($GET['orden']=="descendente"){
+
+      $comentarios=$this->modeloComentarios->traerDescen();
+      $this->apiVistaHome->response($comentarios,"200");
+   }
+   else{
+      echo "LLego a la zona desconocida";
+   }
  }
  public function borrarComentario($params = []) {
     $comentario_id = $params[':ID'];
@@ -55,10 +75,10 @@ class apiControladorHome {
 
     if ($comentario) {
         $this->modeloComentarios->borrarComentario($comentario_id);
-        $this->apiVistaHome->response("Tarea id=$comentario_id eliminada con éxito", 200);
+        $this->apiVistaHome->response("comentario id=$comentario_id eliminada con éxito", 200);
     }
-    else 
-        $this->apiVistaHome->response("Task id=$comentario_id not found", 404);
+    else {
+        $this->apiVistaHome->response("comentario id=$comentario_id not found", 404);
 }
-
+ }
 }

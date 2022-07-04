@@ -65,4 +65,16 @@ class ModeloAnimal extends Modelo
     $preparado = $conexion->prepare($sql);
     $preparado->execute([$nombre,$descripcion,$alimento,$habitat,$extinto,$especie]);
   }
+
+  function traerAnimalesHasta($inicial,$limite){
+    $conexion=$this->conexionSQL();
+
+     $sql="SELECT * FROM animales LIMIT ".$inicial.",".$limite." ";
+    
+     $resultado=$conexion->prepare($sql);
+     $resultado->execute();
+     $animales=$resultado->fetchAll(PDO::FETCH_NAMED);
+
+     return $animales;
+  }
 }

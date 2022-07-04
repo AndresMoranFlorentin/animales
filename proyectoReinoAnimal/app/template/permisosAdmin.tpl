@@ -43,4 +43,3 @@
         {{/foreach}}
 </table>
 </div>
-<br>

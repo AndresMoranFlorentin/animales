@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-06-2022 a las 05:29:42
+-- Tiempo de generación: 02-07-2022 a las 22:11:12
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -54,7 +54,29 @@ INSERT INTO `animales` (`id_animales`, `nombre`, `descripcion`, `alimentacion`, 
 (51, 'Jabalí', 'El jabalí es el primo salvaje del cerdo doméstico. Es un animal vigoroso, de cuerpo grueso y redondo, cabeza grande y alargada terminada en largo y estrecho hocico, la jeta. Tiene las orejas grandes, enhiestas y de forma triangular. El cuerpo del jabalí está cubierto de pelo. Esta pelambre, compuesta por las cerdas -pelos largos y gruesos- y la borra -pelusa compacta y apelmazada-, presenta bastantes variaciones de color, aunque con predominio del pardo oscuro.. Es característico en el jabalí un', 'Omnivoro', 'abarca Europa, Asia y el norte de África y ha sido introducida en el continente americano, Australia', 1, 1),
 (78, 'Cachalote', 'Mamífero marino de 15 a 20 m de largo, cuya cabeza alcanza casi la tercera parte de la longitud total del cuerpo y guarda gran cantidad de grasa; tiene boca provista de dientes, y un solo orificio nasal; es agresivo, se alimenta de calamares y vive en aguas profundas', 'es carnivoro, su alimento mas comun son los calama', 'los mares', 1, 1),
 (80, 'Camaleon ', 'Reptil de tamano no mayor a un metro, con la habilidad de cambiar de colores y camuflarse', 'es insectivoroo', 'Madagascar', 1, 4),
-(81, 'Lombris', 'gusano, ser invertebrado, de cuerpo cilindrico a generalmente anillado, que no supera los 10 cm, y es totalmente inofensivo.', 'nutrientes y desechos que hay en la tierra', 'en la capa de la tierra llamado humus, todo el mundo excepto el polo sur y norte', 1, 6);
+(81, 'Lombris', 'gusano, ser invertebrado, de cuerpo cilindrico a generalmente anillado, que no supera los 10 cm, y es totalmente inofensivo.', 'nutrientes y desechos que hay en la tierra.', 'en la capa de la tierra llamado humus, todo el mundo excepto el polo sur y norte.', 1, 6);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comentarios`
+--
+
+CREATE TABLE `comentarios` (
+  `id` int(11) NOT NULL,
+  `comentario` varchar(500) NOT NULL,
+  `puntaje` int(1) NOT NULL,
+  `id_animales` int(150) NOT NULL,
+  `id_usuario` int(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `comentarios`
+--
+
+INSERT INTO `comentarios` (`id`, `comentario`, `puntaje`, `id_animales`, `id_usuario`) VALUES
+(1, 'esta tabla de animal esta incompleta faltan muchos animales conocidos', 3, 0, 0),
+(2, 'faltan muchas especies, pero estan las principales', 4, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -86,26 +108,6 @@ INSERT INTO `especies` (`id_especie`, `especies`, `vertebrados`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tabla_comentarios`
---
-
-CREATE TABLE `tabla_comentarios` (
-  `id` int(11) NOT NULL,
-  `comentario` varchar(500) NOT NULL,
-  `puntaje` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `tabla_comentarios`
---
-
-INSERT INTO `tabla_comentarios` (`id`, `comentario`, `puntaje`) VALUES
-(1, 'esta tabla de animal esta incompleta faltan muchos animales conocidos', 3),
-(2, 'faltan muchas especies, pero estan las principales', 4);
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `usuarios`
 --
 
@@ -125,7 +127,6 @@ INSERT INTO `usuarios` (`id_usuario`, `nombre`, `mail`, `contrasenia`, `rol`) VA
 (1, 'Andres', 'moranandres729@gmail.com', '$2a$10$aroIJEsrDzjH1rIrov/k/e.19YiZZGnZDjAHnSNyfCAvdy7zVbDBu', 'administrador'),
 (2, 'Solange', 'solange34@gmail.com', '$2a$10$InB5xEdSE2XsfCKsHG1r6eZ.cBu75JHPccmiKJ4xgsR.eL7ep3sjq', 'administrador'),
 (3, 'Lautaro', 'lautaro123@gmail.com', '$2a$10$fCNpWtHMeMqnAphBgqyJq.xt7VFxrJEaVZXXLOWsJKCOQjgyO/SkO', 'usuario'),
-(4, 'lucas', 'lucas@gmail.com', '$2a$10$p26xicAauPEi/iQpzFK1VuAAv1FhMElhBWMrk7foGCJWUyP4VPfIO', 'usuario'),
 (5, 'facundo', 'facundoTutor@gmail.com', '$2a$10$uvbbaXYy3fhV0Y/mfGX2S.R6Pdk6E0BN00ZtfEracIj23Bz.3sfuq', 'usuario');
 
 --
@@ -140,16 +141,17 @@ ALTER TABLE `animales`
   ADD KEY `id_especie` (`id_especie`);
 
 --
+-- Indices de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_animales` (`id_animales`);
+
+--
 -- Indices de la tabla `especies`
 --
 ALTER TABLE `especies`
   ADD PRIMARY KEY (`id_especie`);
-
---
--- Indices de la tabla `tabla_comentarios`
---
-ALTER TABLE `tabla_comentarios`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `usuarios`
@@ -168,16 +170,16 @@ ALTER TABLE `animales`
   MODIFY `id_animales` int(180) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
+-- AUTO_INCREMENT de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT de la tabla `especies`
 --
 ALTER TABLE `especies`
   MODIFY `id_especie` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT de la tabla `tabla_comentarios`
---
-ALTER TABLE `tabla_comentarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
