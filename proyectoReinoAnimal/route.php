@@ -86,6 +86,9 @@ switch ($params[0]) {
     case 'seccionPaginada':
         $controladorAnimal->mostrarPaginacion();
         break;
+    case 'comentar':
+        $controladorAnimal->mostrarSeccionComentario($params[1]);
+        break;
     default:
         echo ('404 Page not found');
         break;

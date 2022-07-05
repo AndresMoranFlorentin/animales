@@ -61,7 +61,7 @@
 
                     {if $permiso_logueado == "usuario"}
 
-                        <td><a action="comentar" href="comentar/{$id}">comentar</a></td>
+                        <td><a action="comentar" href="{$BASE_URL}comentarTabla/{$id}">comentar</a></td>
 
                     {/if}
                     </td>

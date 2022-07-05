@@ -22,6 +22,7 @@ let comentarios_ordenados = new Vue({
         comentarios: []
     }
 });
+
 function getComentarios() {
 
     fetch("api/comentario")

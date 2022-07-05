@@ -52,20 +52,26 @@ class apiControladorHome {
  }
  function ordenarComentarios($GET){
 
-echo "LLEGASTE A ALA FUNCION ORDENAR COMENTARIO";
+  echo "LLEGASTE A ALA FUNCION ORDENAR COMENTARIO : ".$GET." ";
+
+   $filas_totales=$this->ModeloComentarios->numeroDeFilas();
 
    if($GET['orden']=="ascendente"){
       
+   echo "FILAS: ".$filas_totales."";
    $comentarios=$this->modeloComentarios->traerAscen();
    $this->apiVistaHome->response($comentarios,"200");
 
    }
    elseif($GET['orden']=="descendente"){
+      echo "FILAS: ".$filas_totales."";
 
       $comentarios=$this->modeloComentarios->traerDescen();
       $this->apiVistaHome->response($comentarios,"200");
    }
    else{
+      echo "FILAS: ".$filas_totales."";
+
       echo "LLego a la zona desconocida";
    }
  }
