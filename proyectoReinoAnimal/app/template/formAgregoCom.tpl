@@ -1,10 +1,14 @@
+{include file="app/template/navegadorAdmin.tpl"}
+
 
 <h1>llegaste al lugar para agregar comentarios</h1>
+<input type="hidden" value="{$id_animal}" name="id" />
 
-<form id="form-agregar-comentario" class="form-row">
+
+<form id="form_agregar_comentario" class="form-row">
 
     <div class="container-fluid" style="background-color:rgba(180, 21, 21, 0.603)">
-       <textarea name="comentario" rows="3"></textarea>
+        <textarea name="comentario" rows="3"></textarea>
 
         <select name="puntaje">
             <option>------</option>
@@ -16,10 +20,11 @@
 
         </select>
 
-        <input type="hidden" value="5" name="id">
 
-        <input type="submit"/>
+        <input type="submit">
     </div>
 </form>
 
-<script src="api_js/comentarios.js"> </script>
+<script type="text/javascript" src="api_js/formComentario.js"></script>
+
+{include file="app/template/footer.tpl"}

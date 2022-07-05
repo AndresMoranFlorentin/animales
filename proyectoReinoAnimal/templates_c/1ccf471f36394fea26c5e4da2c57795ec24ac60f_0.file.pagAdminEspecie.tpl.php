@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.0.0, created on 2022-07-03 23:06:03
+/* Smarty version 4.0.0, created on 2022-07-05 23:46:51
   from 'C:\xampp\htdocs\web2\animales\proyectoReinoAnimal\app\template\pagAdminEspecie.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0',
-  'unifunc' => 'content_62c204bbe56676_30823895',
+  'unifunc' => 'content_62c4b14ba087c8_86144826',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:app/template/template_vue/seccionComentario.tpl' => 2,
   ),
 ),false)) {
-function content_62c204bbe56676_30823895 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62c4b14ba087c8_86144826 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"

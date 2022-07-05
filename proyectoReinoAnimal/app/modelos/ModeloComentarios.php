@@ -64,7 +64,7 @@ function traerAscen(){
   return $puntaje;
  }
  function numeroDeFilas(){
-  //$mysqli = new mysqli("localhost","root", "", "reino_animal");
+  /*$mysqli = new mysqli("localhost","root", "", "reino_animal");
 
 $query = $mysqli->prepare("SELECT * FROM comentarios");
 $query->execute();
@@ -72,7 +72,7 @@ $query->store_result();
 
 $filas = $query->num_rows;
 
- return $filas;
+ return $filas;*/
 
 // Return 4 for example
  }

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.0.0, created on 2022-07-04 19:01:02
+/* Smarty version 4.0.0, created on 2022-07-05 23:19:39
   from 'C:\xampp\htdocs\web2\animales\proyectoReinoAnimal\app\template\pagAdminAnimal.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.0.0',
-  'unifunc' => 'content_62c31cce3d2af7_21558378',
+  'unifunc' => 'content_62c4aaeb080cb5_42947525',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7138f5f0bca3ecce9bff3a67eab493b8503ef5d8' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\animales\\proyectoReinoAnimal\\app\\template\\pagAdminAnimal.tpl',
-      1 => 1656954026,
+      1 => 1657034669,
       2 => 'file',
     ),
   ),
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:app/template/formAgregoCom.tpl' => 1,
   ),
 ),false)) {
-function content_62c31cce3d2af7_21558378 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62c4aaeb080cb5_42947525 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:app/template/navegadorAdmin.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -105,7 +105,8 @@ editarAnimal/<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
 
                     <?php if ($_smarty_tpl->tpl_vars['permiso_logueado']->value == "usuario") {?>
 
-                        <td><a action="comentar" href="comentar/<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+                        <td><a action="comentar" href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+comentarTabla/<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
 ">comentar</a></td>
 
                     <?php }?>

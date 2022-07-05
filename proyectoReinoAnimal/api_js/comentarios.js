@@ -18,7 +18,7 @@ let tabla_comentario = new Vue({
 let comentarios_ordenados = new Vue({
     el: "#comentarios_ordenados",
     data: {
-        subtitulo:"SE ORDENAN COMO UNO QUIERA",
+        subtitulo: "SE ORDENAN COMO UNO QUIERA",
         comentarios: []
     }
 });
@@ -39,17 +39,17 @@ getComentarios();
 document.getElementById("form_orden_de_puntaje").addEventListener("submit", ordenarComentarios);
 
 
-function ordenarComentarios(e){
+function ordenarComentarios(e) {
 
- e.preventDefault();
+    e.preventDefault();
 
- let data = {
-    que_orden: document.querySelector("select[name=orden]").value,
+    let data = {
+        que_orden: document.querySelector("select[name=orden]").value,
 
-}
-console.log(data);
+    }
+    console.log(data);
 
- fetch('api/comentario?orden=ascendente')
+    fetch('api/comentario?orden=ascendente')
         .then(response => response.json())
         .then(comentarios => {
             comentarios_ordenados.comentarios = comentarios;
@@ -60,33 +60,6 @@ console.log(data);
 
 
 //alert(document.getElementById("form-agregar-comentario"));
-/*document.getElementById("form-agregar-comentario").addEventListener("submit", agregarComentario);
-
-function agregarComentario(e) {
-    e.preventDefault();
-
-
-
-    let data = {
-        comentario: document.querySelector("textarea[name=comentario]").value,
-        puntaje: document.querySelector("select[name=puntaje]").value,
-        id: document.querySelector("input[name=id]").value
-
-    }
-
-    console.log(data);
-
-    fetch("api/comentario", {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-    })
-        .then(response => {
-            getComentarios();
-        })
-        .catch(error => console.log("error algo no funciona"));
-
-}*/
 
 function borrarComentario(id) {
 

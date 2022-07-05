@@ -86,7 +86,7 @@ switch ($params[0]) {
     case 'seccionPaginada':
         $controladorAnimal->mostrarPaginacion();
         break;
-    case 'comentar':
+    case 'comentarTabla':
         $controladorAnimal->mostrarSeccionComentario($params[1]);
         break;
     default:

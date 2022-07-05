@@ -1,6 +1,6 @@
 
 <!---<h2>Agregar Comentario</h2>
-    <form id="form-agregar-comentari" class="form-row">
+    <form id="form-agregar-comentario" class="form-row">
 
              <div class="container-fluid" style="background-color:rgba(180, 21, 21, 0.603)">
                 <label>Comentario: <textarea name="comentario" rows="3"></textarea></label></p>
