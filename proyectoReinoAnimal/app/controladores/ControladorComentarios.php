@@ -23,20 +23,37 @@ class ControladorComentarios extends Controlador{
     {
         $this->modelo = new ModeloAnimal();
         $this->vista = new VistaComentario();
+        $this->vistaAnimal = new VistaAnimal();
         $this->helperUser = new helperUser();
         $this->modeloComen=new ModeloComentarios();
     }
     function comentarItem($id){
 
       if($this->helperUser->checklogueo()){
-
-         $this->vista->mostrarSeccionComentario($id);
+         $permiso='usuario';
+         $this->vista->mostrarSeccionComentario($id,$permiso);
 
       }
       else{
         echo "deberia imprimer";
       }
    
+    }
+    function mostrarSeccionComentario($id){
+
+      if($this->helperUser->es_Usuario()){
+           $permiso='usuario';
+           $this->vista->mostrarseccionComentario($id,$permiso);
+      }
+      elseif($this->helperUser->es_Admin()) {
+        $permiso='administrador';
+        $this->vista->mostrarseccionComentario($id,$permiso);
+      }
+      else{
+          header("location: ".BASE_URL."loguearse");
+      }
+
+
     }
     /*function puntaje_ascen_o_descen(){
 

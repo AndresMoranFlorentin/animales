@@ -1,3 +1,4 @@
+{include file="app/template/navegadorAdmin.tpl"}
 <h1>Aqui podra Ver el listado de animales pero de forma paginada</h1>
 
 <table class="table table-bordered">
@@ -43,38 +44,39 @@
 
 </form>
 <h2>seleccione el Orden de los comentarios = </h2>
-<form id="form_orden_de_puntaje" >
+
+<form id="form_orden_de_puntaje"  >
     <select name="orden">
         <option value="ascendente">Ascendente</option>
         <option value="descendente">Descendente</option>
     </select>
     <input type="submit">
 </form>
+
 <br><br>
 {literal}
     <div class="container-fluid">
         <section id="comentarios_ordenados">
-           <h1>{{subtitulo}}</h1>
             <div class="row">
-                <div class="col-8">
+                <div class="th_comentario">
                     <h2>Comentarios</h2>
                 </div>
-                <div class="col">
+                <div class="th_comentario2">
                     <h2>Puntaje</h2>
                 </div>
 
             </div>
             <div v-for="comentar in comentarios" class="row">
-                <div class="col-8">
+                <div class="filas">
                     <p>{{ comentar.comentario }}</p>
                 </div>
-                <div class="col">
+                <div class="filas2">
                     <p>{{ comentar.puntaje }}</p>
                 </div>
             </div>
         </section>
     </div>
-    <script src="api_js/comentarios.js"> </script>
+ 
 {/literal}
-
-</div>
+<script  src="app/api_js/ordenarComentarios.js"> </script>
+{include file="app/template/footer.tpl"}

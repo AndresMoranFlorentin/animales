@@ -1,4 +1,6 @@
 
+{include file='app/template/intro.tpl'}
+ 
 {literal}
     <div class="container-fluid">
         <section id="template-vue-animales">
@@ -35,5 +37,6 @@
             </table>
         </section>
     </div>
-    <script src="api_js/animales.js"></script>
+    <script src="app/api_js/animales.js"></script>
 {/literal}
+{include file='app/template/footer.tpl'}

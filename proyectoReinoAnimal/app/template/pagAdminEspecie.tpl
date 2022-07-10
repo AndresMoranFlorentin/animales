@@ -1,8 +1,9 @@
 
-<div class="container-fluid">
-<h1> Seccion Especies</h1>
-{if $habilito=='acceso privado'}
+
+{if $habilito =='acceso privado'}
     {include file= "app/template/navegadorAdmin.tpl"}
+    <div class="container-fluid">
+    <h1> Seccion Especies</h1>
     <div>
 
         <label></label>
@@ -50,15 +51,5 @@
             {{/foreach}}
     </table>
 </div>
-        {if $permiso_logueado=="administrador" && $habilito !== "publico"}
-
-            {include file='app/template/template_vue/seccionComentario.tpl'}
-
-        {elseif $permiso_logueado=="usuario" && $habilito !== "publico"}
-
-            {include file='app/template/template_vue/seccionComentario.tpl'}
-            
-        {else}
-
-        {/if}
+       
 </div>

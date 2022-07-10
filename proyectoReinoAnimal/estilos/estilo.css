@@ -1,0 +1,39 @@
+.th_nombre {
+  color:blue;
+  background-color: rgb(175, 48, 48);
+}
+.th_comentario{
+  color: white;
+  background-color: rgb(194, 88, 88);
+  margin: 0px;
+  width:  63%;
+  height: 50px;
+
+
+}.th_comentario2{
+  color: white;
+  background-color: rgb(88, 125, 194);
+  margin: 0px;
+  width:  33%;
+  height: 50px;
+  
+
+}
+.filas{
+  color: rgb(5, 0, 0);
+  background-color: rgb(119, 223, 119);
+  
+  border: solid 2px black;
+  width:  63%;
+  height: 50px;
+
+
+}.filas2{
+  color: rgb(0, 0, 0);
+  background-color: rgb(240, 225, 15);
+  border: solid 2px black;
+  width:  33%;
+  height: 50px;
+  
+
+}

@@ -1,30 +1,62 @@
 {include file="app/template/navegadorAdmin.tpl"}
 
-
-<h1>llegaste al lugar para agregar comentarios</h1>
+<input type="hidden" value="{$permiso_logueo}" name="permisoAdmin" />
 <input type="hidden" value="{$id_animal}" name="id" />
 
 
-<form id="form_agregar_comentario" class="form-row">
 
-    <div class="container-fluid" style="background-color:rgba(180, 21, 21, 0.603)">
-        <textarea name="comentario" rows="3"></textarea>
+{if $permiso_logueo=="usuario"}
 
-        <select name="puntaje">
-            <option>------</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
+    {include file="app/template/formularioComentario.tpl"}
 
-        </select>
+{/if}
 
+{literal}
+    <div class="container-fluid">
+        <h3>Estos son los comentarios del animal seleccionado: </h3>
 
-        <input type="submit">
+        <div id="template-vue-comentarios">
+
+            <div class="row">
+                <div class="col-8">
+                    <h4>Comentarios</h4>
+                </div>
+                <div class="col">
+                    <h4>Puntaje</h4>
+                </div>
+                <div v-if="permiso ==='administrador'" class="col">
+                    <h4>Borrar</h4>
+                </div>
+
+            </div>
+            <div v-for="comentar in comentarios" key="comentar.id" class="row">
+                <div class="col-8">
+                    <p>{{ comentar.comentario }}</p>
+                </div>
+                <div class="col">
+                    <p>{{ comentar.puntaje }}</p>
+                </div>
+                <input type="hidden" value="comentar.id" name="id_com" />
+
+                <div v-if=" permiso === 'administrador'" class="col">
+                    <a :data_id="comentar.id" v-on:click="borrar" href="#">Eliminar</a>
+                </div>
+
+            </div>
+        </div>
     </div>
-</form>
 
-<script type="text/javascript" src="api_js/formComentario.js"></script>
+
+    <script src="app/api_js/comentarios.js"></script>
+{/literal}
+
+
+
+<!--{include file="app/template/template_vue/seccionComentario.tpl"}--->
+
+
+
+
+
 
 {include file="app/template/footer.tpl"}

@@ -117,18 +117,7 @@ class ControladorAnimal extends Controlador
             header('location:' . BASE_URL . 'home');
         }
     }
-    function mostrarSeccionComentario($id){
-
-       if($this->helperUser->es_Usuario()){
-
-            $this->vista->vistaComentario($id);
-       }
-       else {
-
-       }
-
-
-    }
+    
     function agregarDatosTablaAnimal()
     {
 

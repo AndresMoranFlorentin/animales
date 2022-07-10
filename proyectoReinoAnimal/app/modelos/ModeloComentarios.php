@@ -16,24 +16,31 @@ function traerComentarios(){
     return $comentarios;
 
 }
+function traerComentarioTablaid($id){
+
+  $conexion = $this->conexionSQL();
+  $sql = 'SELECT * FROM comentarios WHERE id=?';
+  $resultado = $conexion->prepare($sql);
+  $resultado->execute([$id]);
+
+}
 function traerComentario($id){
     $conexion = $this->conexionSQL();
-    $sql = 'SELECT * FROM comentarios ' .
-    'WHERE comentarios.id=?';
+    $sql = 'SELECT * FROM comentarios WHERE id_animales=?';
     $resultado = $conexion->prepare($sql);
     $resultado->execute([$id]);
     $comentario = $resultado->fetchAll(PDO::FETCH_NAMED);
 
-    return $comentario[0];
+    return $comentario;
 
 }
 function guardarComentario($comentario, $puntaje,$id){
-$i=1;
-  $sql = "INSERT INTO comentarios (comentario, puntaje, id_animales,id_usuario) 
-                    VALUES (?,?,?,?)"; //nombres de las columnas de la tabla
+
+  $sql = "INSERT INTO comentarios (comentario, puntaje, id_animales) 
+                    VALUES (?,?,?)"; //nombres de las columnas de la tabla
     $conexion = $this->conexionSQL();
     $preparado = $conexion->prepare($sql);
-    $preparado->execute([$comentario,$puntaje,$id,$i]);
+    $preparado->execute([$comentario,$puntaje,$id]);
 
 }
 function borrarComentario($id)
@@ -44,7 +51,7 @@ function borrarComentario($id)
   $preparado->execute([$id]);
 }
 function traerDescen(){
- $sql="SELECT * FROM comentarios ORDER BY comentarios.puntaje DES";
+ $sql="SELECT * FROM comentarios ORDER BY puntaje DESC";
  $conexion=$this->conexionSQL();
  $resultado=$conexion->prepare($sql);
  $resultado->execute();
@@ -54,7 +61,7 @@ function traerDescen(){
  return $puntaje;
 }
 function traerAscen(){
-  $sql="SELECT * FROM comentarios ORDER BY comentarios.puntaje ASC";
+  $sql="SELECT * FROM comentarios ORDER BY puntaje ASC";
   $conexion=$this->conexionSQL();
   $resultado=$conexion->prepare($sql);
   $resultado->execute();
@@ -63,17 +70,5 @@ function traerAscen(){
  
   return $puntaje;
  }
- function numeroDeFilas(){
-  /*$mysqli = new mysqli("localhost","root", "", "reino_animal");
-
-$query = $mysqli->prepare("SELECT * FROM comentarios");
-$query->execute();
-$query->store_result();
-
-$filas = $query->num_rows;
-
- return $filas;*/
-
-// Return 4 for example
- }
+ 
 }

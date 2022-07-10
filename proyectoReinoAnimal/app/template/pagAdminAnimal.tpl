@@ -59,7 +59,7 @@
                     <td><a action="borrar" href="{$BASE_URL}borrarAnimal/{$id}">Borrar</a></td>
                     <td><a action="editar" href="{$BASE_URL}editarAnimal/{$id}">Editar</a></td>
 
-                    {if $permiso_logueado == "usuario"}
+                    {if $permiso_logueado == "usuario" or $permiso_logueado == "administrador"} 
 
                         <td><a action="comentar" href="{$BASE_URL}comentarTabla/{$id}">comentar</a></td>
 
@@ -78,9 +78,6 @@
         </button>
      
 {/if}
-<br>
-<br>
-{include file="app/template/template_vue/seccionComentario.tpl"}
+<br><br>
 
-{include file="app/template/formAgregoCom.tpl"}
-
+{include file="app/template/footer.tpl"}

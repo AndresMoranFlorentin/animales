@@ -4,12 +4,12 @@ require_once "smarty/libs/Smarty.class.php";
 class VistaComentario
 {
 
-  function mostrarseccionComentario($id)
+  function mostrarseccionComentario($id,$permiso)
   {
     $smarty = new Smarty();
     $smarty->assign('BASE_URL', BASE_URL);
     $smarty->assign('id_animal', $id);
-  //  $smarty->display('app/template/navegadorAdmin.tpl');
+    $smarty->assign('permiso_logueo',$permiso);
     $smarty->display('app/template/formAgregoCom.tpl');
   }
 }

@@ -53,23 +53,18 @@ class VistaAnimal
     {  
         $smarty = new Smarty();
         $smarty->assign('BASE_URL', BASE_URL);
-        $smarty->display('app/template/intro.tpl');
         $smarty->display('app/template/template_vue/tabla_animal.tpl');
-        $smarty->display('app/template/footer.tpl');
     }
     function mostrarTablaPaginada($animales) {
        $smarty=new Smarty();
        $smarty->assign('BASE_URL', BASE_URL);
        $smarty->assign('animales',$animales);
-     //  $smarty->display('app/template/navegadorAdmin.tpl');
        $smarty->display('app/template/paginacionAnimal.tpl');
     }
     function vistaComentario($id){
         $smarty=new Smarty();
         $smarty->assign('BASE_URL', BASE_URL);
         $smarty->assign('id_animal',$id);
-       // $smarty->display('app/template/navegadorAdmin.tpl');
         $smarty->display('app/template/formAgregoCom.tpl');
-       // $smarty->display('app/template/footer.tpl');
     }
 }
