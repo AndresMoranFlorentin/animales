@@ -12,7 +12,7 @@ require_once "app/modelos/ModeloLogin.php";
 
 class Controlador
 {
-
+    
     function esAdmin_o_Usuario() {
 
         $helperUser = new helperUser();

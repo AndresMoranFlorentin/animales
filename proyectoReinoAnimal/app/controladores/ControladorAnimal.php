@@ -12,12 +12,14 @@ class ControladorAnimal extends Controlador
     private $modelo;
     private $vista;
     private $helperUser;
+    private $modeloEspecie;
 
     public function __construct()
     {
         $this->modelo = new ModeloAnimal();
         $this->vista = new VistaAnimal();
         $this->helperUser = new helperUser();
+        $this->modeloEspecie = new ModeloEspecie();
     }
     function mostrarAnimalesAccesoPublico()
     {
@@ -46,9 +48,9 @@ class ControladorAnimal extends Controlador
     {
         if ($this->helperUser->checklogueo()) {
 
-            $modeloespecie = new ModeloEspecie();
+
             $fila = $this->modelo->traerUnaFila($id);
-            $especie = $modeloespecie->traerEspecies();
+            $especie = $this->modeloEspecie->traerEspecies();
             $editar = 'editar animal';
             $this->vista->mostrarEdicionAnimal($fila, $especie, $editar);
         } else {
@@ -109,15 +111,14 @@ class ControladorAnimal extends Controlador
     {
         if ($this->helperUser->checklogueo()) {
 
-            $modeloEspecie = new ModeloEspecie();
-            $especies = $modeloEspecie->traerEspecies();
+            $especies = $this->modeloEspecie->traerEspecies();
             $tipoDeForm = 'animales';
             $this->vista->mostrarFormularioAgregar($tipoDeForm, $especies);
         } else {
             header('location:' . BASE_URL . 'home');
         }
     }
-    
+
     function agregarDatosTablaAnimal()
     {
 
@@ -151,39 +152,7 @@ class ControladorAnimal extends Controlador
             header('location:' . BASE_URL . 'home');
         }
     }
-    function mostrarPaginacion()
-    {
-        if ($this->helperUser->es_Usuario()) {
-
-            if (isset($_POST["boton"]) && $_POST["boton"] == "avance") {
-                $inicial = 0;
-                $limite = 3;
-
-                $animales = $this->modelo->traerAnimalesHasta(($inicial + 2), ($limite + 2));
-                echo $inicial;
-                echo $limite;
-                $this->vista->mostrarTablaPaginada($animales);
-                
-            } elseif (isset($_POST["boton"]) && $_POST["boton"] == "retroceso") {
-
-                $inicial = 11;
-                $limite = 13;
-                $animales = $this->modelo->traerAnimalesHasta(($inicial - 2), ($limite - 2));
-                echo $inicial;
-                echo $limite;
-                $this->vista->mostrarTablaPaginada($animales);
-            } else {
-                $inicial = 0;
-                $limite = 3;
-                $animales = $this->modelo->traerAnimalesHasta($inicial, $limite);
-                echo $inicial;
-                echo $limite;
-                $this->vista->mostrarTablaPaginada($animales);
-            }
-        } else {
-            header('location:' . BASE_URL . 'home');
-        }
-    }
+}
     /*  function buscarAnimal()
     {
 
@@ -210,4 +179,3 @@ class ControladorAnimal extends Controlador
 
         }
     }*/
-}

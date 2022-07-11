@@ -35,7 +35,8 @@ class ControladorComentarios extends Controlador{
 
       }
       else{
-        echo "deberia imprimer";
+        header('location: '.BASE_URL.'home');
+
       }
    
     }
@@ -55,16 +56,19 @@ class ControladorComentarios extends Controlador{
 
 
     }
-    /*function puntaje_ascen_o_descen(){
-
-      if(isset($_POST["mayor_a_menor"]) && $_POST["mayor_a_menor"]=="menor"){
-
-        $comentarios=$this->modeloComen->traerDescen();
-        //$this->vistaAnimal
-
+    function mostrarTodosLosComentarios()
+    {
+      if ($this->helperUser->es_Usuario()) {
+  
+        $this->vista->mostrarApartadoComentarios();
+  
       }
-       
-
-    }*/
-
+       elseif ($this->helperUser->es_Admin()) {
+  
+        $this->vista->mostrarApartadoComentarios();
+      } 
+      else {
+        header('location:' . BASE_URL . 'home');
+      }
+    }
 }
