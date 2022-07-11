@@ -4,9 +4,10 @@
 let tabla_comentario = new Vue({
     el: "#template-vue-comentarios",
     data: {
+        vacio: true,
         permiso: '',
         comentarios: []
-        
+
     }, methods: {
         borrar: function (event) {
             event.preventDefault();
@@ -20,21 +21,31 @@ let tabla_comentario = new Vue({
     }
 });
 function getComentario() {
-        
-    let content={
-    id_: document.querySelector("input[name=id]").value,
-    admin: document.querySelector("input[name=permisoAdmin]").value,
+
+    let content = {
+        id_: document.querySelector("input[name=id]").value,
+        admin: document.querySelector("input[name=permisoAdmin]").value,
+        valor:false
     };
 
-    console.log("data id= ",content.id_);
-    console.log("permiso_logueo es = ",content.admin);
-
-    fetch("api/comentario/"+content.id_)
+    console.log("data id= ", content.id_);
+    console.log("permiso_logueo es = ", content.admin);
+    
+    fetch("api/comentario/" + content.id_)
         .then(response => response.json())
         .then(comentarios => {
-            tabla_comentario.permiso = content.admin;
-            tabla_comentario.comentarios = comentarios;
-         console.log(comentarios);
+
+            if (comentarios.length > 0){
+
+                tabla_comentario.vacio = content.valor;
+                tabla_comentario.permiso = content.admin;
+                tabla_comentario.comentarios = comentarios;
+            }
+            else {
+                tabla_comentario.vacio = true;
+            }
+
+            console.log(comentarios.length)
         })
         .catch(error => console.log(error));
 }
@@ -57,15 +68,15 @@ getComentario();
 //alert(document.getElementById("form-agregar-comentario"));
 
 function borrarComentario(id) {
-     console.log("el id es: ",id)
-    fetch("api/comentario/"+id, {
+    console.log("el id es: ", id)
+    fetch("api/comentario/" + id, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
         // body: JSON.stringify(data)
 
     })
         .then(response => {
-            console.log(response);
+
             getComentario();
         })
         .catch(error => console.log(error));

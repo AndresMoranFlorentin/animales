@@ -70,5 +70,14 @@ function traerAscen(){
  
   return $puntaje;
  }
+ function comentario_Igual_Puntuacion($puntuacion){
+
+  $sql="SELECT * FROM comentarios WHERE puntaje=?";
+  $conexion=$this->conexionSQL();
+  $resultado=$conexion->prepare($sql);
+  $resultado->execute([$puntuacion]);
+  $comentarios=$resultado->fetchAll(PDO::FETCH_NAMED);
+  return $comentarios;
+ }
  
 }

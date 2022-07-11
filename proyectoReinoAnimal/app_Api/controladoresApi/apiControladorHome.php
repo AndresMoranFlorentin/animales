@@ -112,4 +112,18 @@ class apiControladorHome
       //     $this->apiVistaHome->response("comentario id=$comentario_id not found le salio mal", 404);
       //  }
    }
+   function filtrarPuntuacion($params=[]){
+       // echo "me llega los params ".$params[":puntuacion"]."";
+       
+        if(!empty($params[":puntuacion"])){
+
+         $puntuacion=$params[":puntuacion"];
+         $comentario = $this->modeloComentarios->comentario_Igual_Puntuacion($puntuacion);
+         $this->apiVistaHome->response($comentario, 200);
+
+        }
+        else{
+         echo "fallo algo previo";
+        }
+   }
 }

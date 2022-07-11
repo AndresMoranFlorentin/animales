@@ -73,8 +73,8 @@
 </div>
 {if $permiso_logueado == "usuario"}
 <br>
-    <button><a action="seccionAnimalPaginada" href="{$BASE_URL}seccionAnimalPaginada">
-        Tabla Animal En forma Paginada</a>
+    <button><a action="apartadoComentarios" href="{$BASE_URL}apartadoComentarios">
+        Seccion Todos los Comentarios Ordenados</a>
         </button>
      
 {/if}

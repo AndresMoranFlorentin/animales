@@ -12,51 +12,47 @@
 {/if}
 
 {literal}
-    <div class="container-fluid">
-        <h3>Estos son los comentarios del animal seleccionado: </h3>
 
         <div id="template-vue-comentarios">
+            <div v-if="vacio === false" class="container-fluid">
+                <h3>Estos son los comentarios del animal seleccionado: </h3>
+                <br><br>
+                <div class="row">
+                    <div class="col1th">
+                        <h4>Comentarios</h4>
+                    </div>
+                    <div class="col2th">
+                        <h4>Puntaje</h4>
+                    </div>
+                    <div v-if="permiso ==='administrador'" class="colborrarth">
+                        <h4>Borrar</h4>
+                    </div>
+                </div>
+                <div>
+                    <div v-for="comentar in comentarios" class="row">
+                        <div class="col1">
+                            <p>{{ comentar.comentario }}</p>
+                        </div>
+                        <div class="col2">
+                            <p>{{ comentar.puntaje }}</p>
+                        </div>
+                        <input type="hidden" value="comentar.id" name="id_com" />
 
-            <div class="row">
-                <div class="col-8">
-                    <h4>Comentarios</h4>
-                </div>
-                <div class="col">
-                    <h4>Puntaje</h4>
-                </div>
-                <div v-if="permiso ==='administrador'" class="col">
-                    <h4>Borrar</h4>
+                        <div v-if=" permiso === 'administrador'" class="colborrar">
+                            <a :data_id="comentar.id" v-on:click="borrar" href="#">Eliminar</a>
+                        </div>
+
+                    </div>
                 </div>
 
             </div>
-            <div v-for="comentar in comentarios" key="comentar.id" class="row">
-                <div class="col-8">
-                    <p>{{ comentar.comentario }}</p>
-                </div>
-                <div class="col">
-                    <p>{{ comentar.puntaje }}</p>
-                </div>
-                <input type="hidden" value="comentar.id" name="id_com" />
-
-                <div v-if=" permiso === 'administrador'" class="col">
-                    <a :data_id="comentar.id" v-on:click="borrar" href="#">Eliminar</a>
-                </div>
-
+            <div v-else>
+                <h2 class="cartel_no_encontrado">No habia comentarios en la fila seleccionada.....</h2>
             </div>
         </div>
-    </div>
 
 
+    {/literal}
+ 
     <script src="app/api_js/comentarios.js"></script>
-{/literal}
-
-
-
-<!--{include file="app/template/template_vue/seccionComentario.tpl"}--->
-
-
-
-
-
-
 {include file="app/template/footer.tpl"}

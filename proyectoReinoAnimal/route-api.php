@@ -14,6 +14,7 @@ $router->addRoute('comentario/:ID', 'GET', 'apiControladorHome', 'traerComentari
 $router->addRoute('comentario', 'POST', 'apiControladorHome', 'agregarComentario');
 $router->addRoute('comentario/:ID', 'DELETE', 'apiControladorHome', 'borrarComentario');
 $router->addRoute('comentario/:ID/orden/:orden', 'GET', 'apiControladorHome', 'ordenarComentarios');
+$router->addRoute('comentario/:ID/puntuacion/:puntuacion', 'GET', 'apiControladorHome', 'filtrarPuntuacion');
 //$router->addRoute('comentario/:orden', 'GET', 'apiControladorHome', 'ordenarDescen');
 
 

@@ -1,3 +1,5 @@
+
+
 document
   .getElementById("form_agregar_comentario")
   .addEventListener("submit", (e) => agregarComentario(e));
@@ -13,11 +15,16 @@ function agregarComentario(e) {
   };
 
   console.log(data);
+
   fetch("api/comentario", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   })
+  .then(response => {
+
+    getComentario();
+})
 
     .catch((error) => console.log(error));
 
@@ -36,6 +43,7 @@ function getComentario() {
   fetch("api/comentario/" + content.id_)
     .then(response => response.json())
     .then(comentarios => {
+      tabla_comentario.vacio = "false"
       tabla_comentario.permiso = content.admin;
       tabla_comentario.comentarios = comentarios;
       console.log(comentarios);

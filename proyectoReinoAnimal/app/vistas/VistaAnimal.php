@@ -55,12 +55,7 @@ class VistaAnimal
         $smarty->assign('BASE_URL', BASE_URL);
         $smarty->display('app/template/template_vue/tabla_animal.tpl');
     }
-    function mostrarTablaPaginada($animales) {
-       $smarty=new Smarty();
-       $smarty->assign('BASE_URL', BASE_URL);
-       $smarty->assign('animales',$animales);
-       $smarty->display('app/template/paginacionAnimal.tpl');
-    }
+    
     function vistaComentario($id){
         $smarty=new Smarty();
         $smarty->assign('BASE_URL', BASE_URL);

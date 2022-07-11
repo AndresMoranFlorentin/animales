@@ -1,17 +1,21 @@
 <?php
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
+
 require_once 'app/controladores/ControladorAnimal.php';
 require_once 'app/controladores/ControladorLogin.php';
 require_once 'app/controladores/ControladorEspecie.php';
 require_once 'app/controladores/ControladorComentarios.php';
+require_once 'app/controladores/Controlador.php';
+
+$Controlador = new Controlador();
+
 $controladorAnimal = new ControladorAnimal();
 $vista = new VistaAnimal();
 $controladorLogin = new ControladorLogin();
 $controladorEspecie = new ControladorEspecie();
-$controladorHome = new Controlador();
+
 $controladorComentario = new ControladorComentarios();
-/*session_start();
-print_r($_SESSION);*/
+
 if (!empty($_GET['action'])) {
     $action = $_GET['action'];
 } else {
@@ -24,7 +28,7 @@ $params = explode('/', $action);
 // determina que camino seguir según la acción
 switch ($params[0]) {
     case 'home':
-        $controladorHome->mostrarHome();
+        $Controlador->mostrarHome();
         break;
     case 'acceder':
         $controladorLogin->traerFormLogin();
@@ -80,11 +84,8 @@ switch ($params[0]) {
     case 'actualizarEspecie':
         $controladorEspecie->editarFilaEspecie();
         break;
-    case 'seccionAnimalPaginada':
-        $controladorAnimal->mostrarPaginacion();
-        break;
-    case 'seccionPaginada':
-        $controladorAnimal->mostrarPaginacion();
+    case 'apartadoComentarios':
+        $controladorComentario->mostrarTodosLosComentarios();
         break;
     case 'comentarTabla':
         $controladorComentario->mostrarSeccionComentario($params[1]);

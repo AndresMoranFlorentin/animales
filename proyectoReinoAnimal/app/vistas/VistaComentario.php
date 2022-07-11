@@ -12,4 +12,11 @@ class VistaComentario
     $smarty->assign('permiso_logueo',$permiso);
     $smarty->display('app/template/formAgregoCom.tpl');
   }
+  function mostrarApartadoComentarios(){
+
+    $smarty=new Smarty();
+    $smarty->assign('BASE_URL', BASE_URL);
+    $smarty->display('app/template/paginacionAnimal.tpl');
+
+  }
 }
