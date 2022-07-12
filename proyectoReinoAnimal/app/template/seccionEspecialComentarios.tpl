@@ -1,4 +1,5 @@
 {include file="app/template/navegadorAdmin.tpl"}
+<br><br>
 <h1>Aqui podra Ver el listado de Comentarios pero en forma mas detallada</h1>
 <br><br>
 <br><br>
@@ -75,8 +76,6 @@
             </div>
         </div>
     </section>
-
-
 {/literal}
 
 <script src="app/api_js/ordenarComentarios.js"> </script>

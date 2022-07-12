@@ -1,20 +1,21 @@
 <?php
 require_once 'app_Api/biblioteca/Router.php';
 require_once 'app_Api/controladoresApi/apiControladorHome.php';
-require_once 'app_Api/controladoresApi/apiControladorEspecie.php';
 require_once 'app_Api/controladoresApi/apiControladorAnimal.php';
+require_once 'app_Api/controladoresApi/apiControladorComentarios.php';
 
 // crea el router
 $router = new Router();
 
 // define la tabla de ruteo
 $router->addRoute('home', 'GET', 'apiControladorHome', 'mostrarHome');
-$router->addRoute('comentario', 'GET', 'apiControladorHome', 'mostrarComentarios');
-$router->addRoute('comentario/:ID', 'GET', 'apiControladorHome', 'traerComentario');
-$router->addRoute('comentario', 'POST', 'apiControladorHome', 'agregarComentario');
-$router->addRoute('comentario/:ID', 'DELETE', 'apiControladorHome', 'borrarComentario');
-$router->addRoute('comentario/:ID/orden/:orden', 'GET', 'apiControladorHome', 'ordenarComentarios');
-$router->addRoute('comentario/:ID/puntuacion/:puntuacion', 'GET', 'apiControladorHome', 'filtrarPuntuacion');
+$router->addRoute('comentario', 'GET', 'apiControladorComentarios', 'mostrarComentarios');
+$router->addRoute('comentario/:ID', 'GET', 'apiControladorComentarios', 'traerComentario');
+$router->addRoute('comentario', 'POST', 'apiControladorComentarios', 'agregarComentario');
+$router->addRoute('comentario/:ID', 'DELETE', 'apiControladorComentarios', 'borrarComentario');
+$router->addRoute('comentario/:ID/orden/:orden', 'GET', 'apiControladorComentarios', 'ordenarComentarios');
+$router->addRoute('comentario/:ID/puntuacion/:puntuacion', 'GET', 'apiControladorComentarios', 'filtrarPuntuacion');
+$router->addRoute('animal/accion/:accion/palabra/:palabra', 'GET', 'apiControladorAnimal', 'encontrarPalabraNombre');
 //$router->addRoute('comentario/:orden', 'GET', 'apiControladorHome', 'ordenarDescen');
 
 

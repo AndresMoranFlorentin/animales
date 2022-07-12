@@ -77,4 +77,15 @@ class ModeloAnimal extends Modelo
 
      return $animales;
   }
+  function buscarPalabraAnimal($columna,$palabra){
+    
+    $conexion=$this->conexionSQL();
+    $sql="SELECT * FROM animales WHERE ".$columna." LIKE ? ";
+    $resultado=$conexion->prepare($sql);
+  $resultado->execute([$palabra]);
+    $animales=$resultado->fetchAll(PDO::FETCH_NAMED);
+
+    return $animales;
+  }
+
 }

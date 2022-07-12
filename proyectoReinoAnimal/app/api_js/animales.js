@@ -10,7 +10,7 @@ let tabla_animal = new Vue({
 
 
 function getAnimales() {
-    fetch("api/home/")
+    fetch("api/home")
     .then(response => response.json())
     .then(animales => {
         tabla_animal.animales = animales; 

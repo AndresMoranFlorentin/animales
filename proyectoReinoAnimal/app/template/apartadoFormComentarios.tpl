@@ -3,7 +3,7 @@
 <input type="hidden" value="{$permiso_logueo}" name="permisoAdmin" />
 <input type="hidden" value="{$id_animal}" name="id" />
 
-
+<br><br>
 
 {if $permiso_logueo=="usuario"}
 

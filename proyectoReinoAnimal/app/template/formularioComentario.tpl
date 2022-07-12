@@ -1,4 +1,4 @@
-
+<br><br>
 <h1>llegaste al lugar para agregar comentarios</h1>
 <br><br>
 <form id="form_agregar_comentario" class="form-row">

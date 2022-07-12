@@ -138,3 +138,14 @@ button:nth-child(5):hover ~ button {
   color: var(--color-hover);
   transform: rotate(360deg);
 }
+.caja{
+  margin: 100px;
+  
+}
+.presentacion_busqueda{
+
+   color: darkblue;
+   padding: 50px;
+   background-color: #30d820;
+   border:solid 4px red;
+}
