@@ -22,6 +22,9 @@ function traerComentarioTablaid($id){
   $sql = 'SELECT * FROM comentarios WHERE id=?';
   $resultado = $conexion->prepare($sql);
   $resultado->execute([$id]);
+  $comentario = $resultado->fetchAll(PDO::FETCH_NAMED);
+
+  return $comentario;
 
 }
 function traerComentario($id){
