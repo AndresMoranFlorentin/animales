@@ -19,10 +19,23 @@ class apiControladorAnimal  {
     }
 
     function borrarAnimal($params=[]){
-        
-        $animal_id = $params[':ID'];
+
+      $animal_id = $params[':ID'];
+
+      $animales = $this->modeloAnimal->ComprueboQueExiste($animal_id);
+
+      if (!empty($animales)) {
 
          $this->modeloAnimal->borrarFilaAnimal($animal_id);
+         $this->apiVistaHome->response("se elimino con exito", 200);
+
+      } else {
+         $this->apiVistaHome->response("No existe ese id en animales 
+         o no ingreso correctamente el parametro :ID", 404);
+      }
+       
+
+
 
     }
     function encontrarPalabraNombre($params = [])

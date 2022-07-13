@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-07-2022 a las 22:11:12
+-- Tiempo de generación: 13-07-2022 a las 00:37:56
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -66,17 +66,25 @@ CREATE TABLE `comentarios` (
   `id` int(11) NOT NULL,
   `comentario` varchar(500) NOT NULL,
   `puntaje` int(1) NOT NULL,
-  `id_animales` int(150) NOT NULL,
-  `id_usuario` int(150) NOT NULL
+  `id_animales` int(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `comentarios`
 --
 
-INSERT INTO `comentarios` (`id`, `comentario`, `puntaje`, `id_animales`, `id_usuario`) VALUES
-(1, 'esta tabla de animal esta incompleta faltan muchos animales conocidos', 3, 0, 0),
-(2, 'faltan muchas especies, pero estan las principales', 4, 0, 0);
+INSERT INTO `comentarios` (`id`, `comentario`, `puntaje`, `id_animales`) VALUES
+(17, 'muy interesante la informacion del tigre, ahora estoy un poco mas informado', 2, 1),
+(19, 'que seriamos sin estos anfibios para combatir los mosquitos,jaja', 3, 22),
+(21, 'me extraña que se hayan incluido las vacas', 4, 21),
+(25, 'porque no hablan también del tigre blanco con rayas negras??', 5, 1),
+(29, 'seria bueno que indicasen que araña hablan, hay muchos tipos', 1, 5),
+(31, 'podrian incluir los escorpiones', 5, 5),
+(42, 'ffdddfdfcc', 1, 51),
+(43, 'sdsdscc', 1, 51),
+(44, 'ffddffdfd', 4, 51),
+(45, 'ghgfgbfbfb', 1, 51),
+(46, 'dfdfdfdf', 1, 51);
 
 -- --------------------------------------------------------
 
@@ -125,7 +133,7 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id_usuario`, `nombre`, `mail`, `contrasenia`, `rol`) VALUES
 (1, 'Andres', 'moranandres729@gmail.com', '$2a$10$aroIJEsrDzjH1rIrov/k/e.19YiZZGnZDjAHnSNyfCAvdy7zVbDBu', 'administrador'),
-(2, 'Solange', 'solange34@gmail.com', '$2a$10$InB5xEdSE2XsfCKsHG1r6eZ.cBu75JHPccmiKJ4xgsR.eL7ep3sjq', 'administrador'),
+(2, 'Solange', 'solange34@gmail.com', '$2a$10$InB5xEdSE2XsfCKsHG1r6eZ.cBu75JHPccmiKJ4xgsR.eL7ep3sjq', 'usuario'),
 (3, 'Lautaro', 'lautaro123@gmail.com', '$2a$10$fCNpWtHMeMqnAphBgqyJq.xt7VFxrJEaVZXXLOWsJKCOQjgyO/SkO', 'usuario'),
 (5, 'facundo', 'facundoTutor@gmail.com', '$2a$10$uvbbaXYy3fhV0Y/mfGX2S.R6Pdk6E0BN00ZtfEracIj23Bz.3sfuq', 'usuario');
 
@@ -173,7 +181,7 @@ ALTER TABLE `animales`
 -- AUTO_INCREMENT de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT de la tabla `especies`
@@ -196,6 +204,12 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `animales`
   ADD CONSTRAINT `animales_ibfk_1` FOREIGN KEY (`id_especie`) REFERENCES `especies` (`id_especie`);
+
+--
+-- Filtros para la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  ADD CONSTRAINT `comentarios_ibfk_1` FOREIGN KEY (`id_animales`) REFERENCES `animales` (`id_animales`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

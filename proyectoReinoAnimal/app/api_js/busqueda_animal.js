@@ -39,7 +39,7 @@ console.log("palabra : ",data.palabra);
                 animales_encontrados.encontrado = false;
             }
             console.log(animal.length);
-
+            document.querySelector("input[name=nombre]").value="";
         })
         .catch(error => console.log(error));
 }
@@ -74,6 +74,7 @@ console.log("palabra : ",data.palabra);
                     animales_encontrados.encontrado = false;
                 }
                 console.log(animal.length);
+                document.querySelector("input[name=descripcion]").value="";
         })
         .catch(error => console.log(error));
 }
@@ -106,6 +107,7 @@ console.log("palabra : ",data.palabra);
                     animales_encontrados.encontrado = false;
                 }
                 console.log(animal.length);
+                document.querySelector("input[name=alimentacion]").value="";
         })
         .catch(error => console.log(error));
 }

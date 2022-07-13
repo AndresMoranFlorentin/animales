@@ -27,6 +27,7 @@ class VistaEspecie
   {
 
     $smarty = new Smarty();
+    $smarty->assign('BASE_URL', BASE_URL);
     $smarty->assign('nombres', $nombresEspecies);
     $smarty->display('app/template/errorBorrarEspecie.tpl');
   }

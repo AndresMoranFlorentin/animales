@@ -1,7 +1,6 @@
 
 
-document
-  .getElementById("form_agregar_comentario")
+let formAgrego=document.getElementById("form_agregar_comentario")
   .addEventListener("submit", (e) => agregarComentario(e));
 
 
@@ -22,8 +21,11 @@ function agregarComentario(e) {
     body: JSON.stringify(data),
   })
   .then(response => {
-
+   console.log();
+    
     getComentario();
+    document.querySelector("textarea[name=comentario]").value="";
+    document.querySelector("select[name=puntaje]").value="";
 })
 
     .catch((error) => console.log(error));

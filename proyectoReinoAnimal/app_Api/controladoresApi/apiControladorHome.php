@@ -21,7 +21,7 @@ class apiControladorHome
    function mostrarHome()
    {
       $animales = $this->modeloAnimal->traerAnimales();
-      $this->apiVistaHome->response($animales, "200");
+      $this->apiVistaHome->response($animales, 200);
    }
 
 

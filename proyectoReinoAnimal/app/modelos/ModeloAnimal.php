@@ -28,6 +28,16 @@ class ModeloAnimal extends Modelo
 
     return $animal[0];
   }
+  function ComprueboQueExiste($id)
+  {
+    $conexion = $this->conexionSQL();
+    $sql = 'SELECT FROM animales WHERE id_animales=?';
+    $resultado = $conexion->prepare($sql);
+    $resultado->execute([$id]);
+    $animal = $resultado->fetchAll(PDO::FETCH_NAMED);
+
+    return $animal;
+  }
   function busquedaDelAnimal($animal,$especie){
     $sql='SELECT a.*,e.especies FROM animales AS a , especies AS e ' .
     'WHERE a.nombre =? AND e.especies =?';

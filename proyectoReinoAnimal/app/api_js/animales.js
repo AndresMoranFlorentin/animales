@@ -15,7 +15,7 @@ function getAnimales() {
     .then(animales => {
         tabla_animal.animales = animales; 
     })
-    .catch(error => console.log(error));
+    .catch(error => alert(error));
 }
 
 /*function getAnimales() {

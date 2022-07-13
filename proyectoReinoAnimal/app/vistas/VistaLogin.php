@@ -7,7 +7,6 @@ class VistaLogin {
         $smarty = new Smarty();
         $smarty->assign('BASE_URL',BASE_URL);
         $smarty->display('app/template/login.tpl');
-        $smarty->display('app/template/intro.tpl');
     }
 
 }
