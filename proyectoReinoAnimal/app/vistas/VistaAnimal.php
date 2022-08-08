@@ -11,21 +11,23 @@ class VistaAnimal
         $smarty->assign('BASE_URL', BASE_URL);
         $smarty->display('app/template/intro.tpl');
     }
-    function mostrarEdicionAnimal($fila,$especie,$editar)
+    function mostrarEdicionAnimal($fila,$especie,$editar,$permiso)
     {
         $smarty = new Smarty();
         $smarty->assign('BASE_URL', BASE_URL);
         $smarty->assign('especie',$especie);
         $smarty->assign('animal', $fila);
+        $smarty->assign('permiso_logueado',$permiso);
         $smarty->assign('tipoDeEdicion', $editar);
         $smarty->display('app/template/PaginaEdicion.tpl');
     }
     
-    function mostrarError()
+    function mostrarError($permiso)
     {
 
-        $smarty = new Smarty();
+        $smarty = new Smarty($permiso);
         $smarty->assign('BASE_URL', BASE_URL);
+        $smarty->assign('permiso_logueado', $permiso);
         $smarty->display('app/template/error.tpl');
     }
     
@@ -40,11 +42,12 @@ class VistaAnimal
 
     }
     
-    function mostrarFormularioAgregar($tipoDeForm,$especies){
+    function mostrarFormularioAgregar($tipoDeForm,$especies,$permiso){
         $smarty = new Smarty();
         $smarty->assign('BASE_URL', BASE_URL);
         $smarty->assign('tipoDeForm', $tipoDeForm);
         $smarty->assign('especies', $especies);
+        $smarty->assign('permiso_logueado', $permiso);
         $smarty->display('app/template/formularioParaAgregar.tpl');
 
 

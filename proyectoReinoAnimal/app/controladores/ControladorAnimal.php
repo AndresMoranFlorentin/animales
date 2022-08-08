@@ -13,6 +13,7 @@ class ControladorAnimal extends Controlador
     private $vista;
     private $helperUser;
     private $modeloEspecie;
+    private $Controlador;
 
     public function __construct()
     {
@@ -20,6 +21,7 @@ class ControladorAnimal extends Controlador
         $this->vista = new VistaAnimal();
         $this->helperUser = new helperUser();
         $this->modeloEspecie = new ModeloEspecie();
+        $this->Controlador= new Controlador();
     }
     function mostrarAnimalesAccesoPublico()
     {
@@ -52,7 +54,8 @@ class ControladorAnimal extends Controlador
             $fila = $this->modelo->traerUnaFila($id);
             $especie = $this->modeloEspecie->traerEspecies();
             $editar = 'editar animal';
-            $this->vista->mostrarEdicionAnimal($fila, $especie, $editar);
+            $permiso = $this->Controlador->esAdmin_o_Usuario();
+            $this->vista->mostrarEdicionAnimal($fila, $especie, $editar,$permiso);
         } else {
 
             header('location:' . BASE_URL . 'home');
@@ -71,8 +74,8 @@ class ControladorAnimal extends Controlador
             && !isset($_POST['extinto'])
             && !isset($_POST['id_animales'])
         ) {
-
-            $this->vista->mostrarError();
+            $permiso=$this->Controlador->esAdmin_o_Usuario();
+            $this->vista->mostrarError($permiso);
             die();
         } else {
             $nombre = $_POST['nombre'];
@@ -85,7 +88,7 @@ class ControladorAnimal extends Controlador
 
             $this->modelo->actualizarFila($nombre, $descripcion, $alimento, $habitat, $especie, $extinto, $id);
             $matrix = $this->modelo->traerAnimales();
-            $permiso = $this->esAdmin_o_Usuario();
+            $permiso = $this->Controlador->esAdmin_o_Usuario();
             $usuarios = $this->traeme_Los_Usuarios();
             $this->vista->mostrarTablaAdmin($matrix, $permiso, $usuarios);
         }
@@ -113,7 +116,8 @@ class ControladorAnimal extends Controlador
 
             $especies = $this->modeloEspecie->traerEspecies();
             $tipoDeForm = 'animales';
-            $this->vista->mostrarFormularioAgregar($tipoDeForm, $especies);
+            $permiso=$this->Controlador->esAdmin_o_Usuario();
+            $this->vista->mostrarFormularioAgregar($tipoDeForm, $especies,$permiso);
         } else {
             header('location:' . BASE_URL . 'home');
         }
@@ -131,8 +135,8 @@ class ControladorAnimal extends Controlador
                 && !isset($_POST['especie'])
                 && !isset($_POST['extinto'])
             ) {
-
-                $this->vista->mostrarError();
+                $permiso=$this->Controlador->esAdmin_o_Usuario();
+                $this->vista->mostrarError($permiso);
                 die();
             }
             $nombre = $_POST['nombre'];

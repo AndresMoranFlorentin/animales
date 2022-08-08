@@ -1,6 +1,5 @@
-
 {include file='app/template/intro.tpl'}
- 
+
 {literal}
     <div class="container-fluid">
         <section id="template-vue-animales">
@@ -22,7 +21,7 @@
                         <h2>Extinto</h2>
                     </th>
                 <tbody>
-                    <tr v-for = "animal in animales">
+                    <tr v-for="animal in animales">
                         <td class="border-top">{{animal.nombre}}</td>
                         <td class="border-top">{{animal.descripcion}}</td>
                         <td class="border-top">{{animal.alimentacion}}</td>

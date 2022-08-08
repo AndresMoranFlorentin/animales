@@ -1,11 +1,6 @@
 <div class="container-fluid">
     {include file="app/template/navegadorAdmin.tpl"}
     <h1> Seccion Animales</h1>
-    {if $permiso_logueado == "administrador"}
-
-        {include file="app/template/permisosAdmin.tpl"}
-
-    {/if}
 
     <button><a action="mostrarFormAnimales" href="{$BASE_URL}mostrarFormAnimales">
             Agregar info a Tabla Animal</a></button>

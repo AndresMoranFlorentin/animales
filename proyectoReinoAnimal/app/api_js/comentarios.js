@@ -14,8 +14,7 @@ let tabla_comentario = new Vue({
             if (event) {
                 // console.log(event.target.attributes.data_id.value)
                 borrarComentario(event.target.attributes.data_id.value);
-                console.log("aqui se muestra el id del boton borrar: ");
-                console.log(event.target.attributes.data_id.value);
+              
             }
         }
     }

@@ -36,11 +36,20 @@ switch ($params[0]) {
     case 'loguearse':
         $controladorLogin->Login();
         break;
+    case 'registrarse':
+        $controladorLogin->form_registrarse("registro_vista");
+        break;
+    case 'confirm_registro':
+        $controladorLogin->form_registrarse("registrarme");
+        break;
     case 'animalesAdmin':
         $controladorLogin->mostrarAdminAnimal();
         break;
     case 'especiesAdmin':
         $controladorLogin->mostrarAdminEspecie();
+        break;
+    case 'seccion_admin':
+        $controladorLogin->mostrar_administracion_usuarios();
         break;
     case 'noSerAdmin':
         $controladorLogin->Admin_a_User($params[1]);

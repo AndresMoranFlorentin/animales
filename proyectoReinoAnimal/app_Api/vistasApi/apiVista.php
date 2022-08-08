@@ -1,7 +1,7 @@
 <?php
 require_once "smarty/libs/Smarty.class.php";
 
-class apiVistaHome
+class apiVista
 {
     public function response($animales,$status)
     {

@@ -9,13 +9,14 @@ class VistaComentario
     $smarty = new Smarty();
     $smarty->assign('BASE_URL', BASE_URL);
     $smarty->assign('id_animal', $id);
-    $smarty->assign('permiso_logueo',$permiso);
+    $smarty->assign('permiso_logueado',$permiso);
     $smarty->display('app/template/apartadoFormComentarios.tpl');
   }
-  function mostrarApartadoComentarios(){
+  function mostrarApartadoComentarios($permiso){
 
     $smarty=new Smarty();
     $smarty->assign('BASE_URL', BASE_URL);
+    $smarty->assign('permiso_logueado',$permiso);
     $smarty->display('app/template/seccionEspecialComentarios.tpl');
 
   }

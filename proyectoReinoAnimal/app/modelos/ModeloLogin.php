@@ -26,6 +26,15 @@ class ModeloLogin extends Modelo
 
     return $usuarios;
   }
+  function cargar_nuevo_user($nombre,$mail,$contraseña,$rol){
+
+    $sql="INSERT INTO usuarios (nombre,mail,contrasenia,rol)
+    VALUES(?,?,?,?)";
+    $conexion=$this->conexionSQL();
+    $result=$conexion->prepare($sql);
+    $result->execute([$nombre,$mail,$contraseña,$rol]);
+    
+  }
   function serUser_o_admin($usuario, $id)
   {
     $conexion = $this->conexionSQL();

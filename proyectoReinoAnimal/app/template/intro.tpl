@@ -41,6 +41,9 @@
             <li class="nav-item">
               <a class="nav-link" href="{$BASE_URL}loguearse">Login</a>
             </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{$BASE_URL}registrarse">Registrarme</a>
+          </li>
           </ul>
 
         </div>

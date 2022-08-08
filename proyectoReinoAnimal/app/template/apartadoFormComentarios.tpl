@@ -1,11 +1,11 @@
 {include file="app/template/navegadorAdmin.tpl"}
 
-<input type="hidden" value="{$permiso_logueo}" name="permisoAdmin" />
+<input type="hidden" value="{$permiso_logueado}" name="permisoAdmin" />
 <input type="hidden" value="{$id_animal}" name="id" />
 
 <br><br>
 
-{if $permiso_logueo=="usuario"}
+{if $permiso_logueado=="usuario"}
 
     {include file="app/template/formularioComentario.tpl"}
 

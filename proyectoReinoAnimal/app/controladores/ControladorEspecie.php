@@ -1,18 +1,25 @@
 <?php
 require_once "app/vistas/VistaEspecie.php";
+require_once "app/vistas/VistaAnimal.php";
 require_once "app/modelos/ModeloEspecie.php";
 require_once "app/controladores/helperUser.php";
 require_once "app/controladores/Controlador.php";
 
 class ControladorEspecie extends Controlador
 {
-
+        private $modelo;
+        private $vista;
+        private $vistaAnimal;
+        private $helper;
+        private $Controlador;
 
     public function __construct()
     {
         $this->modelo = new ModeloEspecie();
         $this->vista = new VistaEspecie();
+        $this->vistaAnimal = new VistaAnimal();
         $this->helper = new helperUser();
+        $this->Controlador=new Controlador();
     }
     function mostrarEspeciesAdmin($permiso)
     {
@@ -38,21 +45,23 @@ class ControladorEspecie extends Controlador
             $this->modelo->borrarFilaEspecie($id);
             $this->mostrarEspeciesAdmin($permiso);
         } else {
-
-            $this->vista->mostrarErrorEjecucionBorrar($coincidenciaIdEspecie);
+           
+            $this->vista->mostrarErrorEjecucionBorrar($coincidenciaIdEspecie,$permiso);
         }
     }
     function mostrarAgregarEspecies()
     {
         $tipoDeForm = 'especies';
         $especies = $this->modelo->traerEspecies();
-        $this->vista->mostrarFormularioAgregar($tipoDeForm, $especies);
+        $permiso=$this->esAdmin_o_Usuario();
+        $this->vista->mostrarFormularioAgregar($tipoDeForm, $especies, $permiso);
     }
     function prepararEspecie($id)
     {
         $modeloEspecie = $this->modelo->traerFilaEspecie($id);
         $editar = 'editar especie';
-        $this->vista->mostrarEdicionEspecie($editar, $modeloEspecie);
+        $permiso=$this->esAdmin_o_Usuario();
+        $this->vista->mostrarEdicionEspecie($editar, $modeloEspecie,$permiso);
     }
     function editarFilaEspecie()
     {
@@ -63,8 +72,7 @@ class ControladorEspecie extends Controlador
             !isset($_POST['nombreEspecie'])
             && !isset($_POST['vertebrado'])
         ) {
-
-            $this->vista->mostrarError();
+            header('location'.BASE_URL.'especiesAdmin');
             die();
         }
         $nombreEspecie = $_POST['nombreEspecie'];
@@ -85,7 +93,7 @@ class ControladorEspecie extends Controlador
             && !isset($_POST['vertebrado'])
         ) {
 
-            $this->vista->mostrarError();
+            $this->vistaAnimal->mostrarError($permiso);
             die();
         }
         $nombreEspecie = $_POST['nombreEspecie'];

@@ -1,6 +1,6 @@
 <?php
 require_once 'app_Api/biblioteca/Router.php';
-require_once 'app_Api/controladoresApi/apiControladorHome.php';
+require_once 'app_Api/controladoresApi/apiControlador.php';
 require_once 'app_Api/controladoresApi/apiControladorAnimal.php';
 require_once 'app_Api/controladoresApi/apiControladorComentarios.php';
 
@@ -8,7 +8,7 @@ require_once 'app_Api/controladoresApi/apiControladorComentarios.php';
 $router = new Router();
 
 // define la tabla de ruteo
-$router->addRoute('home', 'GET', 'apiControladorHome', 'mostrarHome');
+$router->addRoute('home', 'GET', 'apiControlador', 'mostrarHome');
 $router->addRoute('comentario', 'GET', 'apiControladorComentarios', 'mostrarComentarios');
 $router->addRoute('comentario/:ID', 'GET', 'apiControladorComentarios', 'traerComentario');
 $router->addRoute('comentario', 'POST', 'apiControladorComentarios', 'agregarComentario');

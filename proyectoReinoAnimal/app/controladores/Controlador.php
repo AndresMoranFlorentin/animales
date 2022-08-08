@@ -5,7 +5,7 @@ require_once "app/modelos/ModeloEspecie.php";
 require_once "app/controladores/helperUser.php";
 require_once "app/controladores/ControladorAnimal.php";
 require_once "app/controladores/ControladorEspecie.php";
-require_once "app_Api/controladoresApi/apiControladorHome.php";
+require_once "app_Api/controladoresApi/apiControlador.php";
 require_once "app/modelos/ModeloLogin.php";
 
 //echo "LLegaste hasta el controlador y el id es =".$id." ";

@@ -4,9 +4,9 @@
 <form id="form_agregar_comentario" class="form-row">
 
     <div class="container-fluid" style="background-color:rgba(180, 21, 21, 0.603)">
-        <textarea name="comentario" rows="3"></textarea>
+        <textarea name="comentario" rows="3" required></textarea>
 
-        <select name="puntaje">
+        <select name="puntaje" required>
             <option>------</option>
             <option value="1">1</option>
             <option value="2">2</option>

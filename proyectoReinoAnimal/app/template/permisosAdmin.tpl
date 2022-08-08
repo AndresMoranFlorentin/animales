@@ -1,6 +1,4 @@
-<label></label>
-<label></label>
-<label></label>
+{include file="app/template/navegadorAdmin.tpl"}
 <div class="container">
 <h3>Para eliminar usuarios o darles permiso de administrador, observe las siguientes opciones:</h3>
 
@@ -16,10 +14,10 @@
             <h2>Rol</h2>
         </th>
         <th>
-            <h2>opcion 1</h2>
+            <h2>Quitar permiso</h2>
         </th>
         <th>
-            <h2>opcion 2</h2>
+            <h2>Hacer Administrador</h2>
         </th>
         {foreach $los_usuarios  item=user}
             <tr>
@@ -40,6 +38,7 @@
 
 
             </tr>
-        {{/foreach}}
+        {/foreach}
 </table>
 </div>
+{include file="app/template/footer.tpl"}
